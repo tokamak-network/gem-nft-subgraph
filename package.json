@@ -6,7 +6,7 @@
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
-    "create": "graph create --node https://thegraph.titan-goerli.tokamak.network/deploy tokamak/titan-nft-subgraph",
+    "create": "graph create --node https://thegraph.titan-goerli.tokamak.network/deploy tokamak/gem-nft-subgraph",
     "deploy-titan-goerli": "graph deploy --node https://thegraph.titan-goerli.tokamak.network/deploy --ipfs https://ipfs.titan-goerli.tokamak.network tokamak/gem-nft-subgraph",
     "remove": "graph remove --node https://thegraph.titan-goerli.tokamak.network/deploy jusdy/gem-nft-subgraph",
     "deploy": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ jusdy/gem-nft-subgraph",
