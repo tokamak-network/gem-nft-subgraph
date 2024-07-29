@@ -1,0 +1,33 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: GemNFT
+    network: tokamak-goerli
+    source:
+      address: '0xccbB97CC6346A77F060129B928051C24F7cd68BE'
+      abi: GemNFT
+      startBlock: 
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+        - SetAttribute
+        - Approval
+        - ApprovalForAll
+      abis:
+        - name: GemNFT
+          file: ./abis/GemNFT.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+        - event: SetAttribute(uint256,bytes)
+          handler: handleSetAttribute
+        - event: Approval(indexed address,indexed address,indexed uint256)
+          handler: handleApproval
+        - event: ApprovalForAll(indexed address,indexed address,bool)
+          handler: handleApprovalforAll
+      file: ./src/mappings/gemNFT.ts

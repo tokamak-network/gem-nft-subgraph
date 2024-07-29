@@ -1,0 +1,17 @@
+type NFT @entity {
+  id: ID!
+  tokenID: BigInt
+  owner: Bytes
+  transferTime: BigInt
+  ownerHistory: [Bytes!]
+  timeHistory: [BigInt!]
+  attribute: Bytes
+}
+
+type Approval @entity {
+  id: ID!
+  from: Bytes
+  to: Bytes
+  tokenID: BigInt
+  forAll: Boolean
+}
