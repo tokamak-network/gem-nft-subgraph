@@ -32,7 +32,7 @@ dataSources:
           handler: handleApprovalforAll
       file: ./src/mappings/gemNFT.ts
   - kind: ethereum
-    name: GemNFT
+    name: GemFactory
     network: tokamak-goerli
     source:
       address: '0xccbB97CC6346A77F060129B928051C24F7cd68BE'
@@ -48,15 +48,15 @@ dataSources:
         - GemMelted
         - Created
       abis:
-        - name: GemNFT
-          file: ./abis/GemNFT.json
+        - name: GemFactory
+          file: ./abis/GemFactory.json
       eventHandlers:
-        - event: GemMiningStarted(indexed uint256, indexed address)
+        - event: GemMiningStarted(uint256,address)
           handler: handleGemMiningStarted
-        - event: GemMiningClaimed(indexed uint256, indexed address)
+        - event: GemMiningClaimed(uint256,address)
           handler: handleGemMiningClaimed
-        - event: GemMelted(indexed uint256, indexed address)
+        - event: GemMelted(uint256,address)
           handler: handleGemMelted
-        - event: Created(indexed uint256, indexed address)
+        - event: Created(uint256,address)
           handler: handleCreated
       file: ./src/mappings/gemNFT.ts
