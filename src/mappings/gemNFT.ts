@@ -11,6 +11,12 @@ import {
   TransferGEM,
   GemMiningClaimed
 } from "../../generated/GemFactory/GemFactory"
+
+import {
+  GemBought,
+  GemForSale
+} from "../../generated/GemMarketplace/GemMarketplace"
+
 import {
   NFT,
   Approval,
@@ -91,5 +97,25 @@ export function handleGemMiningClaimed(event: GemMiningClaimed): void {
     nft = new NFT(event.params.tokenId.toString());
   }
   nft.owner = event.params.miner;
+  nft.save();
+}
+
+export function handleGemBought(event: GemBought) : void {
+  let nft = NFT.load(event.params.tokenId.toString());
+  if (!nft) {
+    nft = new NFT(event.params.tokenId.toString());
+  }
+  nft.isForSale = false;
+  nft.owner = event.params.payer;
+  nft.save();
+}
+
+export function handleGemForSale(event: GemForSale): void {
+  let nft = NFT.load(event.params.tokenId.toString());
+  if (!nft) {
+    nft = new NFT(event.params.tokenId.toString());
+  }
+  nft.isForSale = true;
+  nft.value = event.params.price;
   nft.save();
 }

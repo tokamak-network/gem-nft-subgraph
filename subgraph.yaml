@@ -47,6 +47,9 @@ dataSources:
         - GemMiningClaimed
         - GemMelted
         - Created
+        - TransferGEM
+        - GemMelted
+        - GemMiningClaimed
       abis:
         - name: GemFactory
           file: ./abis/GemFactory.json
@@ -65,5 +68,29 @@ dataSources:
           handler: handleGemMelted
         - event: GemMiningClaimed(uint256,address)
           handler: handleGemMiningClaimed
+        
+      file: ./src/mappings/gemNFT.ts
+  - kind: ethereum
+    name: GemMarketplace
+    network: tokamak-goerli
+    source:
+      address: '0xccbB97CC6346A77F060129B928051C24F7cd68BE'
+      abi: GemMarketplace
+      startBlock: 
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - GemBought
+        - GemForSale
+      abis:
+        - name: GemMarketplace
+          file: ./abis/GemMarketplace.json
+      eventHandlers:
+        - event: GemBought(uint256,address)
+          handler: handleGemBought
+        - event: GemForSale(uint256,address,uint256)
+          handler: handleGemForSale
         
       file: ./src/mappings/gemNFT.ts
