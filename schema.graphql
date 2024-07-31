@@ -3,9 +3,9 @@ type NFT @entity {
   tokenID: BigInt
   owner: Bytes
   value: BigInt
-  rarity: Bytes
-  color: Bytes
-  quadrants: [BigInt!]
+  rarity: Int
+  color: Int
+  quadrants: [Int!]
   miningPeriod: BigInt
   gemCooldownPeriod: BigInt
 }

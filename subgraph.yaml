@@ -57,7 +57,7 @@ dataSources:
           handler: handleGemMiningClaimed
         - event: GemMelted(uint256,address)
           handler: handleGemMelted
-        - event: Created(uint256,address)
+        - event: Created(indexed uint256,uint8,uint8,uint256,uint8[4],uint256,uint256,string,address)
           handler: handleCreated
         - event: TransferGEM(address,address,uint256)
           handler: handleTransferGEM

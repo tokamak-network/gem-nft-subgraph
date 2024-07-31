@@ -61,11 +61,12 @@ export function handleCreated(event: Created): void {
   if (!nft) {
     nft = new NFT(event.params.tokenId.toString());
   }
-  nft.rarity = event.rarity;
-  nft.color = event.color;
-  nft.quadrants = event.quadrants;
-  nft.value = event.value;
-  nft.gemCooldownPeriod = event.gemCooldownPeriod;
+  
+  nft.rarity = event.params.rarity;
+  nft.color = event.params.color;
+  nft.quadrants = event.params.quadrants;
+  nft.value = event.params.value;
+  nft.gemCooldownPeriod = event.params.cooldownPeriod;
   nft.save();
 }
 
