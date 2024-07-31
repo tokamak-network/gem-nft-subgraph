@@ -7,7 +7,9 @@ import {
 
 import {
   Created,
-  GemMelted
+  GemMelted,
+  TransferGEM,
+  GemMiningClaimed
 } from "../../generated/GemFactory/GemFactory"
 import {
   NFT,
@@ -71,6 +73,23 @@ export function handleCreated(event: Created): void {
 }
 
 export function handleGemMelted(event: GemMelted): void {
-  let nft = NFT.load(event.params._tokenId.toString());
   store.remove("NFT", event.params._tokenId.toString());
+}
+
+export function handleTransferGEM(event: TransferGEM): void {
+  let nft = NFT.load(event.params.tokenId.toString());
+  if (!nft) {
+    nft = new NFT(event.params.tokenId.toString());
+  }
+  nft.owner = event.params.to;
+  nft.save();
+}
+
+export function handleGemMiningClaimed(event: GemMiningClaimed): void {
+  let nft = NFT.load(event.params.tokenId.toString());
+  if (!nft) {
+    nft = new NFT(event.params.tokenId.toString());
+  }
+  nft.owner = event.params.miner;
+  nft.save();
 }
