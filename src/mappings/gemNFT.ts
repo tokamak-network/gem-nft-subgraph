@@ -1,43 +1,38 @@
-import { BigInt, Bytes } from '@graphprotocol/graph-ts';
+import { BigInt, store } from '@graphprotocol/graph-ts';
 import {
-  Transfer,
-  SetAttribute,
   Approval as ApprovalEvent,
-  ApprovalForAll
+  ApprovalForAll,
+  
 } from '../../generated/GemNFT/GemNFT';
+
+import {
+  Created,
+  GemMelted
+} from "../../generated/GemFactory/GemFactory"
 import {
   NFT,
   Approval,
 } from '../../generated/schema';
 
-export function handleTransfer(event: Transfer): void {
-  let nft = NFT.load(event.params.tokenId.toString());
-  if (!nft) {
-    nft = new NFT(event.params.tokenId.toString());
-    nft.ownerHistory = [];
-    nft.timeHistory = [];
-  }
-  nft.owner = event.params.to;
-  nft.tokenID = event.params.tokenId;
-  nft.transferTime = event.block.timestamp;
-  let ownerHistory = nft.ownerHistory;
-  ownerHistory!.push(event.params.to);
-  nft.ownerHistory = ownerHistory;
-  let timeHistory = nft.timeHistory;
-  timeHistory!.push(event.block.timestamp);
-  nft.timeHistory = timeHistory;
-  nft.save();
-}
-export function handleSetAttribute(event: SetAttribute): void {
-  let nft = NFT.load(event.params.tokenId.toString());
-  if (!nft) {
-    nft = new NFT(event.params.tokenId.toString());
-    nft.ownerHistory = [];
-    nft.timeHistory = [];
-  }
-  nft.attribute = event.params.attribute
-  nft.save();
-}
+// export function handleTransfer(event: Transfer): void {
+//   let nft = NFT.load(event.params.tokenId.toString());
+//   if (!nft) {
+//     nft = new NFT(event.params.tokenId.toString());
+//     nft.ownerHistory = [];
+//     nft.timeHistory = [];
+//   }
+//   nft.owner = event.params.to;
+//   nft.tokenID = event.params.tokenId;
+//   nft.transferTime = event.block.timestamp;
+//   let ownerHistory = nft.ownerHistory;
+//   ownerHistory!.push(event.params.to);
+//   nft.ownerHistory = ownerHistory;
+//   let timeHistory = nft.timeHistory;
+//   timeHistory!.push(event.block.timestamp);
+//   nft.timeHistory = timeHistory;
+//   nft.save();
+// }
+
 export function handleApproval(event: ApprovalEvent): void {
   let approval = Approval.load(event.params.owner.toHexString() + event.params.approved.toHexString());
   if (!approval) {
@@ -59,4 +54,22 @@ export function handleApprovalforAll(event: ApprovalForAll): void {
   approval.tokenID = BigInt.fromI32(-1);
   approval.forAll = true;
   approval.save();
+}
+
+export function handleCreated(event: Created): void {
+  let nft = NFT.load(event.params.tokenId.toString());
+  if (!nft) {
+    nft = new NFT(event.params.tokenId.toString());
+  }
+  nft.rarity = event.rarity;
+  nft.color = event.color;
+  nft.quadrants = event.quadrants;
+  nft.value = event.value;
+  nft.gemCooldownPeriod = event.gemCooldownPeriod;
+  nft.save();
+}
+
+export function handleGemMelted(event: GemMelted): void {
+  let nft = NFT.load(event.params._tokenId.toString());
+  store.remove("NFT", event.params._tokenId.toString());
 }

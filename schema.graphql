@@ -2,10 +2,12 @@ type NFT @entity {
   id: ID!
   tokenID: BigInt
   owner: Bytes
-  transferTime: BigInt
-  ownerHistory: [Bytes!]
-  timeHistory: [BigInt!]
-  attribute: Bytes
+  value: BigInt
+  rarity: Bytes
+  color: Bytes
+  quadrants: [BigInt!]
+  miningPeriod: BigInt
+  gemCooldownPeriod: BigInt
 }
 
 type Approval @entity {
