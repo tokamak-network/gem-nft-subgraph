@@ -11,6 +11,13 @@ type NFT @entity {
   isForSale: Boolean
 }
 
+type Customer @entity {
+  id: ID!
+  address: Bytes
+  isMining: Boolean
+  
+}
+
 type Approval @entity {
   id: ID!
   from: Bytes

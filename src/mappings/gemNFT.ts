@@ -9,7 +9,8 @@ import {
   Created,
   GemMelted,
   TransferGEM,
-  GemMiningClaimed
+  GemMiningClaimed,
+  GemMiningStarted
 } from "../../generated/GemFactory/GemFactory"
 
 import {
@@ -20,6 +21,7 @@ import {
 import {
   NFT,
   Approval,
+  Customer
 } from '../../generated/schema';
 
 // export function handleTransfer(event: Transfer): void {
@@ -72,7 +74,7 @@ export function handleCreated(event: Created): void {
   
   nft.rarity = event.params.rarity;
   nft.color = event.params.color;
-  nft.quadrants = event.params.quadrants;
+  nft.quadrants = [...event.params.quadrants];
   nft.value = event.params.value;
   nft.gemCooldownPeriod = event.params.cooldownPeriod;
   nft.save();
@@ -117,5 +119,21 @@ export function handleGemForSale(event: GemForSale): void {
   }
   nft.isForSale = true;
   nft.value = event.params.price;
+  nft.save();
+}
+
+export function handleGemMiningStarted(event: GemMiningStarted): void {
+  let nft = NFT.load(event.params.tokenId.toString());
+  let customer = Customer.load(event.params.miner.toString());
+  
+  if (!nft) {
+    nft = new NFT(event.params.tokenId.toString());
+  }
+  if (!customer) {
+    customer = new Customer(event.params.miner.toString());
+    customer.address = event.params.miner;
+  }
+  customer.isMining = true;
+  customer.save();
   nft.save();
 }
