@@ -64,8 +64,6 @@ dataSources:
           handler: handleTransferGEM
         - event: GemMelted(uint256,address)
           handler: handleGemMelted
-        - event: GemMiningClaimed(uint256,address)
-          handler: handleGemMiningClaimed
         
       file: ./src/mappings/gemNFT.ts
   - kind: ethereum

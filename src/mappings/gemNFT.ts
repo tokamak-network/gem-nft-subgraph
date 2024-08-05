@@ -93,15 +93,6 @@ export function handleTransferGEM(event: TransferGEM): void {
   nft.save();
 }
 
-export function handleGemMiningClaimed(event: GemMiningClaimed): void {
-  let nft = NFT.load(event.params.tokenId.toString());
-  if (!nft) {
-    nft = new NFT(event.params.tokenId.toString());
-  }
-  nft.owner = event.params.miner;
-  nft.save();
-}
-
 export function handleGemBought(event: GemBought) : void {
   let nft = NFT.load(event.params.tokenId.toString());
   if (!nft) {
@@ -135,5 +126,20 @@ export function handleGemMiningStarted(event: GemMiningStarted): void {
   }
   customer.isMining = true;
   customer.save();
+  nft.save();
+}
+
+export function handleGemMiningClaimed(event: GemMiningClaimed): void {
+  let nft = NFT.load(event.params.tokenId.toString());
+  let customer = Customer.load(event.params.miner.toString());
+  if (!nft) {
+    nft = new NFT(event.params.tokenId.toString());
+  }
+  if (!customer) {
+    customer = new Customer(event.params.miner.toString());
+    customer.address = event.params.miner;
+  }
+  nft.owner = event.params.miner;
+  customer.isMining = false;
   nft.save();
 }
