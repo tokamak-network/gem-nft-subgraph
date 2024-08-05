@@ -21,8 +21,11 @@ import {
 import {
   NFT,
   Approval,
-  Customer
+  Customer,
+  TradeHistory
 } from '../../generated/schema';
+
+import { TradeType } from '../utils';
 
 // export function handleTransfer(event: Transfer): void {
 //   let nft = NFT.load(event.params.tokenId.toString());
@@ -74,7 +77,7 @@ export function handleCreated(event: Created): void {
   
   nft.rarity = event.params.rarity;
   nft.color = event.params.color;
-  nft.quadrants = [...event.params.quadrants];
+  nft.quadrants = event.params.quadrants;
   nft.value = event.params.value;
   nft.gemCooldownPeriod = event.params.cooldownPeriod;
   nft.save();
@@ -101,6 +104,13 @@ export function handleGemBought(event: GemBought) : void {
   nft.isForSale = false;
   nft.owner = event.params.payer;
   nft.save();
+
+  let history = new TradeHistory(event.transaction.hash.concatI32(event.logIndex.toI32()));
+  history.tradeType = TradeType.Bought;
+  history.gemIds = [event.params.tokenId];
+  history.trader = event.params.payer;
+  // reminder: add the value, payer
+  history.save();
 }
 
 export function handleGemForSale(event: GemForSale): void {
@@ -111,6 +121,13 @@ export function handleGemForSale(event: GemForSale): void {
   nft.isForSale = true;
   nft.value = event.params.price;
   nft.save();
+
+  let history = new TradeHistory(event.transaction.hash.concatI32(event.logIndex.toI32()));
+  history.tradeType = TradeType.Listed;
+  history.gemIds = [event.params.tokenId];
+  history.value = event.params.price;
+  history.trader = event.params.seller;
+  history.save();
 }
 
 export function handleGemMiningStarted(event: GemMiningStarted): void {
@@ -126,7 +143,7 @@ export function handleGemMiningStarted(event: GemMiningStarted): void {
   }
   customer.isMining = true;
   customer.save();
-  nft.save();
+  nft.save(); 
 }
 
 export function handleGemMiningClaimed(event: GemMiningClaimed): void {
@@ -142,4 +159,10 @@ export function handleGemMiningClaimed(event: GemMiningClaimed): void {
   nft.owner = event.params.miner;
   customer.isMining = false;
   nft.save();
+
+  let history = new TradeHistory(event.transaction.hash.concatI32(event.logIndex.toI32()));
+  history.tradeType = TradeType.Mined;
+  history.gemIds = [event.params.tokenId];
+  history.trader = event.params.miner;
+  history.save();
 }
