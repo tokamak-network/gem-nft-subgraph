@@ -109,7 +109,8 @@ export function handleGemBought(event: GemBought) : void {
   history.tradeType = TradeType.Bought;
   history.gemIds = [event.params.tokenId];
   history.trader = event.params.payer;
-  // reminder: add the value, payer
+  history.payer = event.params.payer;
+  history.value = event.params.amount;
   history.save();
 }
 

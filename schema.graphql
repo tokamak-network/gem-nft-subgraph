@@ -16,6 +16,7 @@ enum TradeType {
   Listed
   Mined
   Bought
+  Forged
 }
 
 type Customer @entity {

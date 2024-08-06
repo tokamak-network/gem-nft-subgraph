@@ -58,7 +58,7 @@ dataSources:
           handler: handleGemMiningClaimed
         - event: GemMelted(uint256,address)
           handler: handleGemMelted
-        - event: Created(indexed uint256,uint8,uint8[2],uint256,uint256,uint8[4],uint256,uint256,string,address)
+        - event: Created(indexed uint256,uint8,uint8[2],uint256,uint8[4],uint256,uint256,string,address)
           handler: handleCreated
         - event: TransferGEM(address,address,uint256)
           handler: handleTransferGEM
@@ -84,7 +84,7 @@ dataSources:
         - name: GemMarketplace
           file: ./abis/GemMarketplace.json
       eventHandlers:
-        - event: GemBought(uint256,address)
+        - event: GemBought(uint256,address,address,uint256)
           handler: handleGemBought
         - event: GemForSale(uint256,address,uint256)
           handler: handleGemForSale
