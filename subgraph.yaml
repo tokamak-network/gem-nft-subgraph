@@ -62,8 +62,8 @@ dataSources:
           handler: handleCreated
         - event: TransferGEM(address,address,uint256)
           handler: handleTransferGEM
-        - event: GemMelted(uint256,address)
-          handler: handleGemMelted
+        - event: GemForged(uint256,uint256,address)
+          handler: handleGemForged
         
       file: ./src/mappings/gemNFT.ts
   - kind: ethereum
