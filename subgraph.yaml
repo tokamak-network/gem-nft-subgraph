@@ -48,11 +48,12 @@ dataSources:
         - TransferGEM
         - GemMelted
         - GemMiningClaimed
+        - GemForged
       abis:
         - name: GemFactory
           file: ./abis/GemFactory.json
       eventHandlers:
-        - event: GemMiningStarted(uint256,address,uint256)
+        - event: GemMiningStarted(uint256,address,uint256,uint256)
           handler: handleGemMiningStarted
         - event: GemMiningClaimed(uint256,address)
           handler: handleGemMiningClaimed
@@ -62,7 +63,7 @@ dataSources:
           handler: handleCreated
         - event: TransferGEM(address,address,uint256)
           handler: handleTransferGEM
-        - event: GemForged(uint256,uint256,address)
+        - event: GemForged(uint256[],uint256,uint8,uint8[4],uint8[2],uint256)
           handler: handleGemForged
         
       file: ./src/mappings/gemNFT.ts
