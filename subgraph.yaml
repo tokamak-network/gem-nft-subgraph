@@ -63,7 +63,7 @@ dataSources:
           handler: handleCreated
         - event: TransferGEM(address,address,uint256)
           handler: handleTransferGEM
-        - event: GemForged(uint256[],uint256,uint8,uint8[4],uint8[2],uint256)
+        - event: GemForged(address,uint256[],uint256,uint8,uint8[4],uint8[2],uint256)
           handler: handleGemForged
         
       file: ./src/mappings/gemNFT.ts

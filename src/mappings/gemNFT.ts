@@ -10,7 +10,8 @@ import {
   GemMelted,
   TransferGEM,
   GemMiningClaimed,
-  GemMiningStarted
+  GemMiningStarted,
+  GemForged
 } from "../../generated/GemFactory/GemFactory"
 
 import {
@@ -74,7 +75,7 @@ export function handleCreated(event: Created): void {
   if (!nft) {
     nft = new NFT(event.params.tokenId.toString());
   }
-  
+  nft.tokenID = event.params.tokenId;
   nft.rarity = event.params.rarity;
   nft.color = event.params.color;
   nft.quadrants = event.params.quadrants;
@@ -165,5 +166,31 @@ export function handleGemMiningClaimed(event: GemMiningClaimed): void {
   history.tradeType = TradeType.Mined;
   history.gemIds = [event.params.tokenId];
   history.trader = event.params.miner;
+  history.save();
+}
+
+export function handleGemForged(event: GemForged): void {
+  let gemIds = event.params.gemsTokenIds;
+  for (let i = 0 ; i < gemIds.length; i ++) {
+    let nft = NFT.load(gemIds[i].toString());
+    if (!nft) {
+      nft = new NFT(gemIds[i].toString());
+    }
+    nft.owner = null;
+  }
+
+  let nft = new NFT(event.params.newGemCreatedId.toString());
+  nft.rarity = event.params.newRarity;
+  nft.color = event.params.color;
+  nft.quadrants = event.params.forgedQuadrants;
+  nft.value = event.params.newValue;
+  nft.tokenID = event.params.newGemCreatedId;
+  nft.owner = event.params.gemOwner;
+  nft.save();
+
+  let history = new TradeHistory(event.transaction.hash.concatI32(event.logIndex.toI32()));
+  history.tradeType = TradeType.Forged;
+  history.gemIds = event.params.gemsTokenIds;
+  history.trader = event.params.gemOwner;
   history.save();
 }
