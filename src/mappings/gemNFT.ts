@@ -1,11 +1,5 @@
 import { BigInt, store } from '@graphprotocol/graph-ts';
 import {
-  Approval as ApprovalEvent,
-  ApprovalForAll,
-  
-} from '../../generated/GemNFT/GemNFT';
-
-import {
   Created,
   GemMelted,
   TransferGEM,
@@ -47,28 +41,28 @@ import { TradeType } from '../utils';
 //   nft.save();
 // }
 
-export function handleApproval(event: ApprovalEvent): void {
-  let approval = Approval.load(event.params.owner.toHexString() + event.params.approved.toHexString());
-  if (!approval) {
-    approval = new Approval(event.params.owner.toHexString() + event.params.approved.toHexString());
-  }
-  approval.from = event.params.owner;
-  approval.to = event.params.approved;
-  approval.tokenID = event.params.tokenId;
-  approval.forAll = false;
-  approval.save();
-}
-export function handleApprovalforAll(event: ApprovalForAll): void {
-  let approval = Approval.load(event.params.owner.toHexString() + event.params.operator.toHexString());
-  if (!approval) {
-    approval = new Approval(event.params.owner.toHexString() + event.params.operator.toHexString());
-  }
-  approval.from = event.params.owner;
-  approval.to = event.params.operator;
-  approval.tokenID = BigInt.fromI32(-1);
-  approval.forAll = true;
-  approval.save();
-}
+// export function handleApproval(event: ApprovalEvent): void {
+//   let approval = Approval.load(event.params.owner.toHexString() + event.params.approved.toHexString());
+//   if (!approval) {
+//     approval = new Approval(event.params.owner.toHexString() + event.params.approved.toHexString());
+//   }
+//   approval.from = event.params.owner;
+//   approval.to = event.params.approved;
+//   approval.tokenID = event.params.tokenId;
+//   approval.forAll = false;
+//   approval.save();
+// }
+// export function handleApprovalforAll(event: ApprovalForAll): void {
+//   let approval = Approval.load(event.params.owner.toHexString() + event.params.operator.toHexString());
+//   if (!approval) {
+//     approval = new Approval(event.params.owner.toHexString() + event.params.operator.toHexString());
+//   }
+//   approval.from = event.params.owner;
+//   approval.to = event.params.operator;
+//   approval.tokenID = BigInt.fromI32(-1);
+//   approval.forAll = true;
+//   approval.save();
+// }
 
 export function handleCreated(event: Created): void {
   let nft = NFT.load(event.params.tokenId.toString());
