@@ -22,8 +22,6 @@ dataSources:
         - name: GemNFT
           file: ./abis/GemNFT.json
       eventHandlers:
-        - event: Transfer(indexed address,indexed address,indexed uint256)
-          handler: handleTransfer
         - event: Approval(indexed address,indexed address,indexed uint256)
           handler: handleApproval
         - event: ApprovalForAll(indexed address,indexed address,bool)

@@ -12,11 +12,10 @@ type NFT @entity {
 }
 
 enum TradeType {
-  Forged
-  Listed
-  Mined
+  Forged,
+  Listed,
+  Mined,
   Bought
-  Forged
 }
 
 type Customer @entity {

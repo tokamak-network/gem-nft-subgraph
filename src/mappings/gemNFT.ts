@@ -107,7 +107,7 @@ export function handleGemBought(event: GemBought) : void {
   nft.save();
 
   let history = new TradeHistory(event.transaction.hash.concatI32(event.logIndex.toI32()));
-  history.tradeType = TradeType.Bought;
+  history.tradeType = TradeType.Bought.toString();
   history.gemIds = [event.params.tokenId];
   history.trader = event.params.payer;
   history.payer = event.params.payer;
@@ -125,7 +125,7 @@ export function handleGemForSale(event: GemForSale): void {
   nft.save();
 
   let history = new TradeHistory(event.transaction.hash.concatI32(event.logIndex.toI32()));
-  history.tradeType = TradeType.Listed;
+  history.tradeType = TradeType.Listed.toString();
   history.gemIds = [event.params.tokenId];
   history.value = event.params.price;
   history.trader = event.params.seller;
@@ -163,7 +163,7 @@ export function handleGemMiningClaimed(event: GemMiningClaimed): void {
   nft.save();
 
   let history = new TradeHistory(event.transaction.hash.concatI32(event.logIndex.toI32()));
-  history.tradeType = TradeType.Mined;
+  history.tradeType = TradeType.Mined.toString();
   history.gemIds = [event.params.tokenId];
   history.trader = event.params.miner;
   history.save();
@@ -176,7 +176,6 @@ export function handleGemForged(event: GemForged): void {
     if (!nft) {
       nft = new NFT(gemIds[i].toString());
     }
-    nft.owner = null;
   }
 
   let nft = new NFT(event.params.newGemCreatedId.toString());
@@ -189,7 +188,7 @@ export function handleGemForged(event: GemForged): void {
   nft.save();
 
   let history = new TradeHistory(event.transaction.hash.concatI32(event.logIndex.toI32()));
-  history.tradeType = TradeType.Forged;
+  history.tradeType = TradeType.Forged.toString();
   history.gemIds = event.params.gemsTokenIds;
   history.trader = event.params.gemOwner;
   history.save();
