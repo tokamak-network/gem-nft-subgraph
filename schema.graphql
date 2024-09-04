@@ -11,13 +11,6 @@ type NFT @entity {
   isForSale: Boolean
 }
 
-enum TradeType {
-  Forged,
-  Listed,
-  Mined,
-  Bought
-}
-
 type Customer @entity {
   id: ID!
   address: Bytes
@@ -26,7 +19,7 @@ type Customer @entity {
 
 type TradeHistory @entity {
   id: Bytes!
-  tradeType: TradeType
+  tradeType: String
   value: BigInt
   gemIds: [BigInt!]
   trader: Bytes

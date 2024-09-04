@@ -65,16 +65,14 @@ import { TradeType } from '../utils';
 // }
 
 export function handleCreated(event: Created): void {
-  let nft = NFT.load(event.params.tokenId.toString());
-  if (!nft) {
-    nft = new NFT(event.params.tokenId.toString());
-  }
+  let nft = new NFT(event.params.tokenId.toString());
   nft.tokenID = event.params.tokenId;
   nft.rarity = event.params.rarity;
   nft.color = event.params.color;
   nft.quadrants = event.params.quadrants;
   nft.value = event.params.value;
   nft.gemCooldownPeriod = event.params.cooldownPeriod;
+  nft.owner = event.params.owner;
   nft.save();
 }
 
@@ -101,9 +99,9 @@ export function handleGemBought(event: GemBought) : void {
   nft.save();
 
   let history = new TradeHistory(event.transaction.hash.concatI32(event.logIndex.toI32()));
-  history.tradeType = TradeType.Bought.toString();
+  history.tradeType = "buying";
   history.gemIds = [event.params.tokenId];
-  history.trader = event.params.payer;
+  history.trader = event.params.seller;
   history.payer = event.params.payer;
   history.value = event.params.amount;
   history.save();
@@ -119,7 +117,7 @@ export function handleGemForSale(event: GemForSale): void {
   nft.save();
 
   let history = new TradeHistory(event.transaction.hash.concatI32(event.logIndex.toI32()));
-  history.tradeType = TradeType.Listed.toString();
+  history.tradeType = "listed";
   history.gemIds = [event.params.tokenId];
   history.value = event.params.price;
   history.trader = event.params.seller;
@@ -157,7 +155,7 @@ export function handleGemMiningClaimed(event: GemMiningClaimed): void {
   nft.save();
 
   let history = new TradeHistory(event.transaction.hash.concatI32(event.logIndex.toI32()));
-  history.tradeType = TradeType.Mined.toString();
+  history.tradeType = "mining";
   history.gemIds = [event.params.tokenId];
   history.trader = event.params.miner;
   history.save();
@@ -182,7 +180,7 @@ export function handleGemForged(event: GemForged): void {
   nft.save();
 
   let history = new TradeHistory(event.transaction.hash.concatI32(event.logIndex.toI32()));
-  history.tradeType = TradeType.Forged.toString();
+  history.tradeType = "forging";
   history.gemIds = event.params.gemsTokenIds;
   history.trader = event.params.gemOwner;
   history.save();

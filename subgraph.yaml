@@ -2,38 +2,13 @@ specVersion: 0.0.5
 schema:
   file: ./schema.graphql
 dataSources:
-  # - kind: ethereum
-  #   name: GemNFT
-  #   network: tokamak-goerli
-  #   source:
-  #     address: '0xccbB97CC6346A77F060129B928051C24F7cd68BE'
-  #     abi: GemNFT
-  #     startBlock: 
-  #   mapping:
-  #     kind: ethereum/events
-  #     apiVersion: 0.0.7
-  #     language: wasm/assemblyscript
-  #     entities:
-  #       - Transfer
-  #       - SetAttribute
-  #       - Approval
-  #       - ApprovalForAll
-  #     abis:
-  #       - name: GemNFT
-  #         file: ./abis/GemNFT.json
-  #     eventHandlers:
-  #       - event: Approval(indexed address,indexed address,indexed uint256)
-  #         handler: handleApproval
-  #       - event: ApprovalForAll(indexed address,indexed address,bool)
-  #         handler: handleApprovalforAll
-  #     file: ./src/mappings/gemNFT.ts
   - kind: ethereum
     name: GemFactory
     network: titan-sepolia
     source:
-      address: '0x4451535e9f29e6F5ed4206fde982a28fb5B316B8'
+      address: '0xE7A2448cd6C52DD932F87F31B4CE11430FdE5Db0'
       abi: GemFactory
-      startBlock: 4425
+      startBlock: 0
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -69,9 +44,9 @@ dataSources:
     name: GemMarketplace
     network: titan-sepolia
     source:
-      address: '0xEBA1406390d242854b1860fCF3e07A4Cb5642896'
+      address: '0xFFdd70F0f6d8D1b62937F382FF92D14793cbDE36'
       abi: GemMarketplace
-      startBlock: 4427
+      startBlock: 0
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
