@@ -22,6 +22,7 @@ type TradeHistory @entity {
   tradeType: String
   value: BigInt
   gemIds: [BigInt!]
+  newId: BigInt
   trader: Bytes
   payer: Bytes
 }

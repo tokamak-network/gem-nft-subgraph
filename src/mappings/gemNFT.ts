@@ -168,6 +168,7 @@ export function handleGemForged(event: GemForged): void {
     if (!nft) {
       nft = new NFT(gemIds[i].toString());
     }
+    store.remove("NFT", gemIds[i].toString());
   }
 
   let nft = new NFT(event.params.newGemCreatedId.toString());
@@ -183,5 +184,6 @@ export function handleGemForged(event: GemForged): void {
   history.tradeType = "forging";
   history.gemIds = event.params.gemsTokenIds;
   history.trader = event.params.gemOwner;
+  history.newId = event.params.newGemCreatedId;
   history.save();
 }
