@@ -62,5 +62,7 @@ dataSources:
           handler: handleGemBought
         - event: GemForSale(uint256,address,uint256)
           handler: handleGemForSale
+        - event: GemRemovedFromSale(uint256)
+          handler: handleGemRemoved
         
       file: ./src/mappings/gemNFT.ts

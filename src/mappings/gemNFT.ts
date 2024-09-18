@@ -10,7 +10,8 @@ import {
 
 import {
   GemBought,
-  GemForSale
+  GemForSale,
+  GemRemovedFromSale
 } from "../../generated/GemMarketplace/GemMarketplace"
 
 import {
@@ -122,6 +123,21 @@ export function handleGemForSale(event: GemForSale): void {
   history.gemIds = [event.params.tokenId];
   history.value = event.params.price;
   history.trader = event.params.seller;
+  history.save();
+}
+
+export function handleGemRemoved(event: GemRemovedFromSale): void {
+  let nft = NFT.load(event.params.tokenId.toString());
+  if (!nft) {
+    nft = new NFT(event.params.tokenId.toString());
+  }
+  nft.isForSale = false;
+  nft.price = null;
+  nft.save();
+
+  let history = new TradeHistory(event.transaction.hash.concatI32(event.logIndex.toI32()));
+  history.tradeType = "unlisted";
+  history.gemIds = [event.params.tokenId];
   history.save();
 }
 
