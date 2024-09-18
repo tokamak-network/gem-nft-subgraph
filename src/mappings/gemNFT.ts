@@ -96,6 +96,7 @@ export function handleGemBought(event: GemBought) : void {
   }
   nft.isForSale = false;
   nft.owner = event.params.payer;
+  nft.price = null;
   nft.save();
 
   let history = new TradeHistory(event.transaction.hash.concatI32(event.logIndex.toI32()));
@@ -113,7 +114,7 @@ export function handleGemForSale(event: GemForSale): void {
     nft = new NFT(event.params.tokenId.toString());
   }
   nft.isForSale = true;
-  nft.value = event.params.price;
+  nft.price = event.params.price;
   nft.save();
 
   let history = new TradeHistory(event.transaction.hash.concatI32(event.logIndex.toI32()));
@@ -164,10 +165,6 @@ export function handleGemMiningClaimed(event: GemMiningClaimed): void {
 export function handleGemForged(event: GemForged): void {
   let gemIds = event.params.gemsTokenIds;
   for (let i = 0 ; i < gemIds.length; i ++) {
-    let nft = NFT.load(gemIds[i].toString());
-    if (!nft) {
-      nft = new NFT(gemIds[i].toString());
-    }
     store.remove("NFT", gemIds[i].toString());
   }
 

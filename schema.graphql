@@ -3,6 +3,7 @@ type NFT @entity {
   tokenID: BigInt
   owner: Bytes
   value: BigInt
+  price: BigInt
   rarity: Int
   color: [Int!]
   quadrants: [Int!]
