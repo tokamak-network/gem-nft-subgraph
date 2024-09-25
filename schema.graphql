@@ -9,6 +9,7 @@ type NFT @entity {
   quadrants: [Int!]
   miningPeriod: BigInt
   gemCooldownPeriod: BigInt
+  isMining: Boolean
   isForSale: Boolean
 }
 

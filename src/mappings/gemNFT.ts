@@ -73,7 +73,10 @@ export function handleCreated(event: Created): void {
   nft.quadrants = event.params.quadrants;
   nft.value = event.params.value;
   nft.gemCooldownPeriod = event.params.cooldownPeriod;
+  nft.miningPeriod = event.params.miningPeriod;
   nft.owner = event.params.owner;
+  nft.isMining = false;
+  nft.isForSale = false;
   nft.save();
 }
 
@@ -152,7 +155,7 @@ export function handleGemMiningStarted(event: GemMiningStarted): void {
     customer = new Customer(event.params.miner.toString());
     customer.address = event.params.miner;
   }
-  customer.isMining = true;
+  nft.isMining = true;
   customer.save();
   nft.save(); 
 }
