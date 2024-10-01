@@ -77,6 +77,7 @@ export function handleCreated(event: Created): void {
   nft.owner = event.params.owner;
   nft.isMining = false;
   nft.isForSale = false;
+  nft.gemCooldownInitTime = event.block.timestamp;
   nft.save();
 }
 
@@ -172,6 +173,7 @@ export function handleGemMiningClaimed(event: GemMiningClaimed): void {
   }
   nft.owner = event.params.miner;
   customer.isMining = false;
+  nft.gemCooldownInitTime = event.block.timestamp;
   nft.save();
 
   let history = new TradeHistory(event.transaction.hash.concatI32(event.logIndex.toI32()));
@@ -194,6 +196,9 @@ export function handleGemForged(event: GemForged): void {
   nft.value = event.params.newValue;
   nft.tokenID = event.params.newGemCreatedId;
   nft.owner = event.params.gemOwner;
+  nft.isForSale = false;
+  nft.isMining = false;
+  nft.gemCooldownInitTime = event.block.timestamp;
   nft.save();
 
   let history = new TradeHistory(event.transaction.hash.concatI32(event.logIndex.toI32()));

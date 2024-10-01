@@ -11,6 +11,7 @@ type NFT @entity {
   gemCooldownPeriod: BigInt
   isMining: Boolean
   isForSale: Boolean
+  gemCooldownInitTime: BigInt
 }
 
 type Customer @entity {
