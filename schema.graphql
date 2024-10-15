@@ -8,7 +8,7 @@ type NFT @entity {
   color: [Int!]
   quadrants: [Int!]
   miningPeriod: BigInt
-  gemCooldownPeriod: BigInt
+  cooldownDueDate: BigInt
   isMining: Boolean
   isForSale: Boolean
   gemCooldownInitTime: BigInt

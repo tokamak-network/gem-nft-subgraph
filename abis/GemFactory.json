@@ -1,1471 +1,140 @@
 {
   "abi": [
+    { "type": "error", "name": "AddressZero", "inputs": [] },
+    { "type": "error", "name": "AddressZero", "inputs": [] },
+    { "type": "error", "name": "ColorNotExist", "inputs": [] },
+    { "type": "error", "name": "CooldownPeriodNotElapsed", "inputs": [] },
     {
-      "type": "constructor",
+      "type": "error",
+      "name": "ERC721IncorrectOwner",
       "inputs": [
-        { "name": "coordinator", "type": "address", "internalType": "address" }
-      ],
-      "stateMutability": "nonpayable"
+        { "type": "address", "name": "sender", "internalType": "address" },
+        { "type": "uint256", "name": "tokenId", "internalType": "uint256" },
+        { "type": "address", "name": "owner", "internalType": "address" }
+      ]
     },
     {
-      "type": "function",
-      "name": "ADMIN_ROLE",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "bytes32", "internalType": "bytes32" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "CALLBACK_GAS_LIMIT",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint32", "internalType": "uint32" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "CommonGemsCooldownPeriod",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "CommonGemsMiningPeriod",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "CommonGemsValue",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "CommonminingTry",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "DEFAULT_ADMIN_ROLE",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "bytes32", "internalType": "bytes32" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "EpicGemsCooldownPeriod",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "EpicGemsMiningPeriod",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "EpicGemsValue",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "EpicminingTry",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "GEMIndexToOwner",
-      "inputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "Gems",
-      "inputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "outputs": [
-        { "name": "tokenId", "type": "uint256", "internalType": "uint256" },
-        {
-          "name": "rarity",
-          "type": "uint8",
-          "internalType": "enum GemFactoryStorage.Rarity"
-        },
-        {
-          "name": "gemCooldownPeriod",
-          "type": "uint256",
-          "internalType": "uint256"
-        },
-        {
-          "name": "miningPeriod",
-          "type": "uint256",
-          "internalType": "uint256"
-        },
-        { "name": "miningTry", "type": "uint256", "internalType": "uint256" },
-        { "name": "isLocked", "type": "bool", "internalType": "bool" },
-        { "name": "value", "type": "uint256", "internalType": "uint256" },
-        { "name": "tokenURI", "type": "string", "internalType": "string" },
-        {
-          "name": "randomRequestId",
-          "type": "uint256",
-          "internalType": "uint256"
-        }
-      ],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "LegendaryGemsCooldownPeriod",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "LegendaryGemsMiningPeriod",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "LegendaryGemsValue",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "LegendaryminingTry",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "MythicGemsCooldownPeriod",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "MythicGemsMiningPeriod",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "MythicGemsValue",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "MythicminingTry",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "PAUSE_ROLE",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "bytes32", "internalType": "bytes32" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "RareGemsCooldownPeriod",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "RareGemsMiningPeriod",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "RareGemsValue",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "RareminingTry",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "UniqueGemsCooldownPeriod",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "UniqueGemsMiningPeriod",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "UniqueGemsValue",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "UniqueminingTry",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "addAdmin",
+      "type": "error",
+      "name": "ERC721InsufficientApproval",
       "inputs": [
-        { "name": "account", "type": "address", "internalType": "address" }
-      ],
-      "outputs": [],
-      "stateMutability": "nonpayable"
+        { "type": "address", "name": "operator", "internalType": "address" },
+        { "type": "uint256", "name": "tokenId", "internalType": "uint256" }
+      ]
     },
     {
-      "type": "function",
-      "name": "addBackgroundColor",
+      "type": "error",
+      "name": "ERC721InvalidApprover",
       "inputs": [
-        {
-          "name": "_backgroundColor",
-          "type": "string",
-          "internalType": "string"
-        }
-      ],
-      "outputs": [],
-      "stateMutability": "nonpayable"
+        { "type": "address", "name": "approver", "internalType": "address" }
+      ]
     },
     {
-      "type": "function",
-      "name": "addColor",
+      "type": "error",
+      "name": "ERC721InvalidOperator",
       "inputs": [
-        { "name": "_color", "type": "string", "internalType": "string" }
-      ],
-      "outputs": [],
-      "stateMutability": "nonpayable"
+        { "type": "address", "name": "operator", "internalType": "address" }
+      ]
     },
     {
-      "type": "function",
-      "name": "addPauser",
+      "type": "error",
+      "name": "ERC721InvalidOwner",
       "inputs": [
-        { "name": "account", "type": "address", "internalType": "address" }
-      ],
-      "outputs": [],
-      "stateMutability": "nonpayable"
+        { "type": "address", "name": "owner", "internalType": "address" }
+      ]
     },
     {
-      "type": "function",
-      "name": "adminTransferGEM",
+      "type": "error",
+      "name": "ERC721InvalidReceiver",
       "inputs": [
-        { "name": "_to", "type": "address", "internalType": "address" },
-        { "name": "_tokenId", "type": "uint256", "internalType": "uint256" }
-      ],
-      "outputs": [{ "name": "", "type": "bool", "internalType": "bool" }],
-      "stateMutability": "nonpayable"
+        { "type": "address", "name": "receiver", "internalType": "address" }
+      ]
     },
     {
-      "type": "function",
-      "name": "aliveImplementation",
-      "inputs": [{ "name": "", "type": "address", "internalType": "address" }],
-      "outputs": [{ "name": "", "type": "bool", "internalType": "bool" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "approve",
+      "type": "error",
+      "name": "ERC721InvalidSender",
       "inputs": [
-        { "name": "to", "type": "address", "internalType": "address" },
-        { "name": "tokenId", "type": "uint256", "internalType": "uint256" }
-      ],
-      "outputs": [],
-      "stateMutability": "nonpayable"
+        { "type": "address", "name": "sender", "internalType": "address" }
+      ]
     },
     {
-      "type": "function",
-      "name": "backgroundColors",
-      "inputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "outputs": [{ "name": "", "type": "string", "internalType": "string" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "balanceOf",
+      "type": "error",
+      "name": "ERC721NonexistentToken",
       "inputs": [
-        { "name": "_owner", "type": "address", "internalType": "address" }
-      ],
-      "outputs": [
-        { "name": "count", "type": "uint256", "internalType": "uint256" }
-      ],
-      "stateMutability": "view"
+        { "type": "uint256", "name": "tokenId", "internalType": "uint256" }
+      ]
     },
+    { "type": "error", "name": "FailedToSendEthBack", "inputs": [] },
+    { "type": "error", "name": "GemAlreadyPicked", "inputs": [] },
+    { "type": "error", "name": "GemIsLocked", "inputs": [] },
+    { "type": "error", "name": "GemIsLocked", "inputs": [] },
+    { "type": "error", "name": "GemIsNotLocked", "inputs": [] },
+    { "type": "error", "name": "InvalidInitialization", "inputs": [] },
     {
-      "type": "function",
-      "name": "cancelMining",
+      "type": "error",
+      "name": "InvalidQuadrant",
       "inputs": [
-        { "name": "_tokenId", "type": "uint256", "internalType": "uint256" }
-      ],
-      "outputs": [{ "name": "", "type": "bool", "internalType": "bool" }],
-      "stateMutability": "nonpayable"
+        { "type": "uint8", "name": "quadrant", "internalType": "uint8" },
+        { "type": "uint8", "name": "value", "internalType": "uint8" }
+      ]
     },
+    { "type": "error", "name": "InvalidSumOfQuadrants", "inputs": [] },
+    { "type": "error", "name": "MiningPeriodNotElapsed", "inputs": [] },
+    { "type": "error", "name": "MismatchedArrayLengths", "inputs": [] },
+    { "type": "error", "name": "NoMiningTryLeft", "inputs": [] },
+    { "type": "error", "name": "NotGemOwner", "inputs": [] },
+    { "type": "error", "name": "NotGemOwner", "inputs": [] },
+    { "type": "error", "name": "NotInitializing", "inputs": [] },
+    { "type": "error", "name": "NotMining", "inputs": [] },
+    { "type": "error", "name": "NotValidColor", "inputs": [] },
     {
-      "type": "function",
-      "name": "colors",
-      "inputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "outputs": [{ "name": "", "type": "string", "internalType": "string" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "createGEM",
+      "type": "error",
+      "name": "OnlyCoordinatorCanFulfill",
       "inputs": [
-        {
-          "name": "_rarity",
-          "type": "uint8",
-          "internalType": "enum GemFactoryStorage.Rarity"
-        },
-        { "name": "_color", "type": "uint8[2]", "internalType": "uint8[2]" },
-        {
-          "name": "_quadrants",
-          "type": "uint8[4]",
-          "internalType": "uint8[4]"
-        },
-        { "name": "_tokenURI", "type": "string", "internalType": "string" }
-      ],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "nonpayable"
+        { "type": "address", "name": "have", "internalType": "address" },
+        { "type": "address", "name": "want", "internalType": "address" }
+      ]
     },
     {
-      "type": "function",
-      "name": "createGEMPool",
+      "type": "error",
+      "name": "OwnableInvalidOwner",
       "inputs": [
-        {
-          "name": "_rarities",
-          "type": "uint8[]",
-          "internalType": "enum GemFactoryStorage.Rarity[]"
-        },
-        {
-          "name": "_colors",
-          "type": "uint8[2][]",
-          "internalType": "uint8[2][]"
-        },
-        {
-          "name": "_quadrants",
-          "type": "uint8[4][]",
-          "internalType": "uint8[4][]"
-        },
-        { "name": "_tokenURIs", "type": "string[]", "internalType": "string[]" }
-      ],
-      "outputs": [
-        { "name": "", "type": "uint256[]", "internalType": "uint256[]" }
-      ],
-      "stateMutability": "nonpayable"
+        { "type": "address", "name": "owner", "internalType": "address" }
+      ]
     },
     {
-      "type": "function",
-      "name": "customBackgroundColors",
-      "inputs": [{ "name": "", "type": "uint8", "internalType": "uint8" }],
-      "outputs": [{ "name": "", "type": "string", "internalType": "string" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "customBackgroundColorsCount",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint8", "internalType": "uint8" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "customColors",
-      "inputs": [{ "name": "", "type": "uint8", "internalType": "uint8" }],
-      "outputs": [{ "name": "", "type": "string", "internalType": "string" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "customColorsCount",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint8", "internalType": "uint8" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "drbcoordinator",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "forgeTokens",
+      "type": "error",
+      "name": "OwnableUnauthorizedAccount",
       "inputs": [
-        {
-          "name": "_tokenIds",
-          "type": "uint256[]",
-          "internalType": "uint256[]"
-        },
-        {
-          "name": "_rarity",
-          "type": "uint8",
-          "internalType": "enum GemFactoryStorage.Rarity"
-        },
-        { "name": "_color", "type": "uint8[2]", "internalType": "uint8[2]" }
-      ],
-      "outputs": [
-        { "name": "newGemId", "type": "uint256", "internalType": "uint256" }
-      ],
-      "stateMutability": "nonpayable"
-    },
-    {
-      "type": "function",
-      "name": "getApproved",
-      "inputs": [
-        { "name": "tokenId", "type": "uint256", "internalType": "uint256" }
-      ],
-      "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "getCommonValue",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "getCommonminingTry",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "getCustomColor",
-      "inputs": [
-        { "name": "_index", "type": "uint8", "internalType": "uint8" }
-      ],
-      "outputs": [{ "name": "", "type": "string", "internalType": "string" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "getEpicValue",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "getEpicminingTry",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "getGem",
-      "inputs": [
-        { "name": "_tokenId", "type": "uint256", "internalType": "uint256" }
-      ],
-      "outputs": [
-        {
-          "name": "",
-          "type": "tuple",
-          "internalType": "struct GemFactoryStorage.Gem",
-          "components": [
-            { "name": "tokenId", "type": "uint256", "internalType": "uint256" },
-            {
-              "name": "rarity",
-              "type": "uint8",
-              "internalType": "enum GemFactoryStorage.Rarity"
-            },
-            {
-              "name": "quadrants",
-              "type": "uint8[4]",
-              "internalType": "uint8[4]"
-            },
-            { "name": "color", "type": "uint8[2]", "internalType": "uint8[2]" },
-            {
-              "name": "gemCooldownPeriod",
-              "type": "uint256",
-              "internalType": "uint256"
-            },
-            {
-              "name": "miningPeriod",
-              "type": "uint256",
-              "internalType": "uint256"
-            },
-            {
-              "name": "miningTry",
-              "type": "uint256",
-              "internalType": "uint256"
-            },
-            { "name": "isLocked", "type": "bool", "internalType": "bool" },
-            { "name": "value", "type": "uint256", "internalType": "uint256" },
-            { "name": "tokenURI", "type": "string", "internalType": "string" },
-            {
-              "name": "randomRequestId",
-              "type": "uint256",
-              "internalType": "uint256"
-            }
-          ]
-        }
-      ],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "getGemList",
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "",
-          "type": "tuple[]",
-          "internalType": "struct GemFactoryStorage.Gem[]",
-          "components": [
-            { "name": "tokenId", "type": "uint256", "internalType": "uint256" },
-            {
-              "name": "rarity",
-              "type": "uint8",
-              "internalType": "enum GemFactoryStorage.Rarity"
-            },
-            {
-              "name": "quadrants",
-              "type": "uint8[4]",
-              "internalType": "uint8[4]"
-            },
-            { "name": "color", "type": "uint8[2]", "internalType": "uint8[2]" },
-            {
-              "name": "gemCooldownPeriod",
-              "type": "uint256",
-              "internalType": "uint256"
-            },
-            {
-              "name": "miningPeriod",
-              "type": "uint256",
-              "internalType": "uint256"
-            },
-            {
-              "name": "miningTry",
-              "type": "uint256",
-              "internalType": "uint256"
-            },
-            { "name": "isLocked", "type": "bool", "internalType": "bool" },
-            { "name": "value", "type": "uint256", "internalType": "uint256" },
-            { "name": "tokenURI", "type": "string", "internalType": "string" },
-            {
-              "name": "randomRequestId",
-              "type": "uint256",
-              "internalType": "uint256"
-            }
-          ]
-        }
-      ],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "getGemListAvailableForRandomPack",
-      "inputs": [],
-      "outputs": [
-        { "name": "", "type": "uint256", "internalType": "uint256" },
-        { "name": "", "type": "uint256[]", "internalType": "uint256[]" }
-      ],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "getGemsSupplyTotalValue",
-      "inputs": [],
-      "outputs": [
-        { "name": "totalValue", "type": "uint256", "internalType": "uint256" }
-      ],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "getLegendaryValue",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "getLegendaryminingTry",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "getMythicValue",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "getMythicminingTry",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "getRandomRequest",
-      "inputs": [
-        { "name": "_requestId", "type": "uint256", "internalType": "uint256" }
-      ],
-      "outputs": [
-        {
-          "name": "",
-          "type": "tuple",
-          "internalType": "struct GemFactoryStorage.RequestStatus",
-          "components": [
-            { "name": "tokenId", "type": "uint256", "internalType": "uint256" },
-            { "name": "requested", "type": "bool", "internalType": "bool" },
-            { "name": "fulfilled", "type": "bool", "internalType": "bool" },
-            {
-              "name": "randomWord",
-              "type": "uint256",
-              "internalType": "uint256"
-            },
-            {
-              "name": "chosenTokenId",
-              "type": "uint256",
-              "internalType": "uint256"
-            },
-            {
-              "name": "requester",
-              "type": "address",
-              "internalType": "address"
-            }
-          ]
-        }
-      ],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "getRareValue",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "getRareminingTry",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "getRoleAdmin",
-      "inputs": [
-        { "name": "role", "type": "bytes32", "internalType": "bytes32" }
-      ],
-      "outputs": [{ "name": "", "type": "bytes32", "internalType": "bytes32" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "getTon",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "getTreasury",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "getUniqueValue",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "getUniqueminingTry",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "getValueBasedOnRarity",
-      "inputs": [
-        {
-          "name": "_rarity",
-          "type": "uint8",
-          "internalType": "enum GemFactoryStorage.Rarity"
-        }
-      ],
-      "outputs": [
-        { "name": "value", "type": "uint256", "internalType": "uint256" }
-      ],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "getWston",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "grantRole",
-      "inputs": [
-        { "name": "role", "type": "bytes32", "internalType": "bytes32" },
-        { "name": "account", "type": "address", "internalType": "address" }
-      ],
-      "outputs": [],
-      "stateMutability": "nonpayable"
-    },
-    {
-      "type": "function",
-      "name": "hasRole",
-      "inputs": [
-        { "name": "role", "type": "bytes32", "internalType": "bytes32" },
-        { "name": "account", "type": "address", "internalType": "address" }
-      ],
-      "outputs": [{ "name": "", "type": "bool", "internalType": "bool" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "initialize",
-      "inputs": [
-        { "name": "_wston", "type": "address", "internalType": "address" },
-        { "name": "_ton", "type": "address", "internalType": "address" },
-        { "name": "_treasury", "type": "address", "internalType": "address" },
-        {
-          "name": "_CommonGemsValue",
-          "type": "uint256",
-          "internalType": "uint256"
-        },
-        {
-          "name": "_RareGemsValue",
-          "type": "uint256",
-          "internalType": "uint256"
-        },
-        {
-          "name": "_UniqueGemsValue",
-          "type": "uint256",
-          "internalType": "uint256"
-        },
-        {
-          "name": "_EpicGemsValue",
-          "type": "uint256",
-          "internalType": "uint256"
-        },
-        {
-          "name": "_LegendaryGemsValue",
-          "type": "uint256",
-          "internalType": "uint256"
-        },
-        {
-          "name": "_MythicGemsValue",
-          "type": "uint256",
-          "internalType": "uint256"
-        }
-      ],
-      "outputs": [],
-      "stateMutability": "nonpayable"
-    },
-    {
-      "type": "function",
-      "name": "isAdmin",
-      "inputs": [
-        { "name": "account", "type": "address", "internalType": "address" }
-      ],
-      "outputs": [{ "name": "", "type": "bool", "internalType": "bool" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "isApprovedForAll",
-      "inputs": [
-        { "name": "owner", "type": "address", "internalType": "address" },
-        { "name": "operator", "type": "address", "internalType": "address" }
-      ],
-      "outputs": [{ "name": "", "type": "bool", "internalType": "bool" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "isOwner",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "bool", "internalType": "bool" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "isTokenLocked",
-      "inputs": [
-        { "name": "_tokenId", "type": "uint256", "internalType": "uint256" }
-      ],
-      "outputs": [{ "name": "", "type": "bool", "internalType": "bool" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "marketplace",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "meltGEM",
-      "inputs": [
-        { "name": "_tokenId", "type": "uint256", "internalType": "uint256" }
-      ],
-      "outputs": [],
-      "stateMutability": "nonpayable"
-    },
-    {
-      "type": "function",
-      "name": "name",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "string", "internalType": "string" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "numberOfSolidColors",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint8", "internalType": "uint8" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "ownerOf",
-      "inputs": [
-        { "name": "tokenId", "type": "uint256", "internalType": "uint256" }
-      ],
-      "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "ownershipTokenCount",
-      "inputs": [{ "name": "", "type": "address", "internalType": "address" }],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "pause",
-      "inputs": [],
-      "outputs": [],
-      "stateMutability": "nonpayable"
-    },
-    {
-      "type": "function",
-      "name": "pauseProxy",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "bool", "internalType": "bool" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "paused",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "bool", "internalType": "bool" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "pickMinedGEM",
-      "inputs": [
-        { "name": "_tokenId", "type": "uint256", "internalType": "uint256" }
-      ],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "payable"
-    },
-    {
-      "type": "function",
-      "name": "preMintedGemsAvailable",
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "GemsAvailable",
-          "type": "uint256[]",
-          "internalType": "uint256[]"
-        }
-      ],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "proxyImplementation",
-      "inputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "randomPack",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "rawFulfillRandomWords",
-      "inputs": [
-        { "name": "requestId", "type": "uint256", "internalType": "uint256" },
-        { "name": "randomWord", "type": "uint256", "internalType": "uint256" }
-      ],
-      "outputs": [],
-      "stateMutability": "nonpayable"
-    },
-    {
-      "type": "function",
-      "name": "removeAdmin",
-      "inputs": [
-        { "name": "account", "type": "address", "internalType": "address" }
-      ],
-      "outputs": [],
-      "stateMutability": "nonpayable"
-    },
-    {
-      "type": "function",
-      "name": "removePauser",
-      "inputs": [
-        { "name": "account", "type": "address", "internalType": "address" }
-      ],
-      "outputs": [],
-      "stateMutability": "nonpayable"
-    },
-    {
-      "type": "function",
-      "name": "renounceOwnership",
-      "inputs": [],
-      "outputs": [],
-      "stateMutability": "nonpayable"
-    },
-    {
-      "type": "function",
-      "name": "renounceRole",
-      "inputs": [
-        { "name": "role", "type": "bytes32", "internalType": "bytes32" },
-        {
-          "name": "callerConfirmation",
-          "type": "address",
-          "internalType": "address"
-        }
-      ],
-      "outputs": [],
-      "stateMutability": "nonpayable"
-    },
-    {
-      "type": "function",
-      "name": "requestCount",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "requestIds",
-      "inputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "revokeRole",
-      "inputs": [
-        { "name": "role", "type": "bytes32", "internalType": "bytes32" },
-        { "name": "account", "type": "address", "internalType": "address" }
-      ],
-      "outputs": [],
-      "stateMutability": "nonpayable"
-    },
-    {
-      "type": "function",
-      "name": "s_requests",
-      "inputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "outputs": [
-        { "name": "tokenId", "type": "uint256", "internalType": "uint256" },
-        { "name": "requested", "type": "bool", "internalType": "bool" },
-        { "name": "fulfilled", "type": "bool", "internalType": "bool" },
-        { "name": "randomWord", "type": "uint256", "internalType": "uint256" },
-        {
-          "name": "chosenTokenId",
-          "type": "uint256",
-          "internalType": "uint256"
-        },
-        { "name": "requester", "type": "address", "internalType": "address" }
-      ],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "safeTransferFrom",
-      "inputs": [
-        { "name": "from", "type": "address", "internalType": "address" },
-        { "name": "to", "type": "address", "internalType": "address" },
-        { "name": "tokenId", "type": "uint256", "internalType": "uint256" }
-      ],
-      "outputs": [],
-      "stateMutability": "nonpayable"
-    },
-    {
-      "type": "function",
-      "name": "safeTransferFrom",
-      "inputs": [
-        { "name": "from", "type": "address", "internalType": "address" },
-        { "name": "to", "type": "address", "internalType": "address" },
-        { "name": "tokenId", "type": "uint256", "internalType": "uint256" },
-        { "name": "data", "type": "bytes", "internalType": "bytes" }
-      ],
-      "outputs": [],
-      "stateMutability": "nonpayable"
-    },
-    {
-      "type": "function",
-      "name": "selectorImplementation",
-      "inputs": [{ "name": "", "type": "bytes4", "internalType": "bytes4" }],
-      "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "setApprovalForAll",
-      "inputs": [
-        { "name": "operator", "type": "address", "internalType": "address" },
-        { "name": "approved", "type": "bool", "internalType": "bool" }
-      ],
-      "outputs": [],
-      "stateMutability": "nonpayable"
-    },
-    {
-      "type": "function",
-      "name": "setApprovalForMarketplace",
-      "inputs": [],
-      "outputs": [],
-      "stateMutability": "nonpayable"
-    },
-    {
-      "type": "function",
-      "name": "setGemsCooldownPeriods",
-      "inputs": [
-        {
-          "name": "_CommonGemsCooldownPeriod",
-          "type": "uint256",
-          "internalType": "uint256"
-        },
-        {
-          "name": "_RareGemsCooldownPeriod",
-          "type": "uint256",
-          "internalType": "uint256"
-        },
-        {
-          "name": "_UniqueGemsCooldownPeriod",
-          "type": "uint256",
-          "internalType": "uint256"
-        },
-        {
-          "name": "_EpicGemsCooldownPeriod",
-          "type": "uint256",
-          "internalType": "uint256"
-        },
-        {
-          "name": "_LegendaryGemsCooldownPeriod",
-          "type": "uint256",
-          "internalType": "uint256"
-        },
-        {
-          "name": "_MythicGemsCooldownPeriod",
-          "type": "uint256",
-          "internalType": "uint256"
-        }
-      ],
-      "outputs": [],
-      "stateMutability": "nonpayable"
-    },
-    {
-      "type": "function",
-      "name": "setGemsMiningPeriods",
-      "inputs": [
-        {
-          "name": "_CommonGemsMiningPeriod",
-          "type": "uint256",
-          "internalType": "uint256"
-        },
-        {
-          "name": "_RareGemsMiningPeriod",
-          "type": "uint256",
-          "internalType": "uint256"
-        },
-        {
-          "name": "_UniqueGemsMiningPeriod",
-          "type": "uint256",
-          "internalType": "uint256"
-        },
-        {
-          "name": "_EpicGemsMiningPeriod",
-          "type": "uint256",
-          "internalType": "uint256"
-        },
-        {
-          "name": "_LegendaryGemsMiningPeriod",
-          "type": "uint256",
-          "internalType": "uint256"
-        },
-        {
-          "name": "_MythicGemsMiningPeriod",
-          "type": "uint256",
-          "internalType": "uint256"
-        }
-      ],
-      "outputs": [],
-      "stateMutability": "nonpayable"
-    },
-    {
-      "type": "function",
-      "name": "setGemsValue",
-      "inputs": [
-        {
-          "name": "_CommonGemsValue",
-          "type": "uint256",
-          "internalType": "uint256"
-        },
-        {
-          "name": "_RareGemsValue",
-          "type": "uint256",
-          "internalType": "uint256"
-        },
-        {
-          "name": "_UniqueGemsValue",
-          "type": "uint256",
-          "internalType": "uint256"
-        },
-        {
-          "name": "_EpicGemsValue",
-          "type": "uint256",
-          "internalType": "uint256"
-        },
-        {
-          "name": "_LegendaryGemsValue",
-          "type": "uint256",
-          "internalType": "uint256"
-        },
-        {
-          "name": "_MythicGemsValue",
-          "type": "uint256",
-          "internalType": "uint256"
-        }
-      ],
-      "outputs": [],
-      "stateMutability": "nonpayable"
-    },
-    {
-      "type": "function",
-      "name": "setIsLocked",
-      "inputs": [
-        { "name": "_tokenId", "type": "uint256", "internalType": "uint256" },
-        { "name": "_isLocked", "type": "bool", "internalType": "bool" }
-      ],
-      "outputs": [],
-      "stateMutability": "nonpayable"
-    },
-    {
-      "type": "function",
-      "name": "setMarketPlaceAddress",
-      "inputs": [
-        { "name": "_marketplace", "type": "address", "internalType": "address" }
-      ],
-      "outputs": [],
-      "stateMutability": "nonpayable"
-    },
-    {
-      "type": "function",
-      "name": "setNumberOfSolidColors",
-      "inputs": [
-        {
-          "name": "_numberOfSolidColors",
-          "type": "uint8",
-          "internalType": "uint8"
-        }
-      ],
-      "outputs": [],
-      "stateMutability": "nonpayable"
-    },
-    {
-      "type": "function",
-      "name": "setRandomPack",
-      "inputs": [
-        { "name": "_randomPack", "type": "address", "internalType": "address" }
-      ],
-      "outputs": [],
-      "stateMutability": "nonpayable"
-    },
-    {
-      "type": "function",
-      "name": "setTokenURI",
-      "inputs": [
-        { "name": "tokenId", "type": "uint256", "internalType": "uint256" },
-        { "name": "_tokenURI", "type": "string", "internalType": "string" }
-      ],
-      "outputs": [],
-      "stateMutability": "nonpayable"
-    },
-    {
-      "type": "function",
-      "name": "setTreasury",
-      "inputs": [
-        { "name": "_treasury", "type": "address", "internalType": "address" }
-      ],
-      "outputs": [],
-      "stateMutability": "nonpayable"
-    },
-    {
-      "type": "function",
-      "name": "setminingTrys",
-      "inputs": [
-        {
-          "name": "_CommonminingTry",
-          "type": "uint256",
-          "internalType": "uint256"
-        },
-        {
-          "name": "_RareminingTry",
-          "type": "uint256",
-          "internalType": "uint256"
-        },
-        {
-          "name": "_UniqueminingTry",
-          "type": "uint256",
-          "internalType": "uint256"
-        },
-        {
-          "name": "_EpicminingTry",
-          "type": "uint256",
-          "internalType": "uint256"
-        },
-        {
-          "name": "_LegendaryminingTry",
-          "type": "uint256",
-          "internalType": "uint256"
-        },
-        {
-          "name": "_MythicminingTry",
-          "type": "uint256",
-          "internalType": "uint256"
-        }
-      ],
-      "outputs": [],
-      "stateMutability": "nonpayable"
-    },
-    {
-      "type": "function",
-      "name": "startMiningGEM",
-      "inputs": [
-        { "name": "_tokenId", "type": "uint256", "internalType": "uint256" }
-      ],
-      "outputs": [{ "name": "", "type": "bool", "internalType": "bool" }],
-      "stateMutability": "nonpayable"
-    },
-    {
-      "type": "function",
-      "name": "supportsInterface",
-      "inputs": [
-        { "name": "interfaceId", "type": "bytes4", "internalType": "bytes4" }
-      ],
-      "outputs": [{ "name": "", "type": "bool", "internalType": "bool" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "symbol",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "string", "internalType": "string" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "tokenMiningByUser",
-      "inputs": [{ "name": "", "type": "address", "internalType": "address" }],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "tokenReadyToMine",
-      "inputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "outputs": [{ "name": "", "type": "bool", "internalType": "bool" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "tokenURI",
-      "inputs": [
-        { "name": "tokenId", "type": "uint256", "internalType": "uint256" }
-      ],
-      "outputs": [{ "name": "", "type": "string", "internalType": "string" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "tokensOfOwner",
-      "inputs": [
-        { "name": "_owner", "type": "address", "internalType": "address" }
-      ],
-      "outputs": [
-        {
-          "name": "ownerTokens",
-          "type": "uint256[]",
-          "internalType": "uint256[]"
-        }
-      ],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "ton",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "totalSupply",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "transferAdmin",
-      "inputs": [
-        { "name": "newAdmin", "type": "address", "internalType": "address" }
-      ],
-      "outputs": [],
-      "stateMutability": "nonpayable"
-    },
-    {
-      "type": "function",
-      "name": "transferFrom",
-      "inputs": [
-        { "name": "from", "type": "address", "internalType": "address" },
-        { "name": "to", "type": "address", "internalType": "address" },
-        { "name": "tokenId", "type": "uint256", "internalType": "uint256" }
-      ],
-      "outputs": [],
-      "stateMutability": "nonpayable"
-    },
-    {
-      "type": "function",
-      "name": "transferOwnership",
-      "inputs": [
-        { "name": "newAdmin", "type": "address", "internalType": "address" }
-      ],
-      "outputs": [],
-      "stateMutability": "nonpayable"
-    },
-    {
-      "type": "function",
-      "name": "treasury",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "unpause",
-      "inputs": [],
-      "outputs": [],
-      "stateMutability": "nonpayable"
-    },
-    {
-      "type": "function",
-      "name": "userMiningStartTime",
-      "inputs": [
-        { "name": "", "type": "address", "internalType": "address" },
-        { "name": "", "type": "uint256", "internalType": "uint256" }
-      ],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "userMiningToken",
-      "inputs": [
-        { "name": "", "type": "address", "internalType": "address" },
-        { "name": "", "type": "uint256", "internalType": "uint256" }
-      ],
-      "outputs": [{ "name": "", "type": "bool", "internalType": "bool" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "wston",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
-      "stateMutability": "view"
-    },
+        { "type": "address", "name": "account", "internalType": "address" }
+      ]
+    },
+    { "type": "error", "name": "ReentrancyGuardReentrantCall", "inputs": [] },
+    { "type": "error", "name": "RequestNotMade", "inputs": [] },
+    { "type": "error", "name": "SameSenderAndRecipient", "inputs": [] },
+    { "type": "error", "name": "WrongNumberOfGemToBeForged", "inputs": [] },
+    { "type": "error", "name": "WrongRarity", "inputs": [] },
+    { "type": "error", "name": "WrongRarity", "inputs": [] },
     {
       "type": "event",
       "name": "Approval",
       "inputs": [
         {
+          "type": "address",
           "name": "owner",
-          "type": "address",
-          "indexed": true,
-          "internalType": "address"
+          "internalType": "address",
+          "indexed": true
         },
         {
+          "type": "address",
           "name": "approved",
-          "type": "address",
-          "indexed": true,
-          "internalType": "address"
+          "internalType": "address",
+          "indexed": true
         },
         {
-          "name": "tokenId",
           "type": "uint256",
-          "indexed": true,
-          "internalType": "uint256"
+          "name": "tokenId",
+          "internalType": "uint256",
+          "indexed": true
         }
       ],
       "anonymous": false
@@ -1475,22 +144,22 @@
       "name": "ApprovalForAll",
       "inputs": [
         {
+          "type": "address",
           "name": "owner",
-          "type": "address",
-          "indexed": true,
-          "internalType": "address"
+          "internalType": "address",
+          "indexed": true
         },
         {
+          "type": "address",
           "name": "operator",
-          "type": "address",
-          "indexed": true,
-          "internalType": "address"
+          "internalType": "address",
+          "indexed": true
         },
         {
-          "name": "approved",
           "type": "bool",
-          "indexed": false,
-          "internalType": "bool"
+          "name": "approved",
+          "internalType": "bool",
+          "indexed": false
         }
       ],
       "anonymous": false
@@ -1500,16 +169,16 @@
       "name": "BackgroundColorAdded",
       "inputs": [
         {
-          "name": "id",
           "type": "uint8",
-          "indexed": true,
-          "internalType": "uint8"
+          "name": "id",
+          "internalType": "uint8",
+          "indexed": true
         },
         {
-          "name": "backgroundColor",
           "type": "string",
-          "indexed": false,
-          "internalType": "string"
+          "name": "backgroundColor",
+          "internalType": "string",
+          "indexed": false
         }
       ],
       "anonymous": false
@@ -1519,16 +188,16 @@
       "name": "BatchMetadataUpdate",
       "inputs": [
         {
-          "name": "_fromTokenId",
           "type": "uint256",
-          "indexed": false,
-          "internalType": "uint256"
+          "name": "_fromTokenId",
+          "internalType": "uint256",
+          "indexed": false
         },
         {
-          "name": "_toTokenId",
           "type": "uint256",
-          "indexed": false,
-          "internalType": "uint256"
+          "name": "_toTokenId",
+          "internalType": "uint256",
+          "indexed": false
         }
       ],
       "anonymous": false
@@ -1538,16 +207,16 @@
       "name": "ColorAdded",
       "inputs": [
         {
-          "name": "id",
           "type": "uint8",
-          "indexed": true,
-          "internalType": "uint8"
+          "name": "id",
+          "internalType": "uint8",
+          "indexed": true
         },
         {
-          "name": "color",
           "type": "string",
-          "indexed": false,
-          "internalType": "string"
+          "name": "color",
+          "internalType": "string",
+          "indexed": false
         }
       ],
       "anonymous": false
@@ -1557,16 +226,35 @@
       "name": "ColorValidated",
       "inputs": [
         {
-          "name": "color_0",
           "type": "uint8",
-          "indexed": false,
-          "internalType": "uint8"
+          "name": "color_0",
+          "internalType": "uint8",
+          "indexed": false
         },
         {
-          "name": "color_1",
           "type": "uint8",
-          "indexed": false,
-          "internalType": "uint8"
+          "name": "color_1",
+          "internalType": "uint8",
+          "indexed": false
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "ColorValidated",
+      "inputs": [
+        {
+          "type": "uint8",
+          "name": "color0",
+          "internalType": "uint8",
+          "indexed": false
+        },
+        {
+          "type": "uint8",
+          "name": "color1",
+          "internalType": "uint8",
+          "indexed": false
         }
       ],
       "anonymous": false
@@ -1576,16 +264,16 @@
       "name": "CountGemsByQuadrant",
       "inputs": [
         {
-          "name": "gemCount",
           "type": "uint256",
-          "indexed": false,
-          "internalType": "uint256"
+          "name": "gemCount",
+          "internalType": "uint256",
+          "indexed": false
         },
         {
-          "name": "tokenIds",
           "type": "uint256[]",
-          "indexed": false,
-          "internalType": "uint256[]"
+          "name": "tokenIds",
+          "internalType": "uint256[]",
+          "indexed": false
         }
       ],
       "anonymous": false
@@ -1595,58 +283,71 @@
       "name": "Created",
       "inputs": [
         {
+          "type": "uint256",
           "name": "tokenId",
-          "type": "uint256",
-          "indexed": true,
-          "internalType": "uint256"
+          "internalType": "uint256",
+          "indexed": true
         },
         {
-          "name": "rarity",
           "type": "uint8",
-          "indexed": false,
-          "internalType": "enum GemFactoryStorage.Rarity"
+          "name": "rarity",
+          "internalType": "enum GemFactoryStorage.Rarity",
+          "indexed": false
         },
         {
-          "name": "color",
           "type": "uint8[2]",
-          "indexed": false,
-          "internalType": "uint8[2]"
+          "name": "color",
+          "internalType": "uint8[2]",
+          "indexed": false
         },
         {
+          "type": "uint256",
           "name": "value",
-          "type": "uint256",
-          "indexed": false,
-          "internalType": "uint256"
+          "internalType": "uint256",
+          "indexed": false
         },
         {
-          "name": "quadrants",
           "type": "uint8[4]",
-          "indexed": false,
-          "internalType": "uint8[4]"
+          "name": "quadrants",
+          "internalType": "uint8[4]",
+          "indexed": false
         },
         {
+          "type": "uint32",
           "name": "miningPeriod",
-          "type": "uint256",
-          "indexed": false,
-          "internalType": "uint256"
+          "internalType": "uint32",
+          "indexed": false
         },
         {
-          "name": "cooldownPeriod",
           "type": "uint256",
-          "indexed": false,
-          "internalType": "uint256"
+          "name": "cooldownDueDate",
+          "internalType": "uint256",
+          "indexed": false
         },
         {
-          "name": "tokenURI",
           "type": "string",
-          "indexed": false,
-          "internalType": "string"
+          "name": "tokenURI",
+          "internalType": "string",
+          "indexed": false
         },
         {
-          "name": "owner",
           "type": "address",
-          "indexed": false,
-          "internalType": "address"
+          "name": "owner",
+          "internalType": "address",
+          "indexed": false
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "EthSentBack",
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": "amount",
+          "internalType": "uint256",
+          "indexed": false
         }
       ],
       "anonymous": false
@@ -1656,46 +357,46 @@
       "name": "GemForged",
       "inputs": [
         {
-          "name": "gemOwner",
           "type": "address",
-          "indexed": false,
-          "internalType": "address"
+          "name": "gemOwner",
+          "internalType": "address",
+          "indexed": false
         },
         {
-          "name": "gemsTokenIds",
           "type": "uint256[]",
-          "indexed": false,
-          "internalType": "uint256[]"
+          "name": "gemsTokenIds",
+          "internalType": "uint256[]",
+          "indexed": false
         },
         {
+          "type": "uint256",
           "name": "newGemCreatedId",
-          "type": "uint256",
-          "indexed": false,
-          "internalType": "uint256"
+          "internalType": "uint256",
+          "indexed": false
         },
         {
-          "name": "newRarity",
           "type": "uint8",
-          "indexed": false,
-          "internalType": "enum GemFactoryStorage.Rarity"
+          "name": "newRarity",
+          "internalType": "enum GemFactoryStorage.Rarity",
+          "indexed": false
         },
         {
-          "name": "forgedQuadrants",
           "type": "uint8[4]",
-          "indexed": false,
-          "internalType": "uint8[4]"
+          "name": "forgedQuadrants",
+          "internalType": "uint8[4]",
+          "indexed": false
         },
         {
-          "name": "color",
           "type": "uint8[2]",
-          "indexed": false,
-          "internalType": "uint8[2]"
+          "name": "color",
+          "internalType": "uint8[2]",
+          "indexed": false
         },
         {
-          "name": "newValue",
           "type": "uint256",
-          "indexed": false,
-          "internalType": "uint256"
+          "name": "newValue",
+          "internalType": "uint256",
+          "indexed": false
         }
       ],
       "anonymous": false
@@ -1705,16 +406,16 @@
       "name": "GemMelted",
       "inputs": [
         {
-          "name": "_tokenId",
           "type": "uint256",
-          "indexed": false,
-          "internalType": "uint256"
+          "name": "_tokenId",
+          "internalType": "uint256",
+          "indexed": false
         },
         {
-          "name": "_from",
           "type": "address",
-          "indexed": false,
-          "internalType": "address"
+          "name": "_from",
+          "internalType": "address",
+          "indexed": false
         }
       ],
       "anonymous": false
@@ -1724,16 +425,16 @@
       "name": "GemMiningClaimed",
       "inputs": [
         {
-          "name": "tokenId",
           "type": "uint256",
-          "indexed": false,
-          "internalType": "uint256"
+          "name": "tokenId",
+          "internalType": "uint256",
+          "indexed": false
         },
         {
-          "name": "miner",
           "type": "address",
-          "indexed": false,
-          "internalType": "address"
+          "name": "miner",
+          "internalType": "address",
+          "indexed": false
         }
       ],
       "anonymous": false
@@ -1743,28 +444,207 @@
       "name": "GemMiningStarted",
       "inputs": [
         {
+          "type": "uint256",
           "name": "tokenId",
-          "type": "uint256",
-          "indexed": false,
-          "internalType": "uint256"
+          "internalType": "uint256",
+          "indexed": false
         },
         {
-          "name": "miner",
           "type": "address",
-          "indexed": false,
-          "internalType": "address"
+          "name": "miner",
+          "internalType": "address",
+          "indexed": false
         },
         {
+          "type": "uint256",
           "name": "startMiningTime",
-          "type": "uint256",
-          "indexed": false,
-          "internalType": "uint256"
+          "internalType": "uint256",
+          "indexed": false
         },
         {
-          "name": "newminingTry",
           "type": "uint256",
-          "indexed": false,
-          "internalType": "uint256"
+          "name": "newminingTry",
+          "internalType": "uint256",
+          "indexed": false
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "GemsCoolDownPeriodModified",
+      "inputs": [
+        {
+          "type": "uint32",
+          "name": "CommonGemsCooldownPeriod",
+          "internalType": "uint32",
+          "indexed": false
+        },
+        {
+          "type": "uint32",
+          "name": "RareGemsCooldownPeriod",
+          "internalType": "uint32",
+          "indexed": false
+        },
+        {
+          "type": "uint32",
+          "name": "UniqueGemsCooldownPeriod",
+          "internalType": "uint32",
+          "indexed": false
+        },
+        {
+          "type": "uint32",
+          "name": "EpicGemsCooldownPeriod",
+          "internalType": "uint32",
+          "indexed": false
+        },
+        {
+          "type": "uint32",
+          "name": "LegendaryGemsCooldownPeriod",
+          "internalType": "uint32",
+          "indexed": false
+        },
+        {
+          "type": "uint32",
+          "name": "MythicGemsCooldownPeriod",
+          "internalType": "uint32",
+          "indexed": false
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "GemsMiningPeriodModified",
+      "inputs": [
+        {
+          "type": "uint32",
+          "name": "CommonGemsMiningPeriod",
+          "internalType": "uint32",
+          "indexed": false
+        },
+        {
+          "type": "uint32",
+          "name": "RareGemsMiningPeriod",
+          "internalType": "uint32",
+          "indexed": false
+        },
+        {
+          "type": "uint32",
+          "name": "UniqueGemsMiningPeriod",
+          "internalType": "uint32",
+          "indexed": false
+        },
+        {
+          "type": "uint32",
+          "name": "EpicGemsMiningPeriod",
+          "internalType": "uint32",
+          "indexed": false
+        },
+        {
+          "type": "uint32",
+          "name": "LegendaryGemsMiningPeriod",
+          "internalType": "uint32",
+          "indexed": false
+        },
+        {
+          "type": "uint32",
+          "name": "MythicGemsMiningPeriod",
+          "internalType": "uint32",
+          "indexed": false
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "GemsMiningTryModified",
+      "inputs": [
+        {
+          "type": "uint8",
+          "name": "RareGemsMiningTry",
+          "internalType": "uint8",
+          "indexed": false
+        },
+        {
+          "type": "uint8",
+          "name": "UniqueGemsMiningTry",
+          "internalType": "uint8",
+          "indexed": false
+        },
+        {
+          "type": "uint8",
+          "name": "EpicGemsMiningTry",
+          "internalType": "uint8",
+          "indexed": false
+        },
+        {
+          "type": "uint8",
+          "name": "LegendaryGemsMiningTry",
+          "internalType": "uint8",
+          "indexed": false
+        },
+        {
+          "type": "uint8",
+          "name": "MythicGemsMiningTry",
+          "internalType": "uint8",
+          "indexed": false
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "GemsValueModified",
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": "CommonGemsValue",
+          "internalType": "uint256",
+          "indexed": false
+        },
+        {
+          "type": "uint256",
+          "name": "RareGemsValue",
+          "internalType": "uint256",
+          "indexed": false
+        },
+        {
+          "type": "uint256",
+          "name": "UniqueGemsValue",
+          "internalType": "uint256",
+          "indexed": false
+        },
+        {
+          "type": "uint256",
+          "name": "EpicGemsValue",
+          "internalType": "uint256",
+          "indexed": false
+        },
+        {
+          "type": "uint256",
+          "name": "LegendaryValue",
+          "internalType": "uint256",
+          "indexed": false
+        },
+        {
+          "type": "uint256",
+          "name": "MythicValue",
+          "internalType": "uint256",
+          "indexed": false
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "Initialized",
+      "inputs": [
+        {
+          "type": "uint64",
+          "name": "version",
+          "internalType": "uint64",
+          "indexed": false
         }
       ],
       "anonymous": false
@@ -1774,10 +654,35 @@
       "name": "MetadataUpdate",
       "inputs": [
         {
-          "name": "_tokenId",
           "type": "uint256",
-          "indexed": false,
-          "internalType": "uint256"
+          "name": "_tokenId",
+          "internalType": "uint256",
+          "indexed": false
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "MiningCancelled",
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": "_tokenId",
+          "internalType": "uint256",
+          "indexed": false
+        },
+        {
+          "type": "address",
+          "name": "owner",
+          "internalType": "address",
+          "indexed": false
+        },
+        {
+          "type": "uint256",
+          "name": "timestamp",
+          "internalType": "uint256",
+          "indexed": false
         }
       ],
       "anonymous": false
@@ -1787,10 +692,29 @@
       "name": "NoGemAvailable",
       "inputs": [
         {
-          "name": "tokenId",
           "type": "uint256",
-          "indexed": false,
-          "internalType": "uint256"
+          "name": "tokenId",
+          "internalType": "uint256",
+          "indexed": false
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "OwnershipTransferred",
+      "inputs": [
+        {
+          "type": "address",
+          "name": "previousOwner",
+          "internalType": "address",
+          "indexed": true
+        },
+        {
+          "type": "address",
+          "name": "newOwner",
+          "internalType": "address",
+          "indexed": true
         }
       ],
       "anonymous": false
@@ -1800,10 +724,10 @@
       "name": "Paused",
       "inputs": [
         {
-          "name": "account",
           "type": "address",
-          "indexed": false,
-          "internalType": "address"
+          "name": "account",
+          "internalType": "address",
+          "indexed": false
         }
       ],
       "anonymous": false
@@ -1813,91 +737,16 @@
       "name": "RandomGemRequested",
       "inputs": [
         {
+          "type": "uint256",
           "name": "tokenId",
-          "type": "uint256",
-          "indexed": false,
-          "internalType": "uint256"
+          "internalType": "uint256",
+          "indexed": false
         },
         {
+          "type": "uint256",
           "name": "requestNumber",
-          "type": "uint256",
-          "indexed": false,
-          "internalType": "uint256"
-        }
-      ],
-      "anonymous": false
-    },
-    {
-      "type": "event",
-      "name": "RoleAdminChanged",
-      "inputs": [
-        {
-          "name": "role",
-          "type": "bytes32",
-          "indexed": true,
-          "internalType": "bytes32"
-        },
-        {
-          "name": "previousAdminRole",
-          "type": "bytes32",
-          "indexed": true,
-          "internalType": "bytes32"
-        },
-        {
-          "name": "newAdminRole",
-          "type": "bytes32",
-          "indexed": true,
-          "internalType": "bytes32"
-        }
-      ],
-      "anonymous": false
-    },
-    {
-      "type": "event",
-      "name": "RoleGranted",
-      "inputs": [
-        {
-          "name": "role",
-          "type": "bytes32",
-          "indexed": true,
-          "internalType": "bytes32"
-        },
-        {
-          "name": "account",
-          "type": "address",
-          "indexed": true,
-          "internalType": "address"
-        },
-        {
-          "name": "sender",
-          "type": "address",
-          "indexed": true,
-          "internalType": "address"
-        }
-      ],
-      "anonymous": false
-    },
-    {
-      "type": "event",
-      "name": "RoleRevoked",
-      "inputs": [
-        {
-          "name": "role",
-          "type": "bytes32",
-          "indexed": true,
-          "internalType": "bytes32"
-        },
-        {
-          "name": "account",
-          "type": "address",
-          "indexed": true,
-          "internalType": "address"
-        },
-        {
-          "name": "sender",
-          "type": "address",
-          "indexed": true,
-          "internalType": "address"
+          "internalType": "uint256",
+          "indexed": false
         }
       ],
       "anonymous": false
@@ -1907,22 +756,22 @@
       "name": "Transfer",
       "inputs": [
         {
+          "type": "address",
           "name": "from",
-          "type": "address",
-          "indexed": true,
-          "internalType": "address"
+          "internalType": "address",
+          "indexed": true
         },
         {
+          "type": "address",
           "name": "to",
-          "type": "address",
-          "indexed": true,
-          "internalType": "address"
+          "internalType": "address",
+          "indexed": true
         },
         {
-          "name": "tokenId",
           "type": "uint256",
-          "indexed": true,
-          "internalType": "uint256"
+          "name": "tokenId",
+          "internalType": "uint256",
+          "indexed": true
         }
       ],
       "anonymous": false
@@ -1932,22 +781,22 @@
       "name": "TransferGEM",
       "inputs": [
         {
+          "type": "address",
           "name": "from",
-          "type": "address",
-          "indexed": false,
-          "internalType": "address"
+          "internalType": "address",
+          "indexed": false
         },
         {
+          "type": "address",
           "name": "to",
-          "type": "address",
-          "indexed": false,
-          "internalType": "address"
+          "internalType": "address",
+          "indexed": false
         },
         {
-          "name": "tokenId",
           "type": "uint256",
-          "indexed": false,
-          "internalType": "uint256"
+          "name": "tokenId",
+          "internalType": "uint256",
+          "indexed": false
         }
       ],
       "anonymous": false
@@ -1957,91 +806,1085 @@
       "name": "Unpaused",
       "inputs": [
         {
-          "name": "account",
           "type": "address",
-          "indexed": false,
-          "internalType": "address"
+          "name": "account",
+          "internalType": "address",
+          "indexed": false
         }
       ],
       "anonymous": false
     },
-    { "type": "error", "name": "AccessControlBadConfirmation", "inputs": [] },
     {
-      "type": "error",
-      "name": "AccessControlUnauthorizedAccount",
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "uint32", "name": "", "internalType": "uint32" }],
+      "name": "CALLBACK_GAS_LIMIT",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "address", "name": "", "internalType": "address" }],
+      "name": "GEMIndexToOwner",
+      "inputs": [{ "type": "uint256", "name": "", "internalType": "uint256" }]
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [
+        { "type": "uint256", "name": "tokenId", "internalType": "uint256" },
+        {
+          "type": "uint256",
+          "name": "gemCooldownPeriod",
+          "internalType": "uint256"
+        },
+        {
+          "type": "uint256",
+          "name": "randomRequestId",
+          "internalType": "uint256"
+        },
+        { "type": "uint256", "name": "value", "internalType": "uint256" },
+        {
+          "type": "uint8",
+          "name": "rarity",
+          "internalType": "enum GemFactoryStorage.Rarity"
+        },
+        { "type": "uint32", "name": "miningPeriod", "internalType": "uint32" },
+        { "type": "uint8", "name": "miningTry", "internalType": "uint8" },
+        { "type": "bool", "name": "isLocked", "internalType": "bool" },
+        { "type": "string", "name": "tokenURI", "internalType": "string" }
+      ],
+      "name": "Gems",
+      "inputs": [{ "type": "uint256", "name": "", "internalType": "uint256" }]
+    },
+    {
+      "type": "function",
+      "stateMutability": "nonpayable",
+      "outputs": [],
+      "name": "addColor",
       "inputs": [
-        { "name": "account", "type": "address", "internalType": "address" },
-        { "name": "neededRole", "type": "bytes32", "internalType": "bytes32" }
+        { "type": "string", "name": "_colorName", "internalType": "string" },
+        { "type": "uint8", "name": "_index1", "internalType": "uint8" },
+        { "type": "uint8", "name": "_index2", "internalType": "uint8" }
       ]
     },
     {
-      "type": "error",
-      "name": "ERC721IncorrectOwner",
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "bool", "name": "", "internalType": "bool" }],
+      "name": "aliveImplementation",
+      "inputs": [{ "type": "address", "name": "", "internalType": "address" }]
+    },
+    {
+      "type": "function",
+      "stateMutability": "nonpayable",
+      "outputs": [],
+      "name": "approve",
       "inputs": [
-        { "name": "sender", "type": "address", "internalType": "address" },
-        { "name": "tokenId", "type": "uint256", "internalType": "uint256" },
-        { "name": "owner", "type": "address", "internalType": "address" }
+        { "type": "address", "name": "to", "internalType": "address" },
+        { "type": "uint256", "name": "tokenId", "internalType": "uint256" }
       ]
     },
     {
-      "type": "error",
-      "name": "ERC721InsufficientApproval",
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [
+        { "type": "uint256", "name": "count", "internalType": "uint256" }
+      ],
+      "name": "balanceOf",
       "inputs": [
-        { "name": "operator", "type": "address", "internalType": "address" },
-        { "name": "tokenId", "type": "uint256", "internalType": "uint256" }
+        { "type": "address", "name": "_owner", "internalType": "address" }
       ]
     },
     {
-      "type": "error",
-      "name": "ERC721InvalidApprover",
+      "type": "function",
+      "stateMutability": "nonpayable",
+      "outputs": [{ "type": "bool", "name": "", "internalType": "bool" }],
+      "name": "cancelMining",
       "inputs": [
-        { "name": "approver", "type": "address", "internalType": "address" }
+        { "type": "uint256", "name": "_tokenId", "internalType": "uint256" }
       ]
     },
     {
-      "type": "error",
-      "name": "ERC721InvalidOperator",
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "string", "name": "", "internalType": "string" }],
+      "name": "colorName",
       "inputs": [
-        { "name": "operator", "type": "address", "internalType": "address" }
+        { "type": "uint8", "name": "", "internalType": "uint8" },
+        { "type": "uint8", "name": "", "internalType": "uint8" }
       ]
     },
     {
-      "type": "error",
-      "name": "ERC721InvalidOwner",
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "uint8", "name": "", "internalType": "uint8" }],
+      "name": "colors",
       "inputs": [
-        { "name": "owner", "type": "address", "internalType": "address" }
+        { "type": "uint256", "name": "", "internalType": "uint256" },
+        { "type": "uint256", "name": "", "internalType": "uint256" }
       ]
     },
     {
-      "type": "error",
-      "name": "ERC721InvalidReceiver",
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "uint8", "name": "", "internalType": "uint8" }],
+      "name": "colorsCount",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "nonpayable",
+      "outputs": [{ "type": "uint256", "name": "", "internalType": "uint256" }],
+      "name": "createGEM",
       "inputs": [
-        { "name": "receiver", "type": "address", "internalType": "address" }
+        {
+          "type": "uint8",
+          "name": "_rarity",
+          "internalType": "enum GemFactoryStorage.Rarity"
+        },
+        { "type": "uint8[2]", "name": "_color", "internalType": "uint8[2]" },
+        {
+          "type": "uint8[4]",
+          "name": "_quadrants",
+          "internalType": "uint8[4]"
+        },
+        { "type": "string", "name": "_tokenURI", "internalType": "string" }
       ]
     },
     {
-      "type": "error",
-      "name": "ERC721InvalidSender",
+      "type": "function",
+      "stateMutability": "nonpayable",
+      "outputs": [
+        { "type": "uint256[]", "name": "", "internalType": "uint256[]" }
+      ],
+      "name": "createGEMPool",
       "inputs": [
-        { "name": "sender", "type": "address", "internalType": "address" }
+        {
+          "type": "uint8[]",
+          "name": "_rarities",
+          "internalType": "enum GemFactoryStorage.Rarity[]"
+        },
+        {
+          "type": "uint8[2][]",
+          "name": "_colors",
+          "internalType": "uint8[2][]"
+        },
+        {
+          "type": "uint8[4][]",
+          "name": "_quadrants",
+          "internalType": "uint8[4][]"
+        },
+        { "type": "string[]", "name": "_tokenURIs", "internalType": "string[]" }
       ]
     },
     {
-      "type": "error",
-      "name": "ERC721NonexistentToken",
+      "type": "function",
+      "stateMutability": "nonpayable",
+      "outputs": [
+        { "type": "uint256", "name": "newGemId", "internalType": "uint256" }
+      ],
+      "name": "forgeTokens",
       "inputs": [
-        { "name": "tokenId", "type": "uint256", "internalType": "uint256" }
+        {
+          "type": "uint256[]",
+          "name": "_tokenIds",
+          "internalType": "uint256[]"
+        },
+        {
+          "type": "uint8",
+          "name": "_rarity",
+          "internalType": "enum GemFactoryStorage.Rarity"
+        },
+        { "type": "uint8[2]", "name": "_color", "internalType": "uint8[2]" }
       ]
     },
     {
-      "type": "error",
-      "name": "OnlyCoordinatorCanFulfill",
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "address", "name": "", "internalType": "address" }],
+      "name": "getAirdropAddress",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "address", "name": "", "internalType": "address" }],
+      "name": "getApproved",
       "inputs": [
-        { "name": "have", "type": "address", "internalType": "address" },
-        { "name": "want", "type": "address", "internalType": "address" }
+        { "type": "uint256", "name": "tokenId", "internalType": "uint256" }
       ]
     },
-    { "type": "error", "name": "ReentrancyGuardReentrantCall", "inputs": [] }
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "string", "name": "", "internalType": "string" }],
+      "name": "getColorName",
+      "inputs": [
+        { "type": "uint8", "name": "_index1", "internalType": "uint8" },
+        { "type": "uint8", "name": "_index2", "internalType": "uint8" }
+      ]
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "uint32", "name": "", "internalType": "uint32" }],
+      "name": "getCommonGemsCooldownPeriod",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "uint32", "name": "", "internalType": "uint32" }],
+      "name": "getCommonGemsMiningPeriod",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "uint256", "name": "", "internalType": "uint256" }],
+      "name": "getCommonGemsValue",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "uint32", "name": "", "internalType": "uint32" }],
+      "name": "getEpicGemsCooldownPeriod",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "uint32", "name": "", "internalType": "uint32" }],
+      "name": "getEpicGemsMiningPeriod",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "uint256", "name": "", "internalType": "uint256" }],
+      "name": "getEpicGemsValue",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "uint8", "name": "", "internalType": "uint8" }],
+      "name": "getEpicminingTry",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [
+        {
+          "type": "tuple",
+          "name": "",
+          "internalType": "struct GemFactoryStorage.Gem",
+          "components": [
+            { "type": "uint256", "name": "tokenId", "internalType": "uint256" },
+            {
+              "type": "uint256",
+              "name": "gemCooldownPeriod",
+              "internalType": "uint256"
+            },
+            {
+              "type": "uint256",
+              "name": "randomRequestId",
+              "internalType": "uint256"
+            },
+            { "type": "uint256", "name": "value", "internalType": "uint256" },
+            {
+              "type": "uint8",
+              "name": "rarity",
+              "internalType": "enum GemFactoryStorage.Rarity"
+            },
+            {
+              "type": "uint32",
+              "name": "miningPeriod",
+              "internalType": "uint32"
+            },
+            { "type": "uint8", "name": "miningTry", "internalType": "uint8" },
+            {
+              "type": "uint8[4]",
+              "name": "quadrants",
+              "internalType": "uint8[4]"
+            },
+            { "type": "uint8[2]", "name": "color", "internalType": "uint8[2]" },
+            { "type": "bool", "name": "isLocked", "internalType": "bool" },
+            { "type": "string", "name": "tokenURI", "internalType": "string" }
+          ]
+        }
+      ],
+      "name": "getGem",
+      "inputs": [
+        { "type": "uint256", "name": "tokenId", "internalType": "uint256" }
+      ]
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [
+        { "type": "uint256", "name": "", "internalType": "uint256" },
+        { "type": "uint256[]", "name": "", "internalType": "uint256[]" }
+      ],
+      "name": "getGemListAvailableForRandomPack",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [
+        { "type": "uint256", "name": "totalValue", "internalType": "uint256" }
+      ],
+      "name": "getGemsSupplyTotalValue",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "uint32", "name": "", "internalType": "uint32" }],
+      "name": "getLegendaryGemsCooldownPeriod",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "uint32", "name": "", "internalType": "uint32" }],
+      "name": "getLegendaryGemsMiningPeriod",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "uint256", "name": "", "internalType": "uint256" }],
+      "name": "getLegendaryGemsValue",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "uint8", "name": "", "internalType": "uint8" }],
+      "name": "getLegendaryminingTry",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "address", "name": "", "internalType": "address" }],
+      "name": "getMarketPlaceAddress",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "uint32", "name": "", "internalType": "uint32" }],
+      "name": "getMythicGemsCooldownPeriod",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "uint32", "name": "", "internalType": "uint32" }],
+      "name": "getMythicGemsMiningPeriod",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "uint256", "name": "", "internalType": "uint256" }],
+      "name": "getMythicGemsValue",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "uint8", "name": "", "internalType": "uint8" }],
+      "name": "getMythicminingTry",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "uint256", "name": "", "internalType": "uint256" }],
+      "name": "getOwnershipTokenCount",
+      "inputs": [
+        { "type": "address", "name": "_user", "internalType": "address" }
+      ]
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [
+        {
+          "type": "tuple",
+          "name": "",
+          "internalType": "struct GemFactoryStorage.RequestStatus",
+          "components": [
+            { "type": "uint256", "name": "tokenId", "internalType": "uint256" },
+            {
+              "type": "uint256",
+              "name": "randomWord",
+              "internalType": "uint256"
+            },
+            {
+              "type": "uint256",
+              "name": "chosenTokenId",
+              "internalType": "uint256"
+            },
+            { "type": "bool", "name": "requested", "internalType": "bool" },
+            { "type": "bool", "name": "fulfilled", "internalType": "bool" },
+            {
+              "type": "address",
+              "name": "requester",
+              "internalType": "address"
+            }
+          ]
+        }
+      ],
+      "name": "getRandomRequest",
+      "inputs": [
+        { "type": "uint256", "name": "_requestId", "internalType": "uint256" }
+      ]
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "uint32", "name": "", "internalType": "uint32" }],
+      "name": "getRareGemsCooldownPeriod",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "uint32", "name": "", "internalType": "uint32" }],
+      "name": "getRareGemsMiningPeriod",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "uint256", "name": "", "internalType": "uint256" }],
+      "name": "getRareGemsValue",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "uint8", "name": "", "internalType": "uint8" }],
+      "name": "getRareminingTry",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "uint256", "name": "", "internalType": "uint256" }],
+      "name": "getRequestCount",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [
+        { "type": "uint256[]", "name": "", "internalType": "uint256[]" }
+      ],
+      "name": "getRequestIds",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "address", "name": "", "internalType": "address" }],
+      "name": "getTonAddress",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "address", "name": "", "internalType": "address" }],
+      "name": "getTreasuryAddress",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "uint32", "name": "", "internalType": "uint32" }],
+      "name": "getUniqueGemsCooldownPeriod",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "uint32", "name": "", "internalType": "uint32" }],
+      "name": "getUniqueGemsMiningPeriod",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "uint256", "name": "", "internalType": "uint256" }],
+      "name": "getUniqueGemsValue",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "uint8", "name": "", "internalType": "uint8" }],
+      "name": "getUniqueminingTry",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [
+        { "type": "uint256", "name": "value", "internalType": "uint256" }
+      ],
+      "name": "getValueBasedOnRarity",
+      "inputs": [
+        {
+          "type": "uint8",
+          "name": "_rarity",
+          "internalType": "enum GemFactoryStorage.Rarity"
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "address", "name": "", "internalType": "address" }],
+      "name": "getWstonAddress",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "nonpayable",
+      "outputs": [],
+      "name": "initialize",
+      "inputs": [
+        {
+          "type": "address",
+          "name": "_coordinator",
+          "internalType": "address"
+        },
+        { "type": "address", "name": "_owner", "internalType": "address" },
+        { "type": "address", "name": "_wston", "internalType": "address" },
+        { "type": "address", "name": "_ton", "internalType": "address" },
+        { "type": "address", "name": "_treasury", "internalType": "address" },
+        {
+          "type": "uint256",
+          "name": "_CommonGemsValue",
+          "internalType": "uint256"
+        },
+        {
+          "type": "uint256",
+          "name": "_RareGemsValue",
+          "internalType": "uint256"
+        },
+        {
+          "type": "uint256",
+          "name": "_UniqueGemsValue",
+          "internalType": "uint256"
+        },
+        {
+          "type": "uint256",
+          "name": "_EpicGemsValue",
+          "internalType": "uint256"
+        },
+        {
+          "type": "uint256",
+          "name": "_LegendaryGemsValue",
+          "internalType": "uint256"
+        },
+        {
+          "type": "uint256",
+          "name": "_MythicGemsValue",
+          "internalType": "uint256"
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "bool", "name": "", "internalType": "bool" }],
+      "name": "isApprovedForAll",
+      "inputs": [
+        { "type": "address", "name": "owner", "internalType": "address" },
+        { "type": "address", "name": "operator", "internalType": "address" }
+      ]
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "bool", "name": "", "internalType": "bool" }],
+      "name": "isTokenLocked",
+      "inputs": [
+        { "type": "uint256", "name": "_tokenId", "internalType": "uint256" }
+      ]
+    },
+    {
+      "type": "function",
+      "stateMutability": "nonpayable",
+      "outputs": [],
+      "name": "meltGEM",
+      "inputs": [
+        { "type": "uint256", "name": "_tokenId", "internalType": "uint256" }
+      ]
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "string", "name": "", "internalType": "string" }],
+      "name": "name",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "address", "name": "", "internalType": "address" }],
+      "name": "owner",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "address", "name": "", "internalType": "address" }],
+      "name": "ownerOf",
+      "inputs": [
+        { "type": "uint256", "name": "tokenId", "internalType": "uint256" }
+      ]
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "uint256", "name": "", "internalType": "uint256" }],
+      "name": "ownershipTokenCount",
+      "inputs": [{ "type": "address", "name": "", "internalType": "address" }]
+    },
+    {
+      "type": "function",
+      "stateMutability": "nonpayable",
+      "outputs": [],
+      "name": "pause",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "bool", "name": "", "internalType": "bool" }],
+      "name": "pauseProxy",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "bool", "name": "", "internalType": "bool" }],
+      "name": "paused",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "payable",
+      "outputs": [{ "type": "uint256", "name": "", "internalType": "uint256" }],
+      "name": "pickMinedGEM",
+      "inputs": [
+        { "type": "uint256", "name": "_tokenId", "internalType": "uint256" }
+      ]
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [
+        {
+          "type": "uint256[]",
+          "name": "GemsAvailable",
+          "internalType": "uint256[]"
+        }
+      ],
+      "name": "preMintedGemsAvailable",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "address", "name": "", "internalType": "address" }],
+      "name": "proxyImplementation",
+      "inputs": [{ "type": "uint256", "name": "", "internalType": "uint256" }]
+    },
+    {
+      "type": "function",
+      "stateMutability": "nonpayable",
+      "outputs": [],
+      "name": "rawFulfillRandomWords",
+      "inputs": [
+        { "type": "uint256", "name": "requestId", "internalType": "uint256" },
+        { "type": "uint256", "name": "randomWord", "internalType": "uint256" }
+      ]
+    },
+    {
+      "type": "function",
+      "stateMutability": "nonpayable",
+      "outputs": [],
+      "name": "renounceOwnership",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [
+        { "type": "uint256", "name": "tokenId", "internalType": "uint256" },
+        { "type": "uint256", "name": "randomWord", "internalType": "uint256" },
+        {
+          "type": "uint256",
+          "name": "chosenTokenId",
+          "internalType": "uint256"
+        },
+        { "type": "bool", "name": "requested", "internalType": "bool" },
+        { "type": "bool", "name": "fulfilled", "internalType": "bool" },
+        { "type": "address", "name": "requester", "internalType": "address" }
+      ],
+      "name": "s_requests",
+      "inputs": [{ "type": "uint256", "name": "", "internalType": "uint256" }]
+    },
+    {
+      "type": "function",
+      "stateMutability": "nonpayable",
+      "outputs": [],
+      "name": "safeTransferFrom",
+      "inputs": [
+        { "type": "address", "name": "from", "internalType": "address" },
+        { "type": "address", "name": "to", "internalType": "address" },
+        { "type": "uint256", "name": "tokenId", "internalType": "uint256" }
+      ]
+    },
+    {
+      "type": "function",
+      "stateMutability": "nonpayable",
+      "outputs": [],
+      "name": "safeTransferFrom",
+      "inputs": [
+        { "type": "address", "name": "from", "internalType": "address" },
+        { "type": "address", "name": "to", "internalType": "address" },
+        { "type": "uint256", "name": "tokenId", "internalType": "uint256" },
+        { "type": "bytes", "name": "data", "internalType": "bytes" }
+      ]
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "address", "name": "", "internalType": "address" }],
+      "name": "selectorImplementation",
+      "inputs": [{ "type": "bytes4", "name": "", "internalType": "bytes4" }]
+    },
+    {
+      "type": "function",
+      "stateMutability": "nonpayable",
+      "outputs": [],
+      "name": "setAirdrop",
+      "inputs": [
+        { "type": "address", "name": "_airdrop", "internalType": "address" }
+      ]
+    },
+    {
+      "type": "function",
+      "stateMutability": "nonpayable",
+      "outputs": [],
+      "name": "setApprovalForAll",
+      "inputs": [
+        { "type": "address", "name": "operator", "internalType": "address" },
+        { "type": "bool", "name": "approved", "internalType": "bool" }
+      ]
+    },
+    {
+      "type": "function",
+      "stateMutability": "nonpayable",
+      "outputs": [],
+      "name": "setGemsCooldownPeriods",
+      "inputs": [
+        {
+          "type": "uint32",
+          "name": "_CommonGemsCooldownPeriod",
+          "internalType": "uint32"
+        },
+        {
+          "type": "uint32",
+          "name": "_RareGemsCooldownPeriod",
+          "internalType": "uint32"
+        },
+        {
+          "type": "uint32",
+          "name": "_UniqueGemsCooldownPeriod",
+          "internalType": "uint32"
+        },
+        {
+          "type": "uint32",
+          "name": "_EpicGemsCooldownPeriod",
+          "internalType": "uint32"
+        },
+        {
+          "type": "uint32",
+          "name": "_LegendaryGemsCooldownPeriod",
+          "internalType": "uint32"
+        },
+        {
+          "type": "uint32",
+          "name": "_MythicGemsCooldownPeriod",
+          "internalType": "uint32"
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "stateMutability": "nonpayable",
+      "outputs": [],
+      "name": "setGemsMiningPeriods",
+      "inputs": [
+        {
+          "type": "uint32",
+          "name": "_CommonGemsMiningPeriod",
+          "internalType": "uint32"
+        },
+        {
+          "type": "uint32",
+          "name": "_RareGemsMiningPeriod",
+          "internalType": "uint32"
+        },
+        {
+          "type": "uint32",
+          "name": "_UniqueGemsMiningPeriod",
+          "internalType": "uint32"
+        },
+        {
+          "type": "uint32",
+          "name": "_EpicGemsMiningPeriod",
+          "internalType": "uint32"
+        },
+        {
+          "type": "uint32",
+          "name": "_LegendaryGemsMiningPeriod",
+          "internalType": "uint32"
+        },
+        {
+          "type": "uint32",
+          "name": "_MythicGemsMiningPeriod",
+          "internalType": "uint32"
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "stateMutability": "nonpayable",
+      "outputs": [],
+      "name": "setGemsValue",
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": "_CommonGemsValue",
+          "internalType": "uint256"
+        },
+        {
+          "type": "uint256",
+          "name": "_RareGemsValue",
+          "internalType": "uint256"
+        },
+        {
+          "type": "uint256",
+          "name": "_UniqueGemsValue",
+          "internalType": "uint256"
+        },
+        {
+          "type": "uint256",
+          "name": "_EpicGemsValue",
+          "internalType": "uint256"
+        },
+        {
+          "type": "uint256",
+          "name": "_LegendaryGemsValue",
+          "internalType": "uint256"
+        },
+        {
+          "type": "uint256",
+          "name": "_MythicGemsValue",
+          "internalType": "uint256"
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "stateMutability": "nonpayable",
+      "outputs": [],
+      "name": "setIsLocked",
+      "inputs": [
+        { "type": "uint256", "name": "_tokenId", "internalType": "uint256" },
+        { "type": "bool", "name": "_isLocked", "internalType": "bool" }
+      ]
+    },
+    {
+      "type": "function",
+      "stateMutability": "nonpayable",
+      "outputs": [],
+      "name": "setMarketPlaceAddress",
+      "inputs": [
+        { "type": "address", "name": "_marketplace", "internalType": "address" }
+      ]
+    },
+    {
+      "type": "function",
+      "stateMutability": "nonpayable",
+      "outputs": [],
+      "name": "setMiningTrys",
+      "inputs": [
+        { "type": "uint8", "name": "_RareminingTry", "internalType": "uint8" },
+        {
+          "type": "uint8",
+          "name": "_UniqueminingTry",
+          "internalType": "uint8"
+        },
+        { "type": "uint8", "name": "_EpicminingTry", "internalType": "uint8" },
+        {
+          "type": "uint8",
+          "name": "_LegendaryminingTry",
+          "internalType": "uint8"
+        },
+        { "type": "uint8", "name": "_MythicminingTry", "internalType": "uint8" }
+      ]
+    },
+    {
+      "type": "function",
+      "stateMutability": "nonpayable",
+      "outputs": [],
+      "name": "setTokenURI",
+      "inputs": [
+        { "type": "uint256", "name": "tokenId", "internalType": "uint256" },
+        { "type": "string", "name": "_tokenURI", "internalType": "string" }
+      ]
+    },
+    {
+      "type": "function",
+      "stateMutability": "nonpayable",
+      "outputs": [],
+      "name": "setTreasury",
+      "inputs": [
+        { "type": "address", "name": "_treasury", "internalType": "address" }
+      ]
+    },
+    {
+      "type": "function",
+      "stateMutability": "nonpayable",
+      "outputs": [{ "type": "bool", "name": "", "internalType": "bool" }],
+      "name": "startMiningGEM",
+      "inputs": [
+        { "type": "uint256", "name": "_tokenId", "internalType": "uint256" }
+      ]
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "bool", "name": "", "internalType": "bool" }],
+      "name": "supportsInterface",
+      "inputs": [
+        { "type": "bytes4", "name": "interfaceId", "internalType": "bytes4" }
+      ]
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "string", "name": "", "internalType": "string" }],
+      "name": "symbol",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "uint256", "name": "", "internalType": "uint256" }],
+      "name": "tokenMiningByUser",
+      "inputs": [{ "type": "address", "name": "", "internalType": "address" }]
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "bool", "name": "", "internalType": "bool" }],
+      "name": "tokenReadyToMine",
+      "inputs": [{ "type": "uint256", "name": "", "internalType": "uint256" }]
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "string", "name": "", "internalType": "string" }],
+      "name": "tokenURI",
+      "inputs": [
+        { "type": "uint256", "name": "tokenId", "internalType": "uint256" }
+      ]
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [
+        {
+          "type": "uint256[]",
+          "name": "ownerTokens",
+          "internalType": "uint256[]"
+        }
+      ],
+      "name": "tokensOfOwner",
+      "inputs": [
+        { "type": "address", "name": "_owner", "internalType": "address" }
+      ]
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "uint256", "name": "", "internalType": "uint256" }],
+      "name": "totalSupply",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "nonpayable",
+      "outputs": [],
+      "name": "transferFrom",
+      "inputs": [
+        { "type": "address", "name": "from", "internalType": "address" },
+        { "type": "address", "name": "to", "internalType": "address" },
+        { "type": "uint256", "name": "tokenId", "internalType": "uint256" }
+      ]
+    },
+    {
+      "type": "function",
+      "stateMutability": "nonpayable",
+      "outputs": [],
+      "name": "transferOwnership",
+      "inputs": [
+        { "type": "address", "name": "newOwner", "internalType": "address" }
+      ]
+    },
+    {
+      "type": "function",
+      "stateMutability": "nonpayable",
+      "outputs": [],
+      "name": "unpause",
+      "inputs": []
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "uint256", "name": "", "internalType": "uint256" }],
+      "name": "userMiningStartTime",
+      "inputs": [
+        { "type": "address", "name": "", "internalType": "address" },
+        { "type": "uint256", "name": "", "internalType": "uint256" }
+      ]
+    },
+    {
+      "type": "function",
+      "stateMutability": "view",
+      "outputs": [{ "type": "bool", "name": "", "internalType": "bool" }],
+      "name": "userMiningToken",
+      "inputs": [
+        { "type": "address", "name": "", "internalType": "address" },
+        { "type": "uint256", "name": "", "internalType": "uint256" }
+      ]
+    }
   ],
   "bytecode": {
     "object": "0x60a06040523461003a576100196100146100d2565b6101d6565b6040516188c961054282396080518181816148270152616d9601526188c990f35b600080fd5b634e487b7160e01b600052604160045260246000fd5b90601f01601f191681019081106001600160401b0382111761007657604052565b61003f565b9061008f61008860405190565b9283610055565b565b6001600160a01b031690565b90565b6001600160a01b0381160361003a57565b9050519061008f826100a0565b9060208282031261003a5761009d916100b1565b61009d618e0b803803806100e58161007b565b9283398101906100be565b6001600160401b03811161007657602090601f01601f19160190565b9061011e610119836100f0565b61007b565b918252565b61012d600761010c565b6623b2b6a9aa27a760c91b602082015290565b61009d610123565b610152600361010c565b6247454d60e81b602082015290565b61009d610148565b61009d61009d61009d9290565b61009d6000610169565b906001600160a01b03905b9181191691161790565b61009d90610091906001600160a01b031682565b61009d90610195565b61009d906101a9565b906101cb61009d6101d2926101b2565b8254610180565b9055565b61008f906101f46101e5610140565b6101ed610161565b9083610239565b6102066101ff610176565b3390610491565b5060356101bb565b61009d6001610169565b906000199061018b565b9061023261009d6101d292610169565b8254610218565b906102449291610256565b61008f61024f61020e565b603b610222565b90610269926102649161026e565b6101b2565b608052565b61008f91829182918291829190610441565b634e487b7160e01b600052602260045260246000fd5b90600160028304921680156102b6575b60208310146102b157565b610280565b91607f16916102a6565b9160001960089290920291821b911b61018b565b91906102e561009d6101d293610169565b9083546102c0565b61008f916000916102d4565b818110610304575050565b8061031260006001936102ed565b016102f9565b9190601f811161032757505050565b61033961008f93600052602060002090565b906020601f84018190048301931061035b575b6020601f9091010401906102f9565b909150819061034c565b9061036e815190565b906001600160401b038211610076576103918261038b8554610296565b85610318565b602090601f83116001146103cc576101d29291600091836103c1575b5050600019600883021c1916906002021790565b0151905038806103ad565b601f198316916103e185600052602060002090565b9260005b81811061041f57509160029391856001969410610406575b50505002019055565b01516000196008601f8516021c191690553880806103fd565b919360206001819287870151815501950192016103e5565b9061008f91610365565b9061045061008f926000610437565b6001610437565b905b600052602052604060002090565b90610459906101b2565b9060ff9061018b565b9061048a61009d6101d292151590565b8254610471565b6104a261049e838361051d565b1590565b15610516576104c860016104c38460006104bd86603a610457565b01610467565b61047a565b6104e26104dc6104d6339390565b936101b2565b916101b2565b917f2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d61050d60405190565b600090a4600190565b5050600090565b61009d9160006104bd61053a93610532600090565b50603a610457565b5460ff169056fe610160604052600436101561001357600080fd5b60003560e01c806301ffc9a714610873578063034294f81461086e578063038a7e05146108695780630491fd3e1461086457806304e41a0b1461085f57806306fdde031461085a578063081812fc146108555780630922f51314610850578063095ea7b31461084b5780630b513d99146108465780630c7254a0146108415780630de32a971461083c5780630ff1ac67146108375780631008ef7814610832578063139b63f31461082d57806315341f2b14610828578063162094c414610823578063166b35c91461081e5780631785f53c1461081957806318160ddd146108145780631885cbbe1461080f57806318898f361461080a5780631d0e0aac146108055780631da0fc9c14610800578063201832c0146107fb57806323b872dd146107f6578063248a9ca3146107f157806324d7806c146107ec578063274f2455146107e7578063276a28a3146107e25780632b8cd094146107dd5780632bbbe94d146107d85780632f2ff15d146107d357806333158058146107ce57806333d608f1146107c957806333fcb648146107c457806336568abe146107bf57806336b17e13146107ba57806337ed11db146107b5578063389ed267146107b05780633b19e84a146107ab5780633ec7af4a146107a65780633f4ba83a146107a15780633fb310a51461079c57806342842e0e146107975780634cbe4360146107925780634d723a751461078d5780634ec741b41461078857806350d2a27614610783578063550d01a31461077e57806358bf3e65146107795780635badbe4c146107745780635bbffab61461076f5780635c975abb1461076a5780635fcf94d11461076557806361d027b31461076057806361f7f6d71461075b57806362751738146107565780636352211e1461075157806363a8fd891461074c578063676f79f1146107475780636b1a96fa146107425780636b2c0f551461073d5780636c106fea14610738578063704802751461073357806370a082311461072e578063715018a61461072957806371b57c4714610724578063724188bc1461071f57806375829def1461071a57806375b238fc1461071557806377f7e499146107105780637866369b1461070b57806382dc1ec4146107065780638456cb59146107015780638462151c146106fc5780638796ba8c146106f75780638964f0c1146106f25780638d41fe30146106ed5780638f32d59b146106e85780638fddb065146106e357806391d14854146106de57806395d89b41146106d957806397125c40146106d4578063975781b7146106cf57806398a2c65d146106ca5780639a66af62146106c5578063a0b2d41b146106c0578063a168fa89146106bb578063a1770a7d146106b6578063a1c52726146106b1578063a217fddf146106ac578063a22cb465146106a7578063a8ce886e146106a2578063aa723bb71461069d578063aae31df314610698578063abc8c7af14610693578063ad0d3d3f1461068e578063ad6caa4714610689578063aff2a46314610684578063b78417b01461067f578063b88d4fde1461067a578063b911135f14610675578063bb4a250914610670578063bc36b2ee1461066b578063bd11f69d14610666578063c138907214610661578063c28fb6b71461065c578063c4d2fcae14610657578063c61a46c514610652578063c87b56dd1461064d578063cc48b94714610648578063cc98ef9614610643578063cec21acb1461063e578063d1bd7e0614610639578063d547741f14610634578063d55486d31461062f578063d62c990f1461062a578063d7a4649514610625578063dc0515d614610620578063e4b7fddf1461061b578063e7a523c014610616578063e985e9c514610611578063ecc5e06f1461060c578063ed8c247214610607578063efa2cc2914610602578063f0f44260146105fd578063f2fde38b146105f8578063f66f9e34146105f3578063f7c0794d146105ee578063f99a6bb5146105e9578063fea90d02146105e4578063ff198a1d146105df5763ffbccde40361087857612a53565b612a28565b6129fa565b6129ca565b6129af565b612988565b612964565b61294c565b612931565b61290d565b6128f2565b6128c6565b61288f565b612874565b61284d565b612832565b61280b565b6127f0565b6127d7565b6127bc565b612795565b61276d565b612752565b61272b565b612710565b6126f5565b6126ce565b6126b3565b612688565b612655565b612633565b612599565b61256d565b612503565b6124dc565b6124c1565b6124a2565b612487565b612454565b6123c9565b61239d565b612366565b61232f565b6122fe565b6122e2565b61229a565b6121aa565b612186565b61216b565b612140565b6120d5565b6120aa565b61208e565b612073565b61204c565b612031565b612016565b611ffb565b611fa8565b611f90565b611f78565b611f5d565b611f32565b611eff565b611ee7565b611ecc565b611ea5565b611e81565b611e66565b611e4e565b611e33565b611e1b565b611e00565b611d75565b611d25565b611cfe565b611ce3565b611ca0565b611a51565b611a2a565b611a0f565b6119e8565b6119c1565b61199a565b611973565b611913565b6118bc565b611897565b611844565b61182b565b611810565b6117ec565b6117d1565b6117b6565b61178f565b611776565b61173f565b6116fb565b6116df565b611603565b6115bd565b6115a4565b611566565b61153f565b61132b565b611315565b6112fa565b6112df565b6112c6565b611282565b61125b565b611243565b611228565b611201565b6111da565b6111c2565b611193565b61117a565b61112d565b6110ed565b6110c6565b61109b565b610c1c565b610bf1565b610b83565b610b3f565b610ae5565b610aa4565b610a49565b6109c2565b610999565b61096e565b61091d565b6108ba565b600080fd5b6001600160e01b031981165b0361087857565b9050359061089d8261087d565b565b90602082820312610878576108b391610890565b90565b9052565b34610878576108e86108d56108d036600461089f565b612a6e565b6040515b91829182901515815260200190565b0390f35b600091031261087857565b6108b3916008021c5b60ff1690565b906108b391546108f7565b6108b360006009610906565b346108785761092d3660046108ec565b6108e8610938610911565b6040519182918260ff909116815260200190565b6108b3916008021c81565b906108b3915461094c565b6108b360006020610957565b346108785761097e3660046108ec565b6108e8610989610962565b6040519182918290815260200190565b34610878576109a93660046108ec565b6109b1612aea565b604051005b6108b360006025610957565b34610878576109d23660046108ec565b6108e86109896109b6565b60005b8381106109f05750506000910152565b81810151838201526020016109e0565b610a21610a2a602093610a3493610a15815190565b80835293849260200190565b958691016109dd565b601f01601f191690565b0190565b60208082526108b392910190610a00565b3461087857610a593660046108ec565b6108e8610a64612afb565b6040515b91829182610a38565b80610889565b9050359061089d82610a71565b90602082820312610878576108b391610a77565b6001600160a01b031690565b34610878576108e8610abf610aba366004610a84565b612b05565b604051918291826001600160a01b03909116815260200190565b6108b36000600c610906565b3461087857610af53660046108ec565b6108e8610938610ad9565b6001600160a01b038116610889565b9050359061089d82610b00565b9190604083820312610878576108b3906020610b388286610b0f565b9401610a77565b34610878576109b1610b52366004610b1c565b90612b18565b6006111561087857565b9050359061089d82610b58565b90602082820312610878576108b391610b62565b34610878576108e8610989610b99366004610b6f565b612b23565b909160c08284031261087857610bb48383610a77565b92610bc28160208501610a77565b92610bd08260408301610a77565b926108b3610be18460608501610a77565b9360a0610b388260808701610a77565b34610878576109b1610c04366004610b9e565b94939093929192612d10565b6108b360006024610957565b3461087857610c2c3660046108ec565b6108e8610989610c10565b634e487b7160e01b600052604160045260246000fd5b90601f01601f191681019081106001600160401b03821117610c6e57604052565b610c37565b9061089d610c8060405190565b9283610c4d565b6001600160401b038111610c6e5760208091020190565b90929192610cb3610cae82610c87565b610c73565b938185526020808601920283019281841161087857915b838310610cd75750505050565b60208091610ce58486610b62565b815201920191610cca565b9080601f83011215610878578160206108b393359101610c9e565b6001600160401b038111610c6e5760200290565b60ff8116610889565b9050359061089d82610d1f565b90929192610d45610cae82610d0b565b93602085920283019281841161087857915b838310610d645750505050565b60208091610d728486610d28565b815201920191610d57565b9080601f830112156108785760026108b392610d35565b90929192610da4610cae82610c87565b93818552604060208601920283019281841161087857915b838310610dc95750505050565b6020604091610dd88486610d7d565b815201920191610dbc565b9080601f83011215610878578160206108b393359101610d94565b90929192610e0e610cae82610d0b565b93602085920283019281841161087857915b838310610e2d5750505050565b60208091610e3b8486610d28565b815201920191610e20565b9080601f830112156108785760046108b392610dfe565b90929192610e6d610cae82610c87565b93818552608060208601920283019281841161087857915b838310610e925750505050565b6020608091610ea18486610e46565b815201920191610e85565b9080601f83011215610878578160206108b393359101610e5d565b6001600160401b038111610c6e57602090601f01601f19160190565b90826000939282370152565b90929192610eff610cae82610ec7565b93818552818301116108785761089d916020850190610ee3565b9080601f83011215610878578160206108b393359101610eef565b929190610f43610cae82610c87565b93818552602080860192028101918383116108785781905b838210610f69575050505050565b81356001600160401b03811161087857602091610f898784938701610f19565b815201910190610f5b565b9080601f83011215610878578160206108b393359101610f34565b906080828203126108785781356001600160401b0381116108785781610fd6918401610cf0565b9260208301356001600160401b0381116108785782610ff6918501610de3565b9260408101356001600160401b0381116108785783611016918301610eac565b9260608201356001600160401b038111610878576108b39201610f94565b9061105461104d611043845190565b8084529260200190565b9260200190565b9060005b8181106110655750505090565b90919261108261107b6001928651815260200190565b9460200190565b929101611058565b60208082526108b392910190611034565b34610878576108e86110ba6110b1366004610faf565b92919091612f6b565b6040519182918261108a565b34610878576110d63660046108ec565b6108e8610989612f79565b6108b360006028610957565b34610878576110fd3660046108ec565b6108e86109896110e1565b906020828203126108785781356001600160401b038111610878576108b39201610f19565b34610878576109b1611140366004611108565b613251565b9190916040818403126108785761115c8382610a77565b9260208201356001600160401b038111610878576108b39201610f19565b34610878576109b161118d366004611145565b9061325a565b34610878576111a33660046108ec565b6108e8610989613264565b90602082820312610878576108b391610b0f565b34610878576109b16111d53660046111ae565b6132f2565b34610878576111ea3660046108ec565b6108e8610989613311565b6108b36000602b610957565b34610878576112113660046108ec565b6108e86109896111f5565b6108b36000601f610957565b34610878576112383660046108ec565b6108e861098961121c565b34610878576109b1611256366004611108565b6133cd565b34610878576108e86108d5611271366004610a84565b61373a565b6108b36000601b610957565b34610878576112923660046108ec565b6108e8610989611276565b9091606082840312610878576108b36112b68484610b0f565b936040610b388260208701610b0f565b34610878576109b16112d936600461129d565b91613868565b34610878576108e86109896112f5366004610a84565b613879565b34610878576108e86108d56113103660046111ae565b613898565b6108e8610989611326366004610a84565b613c0b565b34610878576108e86108d5611341366004610a84565b613c16565b634e487b7160e01b600052602160045260246000fd5b6006111561136657565b611346565b9061089d8261135c565b6108b39061136b565b6108b690611375565b61139761139360049390565b9190565b6000915b8383106113a85750505050565b6113be61104d600192845160ff16815260200190565b9201919061139b565b6113d361139360029390565b6000915b8383106113e45750505050565b6113fa61104d600192845160ff16815260200190565b920191906113d7565b80518252906108b3906101c06101406114b06101e0840161142c6020880151602087019061137e565b61143e60408801516040870190611387565b611450606088015160c08701906113c7565b6114606080880151610100870152565b61147060a0880151610120870152565b61147e60c088015184870152565b60e0870151151561016086015261149c610100880151610180870152565b6101208701518582036101a0870152610a00565b940151910152565b906108b391611403565b906114d86114ce835190565b8083529160200190565b90816114ea6020830284019460200190565b926000915b8383106114fe57505050505090565b9091929394602061152161151a838560019503875289516114b8565b9760200190565b93019301919392906114ef565b60208082526108b3929101906114c2565b346108785761154f3660046108ec565b6108e861155a613eb4565b6040519182918261152e565b34610878576115763660046108ec565b6108e8610abf613ebe565b9190604083820312610878576108b390602061159d8286610a77565b9401610b0f565b34610878576109b16115b7366004611581565b90613eeb565b34610878576108e86108d56115d3366004610b1c565b9061405d565b6115e66108b36108b39290565b63ffffffff1690565b6108b3620334506115d9565b6108b36115ef565b34610878576116133660046108ec565b6108e861161e6115fb565b6040519182918263ffffffff909116815260200190565b90929192611645610cae82610c87565b938185526020808601920283019281841161087857915b8383106116695750505050565b602080916116778486610a77565b81520192019161165c565b9080601f83011215610878578160206108b393359101611635565b90916080828403126108785781356001600160401b038111610878576116c8846108b3928501611682565b9360406116d88260208701610b62565b9401610d7d565b34610878576108e86109896116f536600461169d565b916147c0565b34610878576109b161170e366004611581565b906147cd565b6108b3916008021c6001600160a01b031690565b906108b39154611714565b6108b360016031611728565b346108785761174f3660046108ec565b6108e8610abf611733565b9190604083820312610878576108b3906020610b388286610a77565b34610878576109b161178936600461175a565b90614820565b346108785761179f3660046108ec565b6108e8600080516020618834833981519152610989565b34610878576117c63660046108ec565b6108e8610abf61488b565b34610878576117e13660046108ec565b6108e8610989614895565b34610878576117fc3660046108ec565b6109b1614972565b6108b360006022610957565b34610878576118203660046108ec565b6108e8610989611804565b34610878576109b161183e36600461129d565b9161497a565b34610878576118543660046108ec565b6108e861098961498e565b801515610889565b9050359061089d8261185f565b9190604083820312610878576108b39060206118908286610a77565b9401611867565b34610878576109b16118aa366004611874565b90614a05565b6108b360006036611728565b34610878576118cc3660046108ec565b6108e8610abf6118b0565b6001600160e01b03191690565b906001600160e01b0319165b600052602052604060002090565b600061190e6108b39260396118e4565b611728565b34610878576108e8610abf61192936600461089f565b6118fe565b6108b390610a98906001600160a01b031682565b6108b39061192e565b6108b390611942565b906118f09061194b565b600061196e6108b3926038611954565b610906565b34610878576108e86108d56119893660046111ae565b61195e565b6108b36000601d610957565b34610878576119aa3660046108ec565b6108e861098961198e565b6108b360006030610957565b34610878576119d13660046108ec565b6108e86109896119b5565b6108b360006026610957565b34610878576119f83660046108ec565b6108e86109896119dc565b6108b360006016610906565b3461087857611a1f3660046108ec565b6108e86108d5611a03565b3461087857611a3a3660046108ec565b6108e8610989614a0f565b6108b360006033611728565b3461087857611a613660046108ec565b6108e8610abf611a45565b634e487b7160e01b600052603260045260246000fd5b8054821015611aa557611a9c600b91600052602060002090565b91020190600090565b611a6c565b6108b39081565b6108b39054611aaa565b6108b390610900565b6108b39054611abb565b634e487b7160e01b600052602260045260246000fd5b9060016002830492168015611b04575b6020831014611aff57565b611ace565b91607f1691611af4565b80546000939291611b2b611b2183611ae4565b8085529360200190565b9160018116908115611b7d5750600114611b4457505050565b611b579192939450600052602060002090565b916000925b818410611b695750500190565b805484840152602090930192600101611b5c565b92949550505060ff1916825215156020020190565b906108b391611b0e565b9061089d611bb692611bad60405190565b93848092611b92565b0383610c4d565b600790611bc8825490565b81101561087857611bd891611a82565b50611be281611ab1565b91611bef60018301611ac4565b91611bfc60048201611ab1565b91611c0960058301611ab1565b91611c1660068201611ab1565b91611c2360078301611ac4565b91611c3060088201611ab1565b916108b3600a611c4260098501611b9c565b9301611ab1565b908152989796956101208a0195909490939092909160208b01611c6b9161137e565b60408a015260608901526080880152151560a087015260c086015284810360e0860152611c9791610a00565b61010090930152565b34610878576108e8611cbb611cb6366004610a84565b611bbd565b95611cce99979995919594929460405190565b998a998a611c49565b6108b36000601c610957565b3461087857611cf33660046108ec565b6108e8610989611cd7565b34610878576108e8610abf611d14366004610a84565b614a19565b6108b360146036610906565b3461087857611d353660046108ec565b6108e86108d5611d19565b6108b36108b36108b39290565b906118f090611d40565b611d706108b392611d6b6000936013611954565b611d4d565b610957565b34610878576108e8610989611d8b366004610b1c565b90611d57565b90602082820312610878576108b391610d28565b6109006108b36108b39260ff1690565b906118f090611da5565b634e487b7160e01b600052600060045260246000fd5b90600010611de6576108b390611b9c565b611dbf565b6000611dfb6108b3926008611db5565b611dd5565b34610878576108e8610a64611e16366004611d91565b611deb565b34610878576109b1611e2e3660046111ae565b614a49565b3461087857611e433660046108ec565b6108e8610989614a52565b34610878576109b1611e613660046111ae565b614a83565b34610878576108e8610989611e7c3660046111ae565b614a8c565b3461087857611e913660046108ec565b6109b1614ac3565b6108b360006035611728565b3461087857611eb53660046108ec565b6108e8610abf611e99565b6108b360006031610906565b3461087857611edc3660046108ec565b6108e8610938611ec0565b34610878576109b1611efa3660046111ae565b614bc3565b3461087857611f0f3660046108ec565b6108e8600080516020618854833981519152610989565b6108b360006029610957565b3461087857611f423660046108ec565b6108e8610989611f26565b600061196e6108b3926014611d4d565b34610878576108e86108d5611f73366004610a84565b611f4d565b34610878576109b1611f8b3660046111ae565b614c19565b3461087857611fa03660046108ec565b6109b1614c88565b34610878576108e86110ba611fbe3660046111ae565b614c9f565b8054821015611aa557611a9c600191600052602060002090565b602f5481101561087857611ff56108b391602f611fc3565b90610957565b34610878576108e8610989612011366004610a84565b611fdd565b34610878576120263660046108ec565b6108e8610989614d6d565b34610878576120413660046108ec565b6108e8610989614d77565b346108785761205c3660046108ec565b6108e86108d5614d81565b6108b36000602d610957565b34610878576120833660046108ec565b6108e8610989612067565b34610878576108e86108d56120a4366004611581565b90614d8c565b34610878576120ba3660046108ec565b6108e8610a64614da7565b600061190e6108b392600f611d4d565b34610878576108e8610abf6120eb366004610a84565b6120c5565b9061010082820312610878576121068183610b62565b926121148260208501610d7d565b926121228360608301610e46565b9260e08201356001600160401b038111610878576108b39201610f19565b34610878576108e86109896121563660046120f0565b92919091615d83565b6108b360006019610957565b346108785761217b3660046108ec565b6108e861098961215f565b34610878576109b1612199366004611d91565b615dd1565b6108b360006021610957565b34610878576121ba3660046108ec565b6108e861098961219e565b6108b39060081c610900565b6108b390546121c5565b6108b390610a98565b6108b390546121db565b6121f9906015611d4d565b9061220382611ab1565b9161221060018201611ac4565b9161221d600183016121d1565b9161222a60028201611ab1565b916108b3600461223c60038501611ab1565b93016121e4565b919461228461228b9298979561227d60a09661227461089d9a61226b60c08a019e60008b0152565b15156020890152565b15156040870152565b6060850152565b6080830152565b01906001600160a01b03169052565b34610878576108e86122b56122b0366004610a84565b6121ee565b926122c596949692919260405190565b96879687612243565b61196e6108b392611d6b6000936012611954565b34610878576108e86108d56122f8366004610b1c565b906122ce565b34610878576109b1612311366004610b9e565b94939093929192615e56565b6108b36000611d40565b6108b361231d565b346108785761233f3660046108ec565b6108e8610989612327565b9190604083820312610878576108b39060206118908286610b0f565b34610878576109b161237936600461234a565b90615e64565b600d54811015610878576123976108b391600d611fc3565b90611dd5565b34610878576108e8610a646123b3366004610a84565b61237f565b60208082526108b392910190611403565b34610878576108e86123e46123df366004610a84565b615f1e565b604051918291826123b8565b8051825261089d919060a090819060208181015115159085015260408181015115159085015261242560608201516060860152565b61243460808201516080860152565b01516001600160a01b0316910152565b60c08101929161089d91906123f0565b34610878576108e861246f61246a366004610a84565b61601a565b60405191829182612444565b6108b360006034611728565b34610878576124973660046108ec565b6108e8610abf61247b565b34610878576109b16124b5366004610b9e565b949390939291926160b2565b34610878576108e86108d56124d7366004610a84565b616248565b34610878576108e8610a646124f2366004611d91565b616295565b6108b36000602a610957565b34610878576125133660046108ec565b6108e86109896124f7565b90608082820312610878576125338183610b0f565b926125418260208501610b0f565b9261254f8360408301610a77565b9260608201356001600160401b038111610878576108b39201610f19565b34610878576109b161258036600461251e565b9291909161635c565b600061190e6108b3926037611d4d565b34610878576108e8610abf6125af366004610a84565b612589565b909161012082840312610878576125cb8383610b0f565b926125d98160208501610b0f565b926125e78260408301610b0f565b926125f58360608401610a77565b926126038160808501610a77565b926126118260a08301610a77565b926108b36126228460c08501610a77565b93610100610b388260e08701610a77565b34610878576109b16126463660046125b4565b97969096959195949294616515565b34610878576126653660046108ec565b6108e8610989616526565b600a54811015610878576123976108b391600a611fc3565b34610878576108e8610a6461269e366004610a84565b612670565b6000611d706108b3926011611954565b34610878576108e86109896126c93660046111ae565b6126a3565b34610878576126de3660046108ec565b6108e86110ba616530565b6108b360006023610957565b34610878576127053660046108ec565b6108e86109896126e9565b34610878576127203660046108ec565b6108e861098961653d565b34610878576108e8610a64612741366004610a84565b6165ab565b6108b360006032611728565b34610878576127623660046108ec565b6108e8610abf612746565b34610878576109b16127803660046111ae565b616605565b6000611d706108b3926010611954565b34610878576108e86109896127ab3660046111ae565b612785565b6108b360006018610957565b34610878576127cc3660046108ec565b6108e86109896127b0565b34610878576109b16127ea366004611581565b90616629565b34610878576128003660046108ec565b6108e8610989616633565b346108785761281b3660046108ec565b6108e861098961663d565b6108b360006027610957565b34610878576128423660046108ec565b6108e8610989612826565b346108785761285d3660046108ec565b6108e8610989616647565b6108b36000602e610957565b34610878576128843660046108ec565b6108e8610989612868565b346108785761289f3660046108ec565b6108e8610abf616651565b9190604083820312610878576108b390602061159d8286610b0f565b34610878576108e86108d56128dc3660046128aa565b9061665b565b6000611dfb6108b392600b611db5565b34610878576108e8610a64612908366004611d91565b6128e2565b34610878576109b16129203660046111ae565b6166bb565b6108b36000602c610957565b34610878576129413660046108ec565b6108e8610989612925565b34610878576109b161295f3660046111ae565b616704565b34610878576109b16129773660046111ae565b616725565b6108b36000601e610957565b34610878576129983660046108ec565b6108e861098961297c565b6108b36000601a610957565b34610878576129bf3660046108ec565b6108e86109896129a3565b34610878576109b16129dd366004610a84565b61689f565b9081526040602082018190526108b392910190611034565b3461087857612a0a3660046108ec565b612a126168a8565b906108e8612a1f60405190565b928392836129e2565b34610878576109b1612a3b366004610b9e565b94939093929192616a06565b6108b360006017610957565b3461087857612a633660046108ec565b6108e8610989612a47565b6108b390616a14565b15612a7e57565b60405162461bcd60e51b815260206004820152601060248201526f14185d5cd8589b194e881c185d5cd95960821b6044820152606490fd5b0390fd5b612ad3612ace612aca6016611ac4565b1590565b612a77565b61089d61089d6001612ae560346121e4565b615e64565b61089d612aba565b6108b390611b9c565b6108b36000612af2565b6108b390612b1281616a1d565b50616a6e565b61089d913391616a85565b612b2d600061136b565b612b368261136b565b03612b4657506108b3601d611ab1565b612b50600161136b565b612b598261136b565b03612b6957506108b3601e611ab1565b612b73600261136b565b612b7c8261136b565b03612b8c57506108b3601f611ab1565b612b96600361136b565b612b9f8261136b565b03612baf57506108b36020611ab1565b612bb9600461136b565b612bc28261136b565b03612bd257506108b36021611ab1565b612be5612bdf600561136b565b9161136b565b03612bf4576108b36022611ab1565b60405162461bcd60e51b815260206004820152600c60248201526b77726f6e672072617269747960a01b6044820152606490fd5b15612c2f57565b60405162461bcd60e51b81526020600482015260126024820152713737ba1027bbb732b91037b91020b236b4b760711b6044820152606490fd5b9061089d9594939291612c7b33613898565b8015612c90575b612c8b90612c28565b612cce565b50612c8b612c9c614d81565b9050612c82565b90600019905b9181191691161790565b90612cc36108b3612cca92611d40565b8254612ca3565b9055565b92612cfb61089d969593612cf4612d0294612ced612d09986023612cb3565b6024612cb3565b6025612cb3565b6026612cb3565b6027612cb3565b6028612cb3565b9061089d9594939291612c69565b15612d2557565b60405162461bcd60e51b815260206004820152602d60248201527f66756e6374696f6e2063616c6c61626c652066726f6d2074726561737572792060448201526c636f6e7472616374206f6e6c7960981b6064820152608490fd5b906108b394939291612d9f612d98610a9860336121e4565b3314612d1e565b906108b394939291612db7612ace612aca6016611ac4565b612e75565b15612dc357565b60405162461bcd60e51b815260206004820152602660248201527f496e70757420617272617973206d7573742068617665207468652073616d65206044820152650d8cadccee8d60d31b6064820152608490fd5b90612e24610cae83610c87565b918252565b369037565b9061089d612e44612e3e84612e17565b93610c87565b601f190160208401612e29565b90612e5a825190565b811015611aa5576020809102010190565b6108b3905161136b565b508051909493919290612e8c6113936108b3865190565b1480612f54575b80612f32575b612ea290612dbc565b612eb2612ead865190565b612e2e565b94612ebd6000611d40565b612ec86108b3835190565b811015612f2b5780612f20612f13612eeb612ee6612f269587612e51565b612e6b565b612ef5848a612e51565b51612f008589612e51565b5190612f0c868b612e51565b5192615d83565b612f1d838b612e51565b52565b60010190565b612ebd565b5050505050565b50612ea2612f3e825190565b612f4c6113936108b3865190565b149050612e99565b508251612f656113936108b3845190565b14612e93565b6108b3939291906060612d80565b6108b36017611ab1565b61089d90612f9033613898565b8015612fa5575b612fa090612c28565b6131c8565b50612fa0612fb1614d81565b9050612f97565b9160001960089290920291821b911b612ca9565b921b90565b9190612fe26108b3612cca93611d40565b908354612fb8565b61089d91600091612fd1565b818110613001575050565b8061300f6000600193612fea565b01612ff6565b9190601f811161302457505050565b61303661089d93600052602060002090565b906020601f840181900483019310613059575b6020601f909101045b0190612ff6565b9091508190613049565b600019600883021c1916906002021790565b9061307e815190565b906001600160401b038211610c6e576130a18261309b8554611ae4565b85613015565b602090601f83116001146130cf57612cca9291600091836130c4575b5050613063565b0151905038806130bd565b601f198316916130e485600052602060002090565b9260005b81811061312257509160029391856001969410613109575b50505002019055565b01516000196008601f8516021c19169055388080613100565b919360206001819287870151815501950192016130e8565b9061089d91613075565b9190611de65761089d91613075565b90815491600160401b831015610c6e578261317691600161089d95018155611fc3565b90613144565b634e487b7160e01b600052601160045260246000fd5b60ff1660ff81146131a35760010190565b61317c565b9060ff90612ca9565b906131c16108b3612cca92611da5565b82546131a8565b6131e5816131e06131d96009611ac4565b6008611db5565b61313a565b6131f081600a613153565b61320c6132056132006009611ac4565b613192565b60096131b1565b7fe4d2864ec291f6f11cb3363fa1bd2a4d5ff49a2cfdf4bf7dfe3b90a26b8c776f61324c61324261323d6009611ac4565b611da5565b92610a6860405190565b0390a2565b61089d90612f83565b9061089d91616ade565b6108b3601b611ab1565b1561327557565b60405162461bcd60e51b8152602060048201526024808201527f41757468436f6e74726f6c3a2043616c6c6572206973206e6f7420746865206f6044820152633bb732b960e11b6064820152608490fd5b61089d906132da6132d5614d81565b61326e565b61089d906000805160206188548339815191526147cd565b61089d906132c6565b9190613306565b9290565b82039182116131a357565b6108b361331d60075490565b6133276001611d40565b906132fb565b61089d9061333a33613898565b801561334f575b61334a90612c28565b613362565b5061334a61335b614d81565b9050613341565b61337a816131e0613373600c611ac4565b600b611db5565b61338581600d613153565b61339c613395613200600c611ac4565b600c6131b1565b7fd961fa20561746b8576d7b504b0bc57067c67db2ce13bd9866d451bec5985f4b61324c61324261323d600c611ac4565b61089d9061332d565b906108b3916133eb612ace612aca6016611ac4565b61360e565b610a986108b36108b39290565b6108b3906133f0565b1561340d57565b60405162461bcd60e51b815260206004820152600c60248201526b7a65726f206164647265737360a01b6044820152606490fd5b1561344857565b60405162461bcd60e51b815260206004820152600d60248201526c3737ba1033b2b69037bbb732b960991b6044820152606490fd5b1561348457565b60405162461bcd60e51b815260206004820152602360248201527f47656d20636f6f6c646f776e20706572696f6420686173206e6f7420656c61706044820152621cd95960ea1b6064820152608490fd5b156134dc57565b60405162461bcd60e51b815260206004820152602860248201527f47656d206973206c697374656420666f722073616c65206f7220616c7265616460448201526779206d696e696e6760c01b6064820152608490fd5b1561353957565b60405162461bcd60e51b815260206004820152601c60248201527f726172697479206d757374206265206174206c656173742052415245000000006044820152606490fd5b1561358557565b60405162461bcd60e51b815260206004820152602160248201527f6e6f206d696e696e6720706f776572206c65667420666f7220746861742047456044820152604d60f81b6064820152608490fd5b61360a61089d946136036060949897956135f3608086019a6000870152565b6001600160a01b03166020850152565b6040830152565b0152565b507fcfdb0da0eda7e72692cc304e4e58d2543a70ce5269931e91e02337cbff2a1ef190613649613641610a9860006133fd565b331415613406565b61366d61365582614a19565b613667335b916001600160a01b031690565b14613441565b613718600661368a836007613699613691600461368a8585611a82565b5001611ab1565b42101561347d565b6136b96136b4612aca836136ad8682611a82565b5001611ac4565b6134d5565b6136df6136cb60016136ad8585611a82565b6136d8612bdf600061136b565b1415613532565b6137046136f08561368a8585611a82565b6136fd6113936000611d40565b141561357e565b61371382336013601285616b32565b611a82565b9061373261372560405190565b92839242903390856135d4565b0390a1600190565b6108b39060006133d6565b9061089d929161375b612ace612aca6016611ac4565b6137c7565b1561087857565b1561376e57565b60405162461bcd60e51b815260206004820152600d60248201526c11d95b481a5cc81b1bd8dad959609a1b6044820152606490fd5b6001600160a01b0391821681529116602082015260608101929161089d9160400152565b6138637f85d07a7616aea29f5d972fd9100b991c224490bd49b737377d908f66f34d9afd9361380d6137fc610a9860006133fd565b6001600160a01b0386161415613760565b61381f6001600160a01b0384166137fc565b61384c8185856010600f61384760076108b3613842612aca836136ad8b82611a82565b613767565b616b91565b613857818585616c21565b604051938493846137a3565b0390a1565b9061089d9291613745565b906118f0565b60016138926108b39261388a600090565b50603a613873565b01611ab1565b6108b390600080516020618854833981519152614d8c565b906108b3916138c5612ace612aca6016611ac4565b906138d7916138d2616cce565b613a60565b9061089d616d0e565b156138e757565b60405162461bcd60e51b815260206004820152601a60248201527f6e6f742047454d206f776e6572206f72206e6f742061646d696e0000000000006044820152606490fd5b919082018092116131a357565b1561394057565b60405162461bcd60e51b815260206004820152601d60248201527f6d696e696e6720706572696f6420686173206e6f7420656c61707365640000006044820152606490fd5b1561398c57565b60405162461bcd60e51b815260206004820152601260248201527147656d73206973206e6f74206d696e696e6760701b6044820152606490fd5b156139cd57565b60405162461bcd60e51b815260206004820152600e60248201526d67656d206e6f74206d696e696e6760901b6044820152606490fd5b613a106108b36108b39290565b61ffff1690565b906131c16108b3612cca92151590565b906001600160a01b0390612ca9565b90613a466108b3612cca9261194b565b8254613a27565b90815260408101929161089d9160200152565b50613a6a81614a19565b613a733361365a565b148015613bec575b613a84906138e0565b7f92f40ca7d6cff5022608e05da6b963f9ac5a227ea2da740f7d35831bb78c285d613abc613ab783611d6b336013611954565b611ab1565b91613ae6613ade6108b3600795613ad8600561368a878a611a82565b9061392c565b421015613939565b613bd0600a61368a83613afd876136ad8382611a82565b60019790613b1690613b108a5b91151590565b14613985565b613b49613b38613b3384611d6b613b2c82614a19565b6012611954565b611ac4565b613b438a1515613b0a565b146139c6565b613bb9613baf613b6a613b5a6115ef565b613b646000613a03565b80616d7b565b809a613b828289613b7b8989611a82565b5001612cb3565b611d6b601591613b9e886000613b988787611d4d565b01612cb3565b80613ba98585611d4d565b01613a17565b6004339101613a36565b613713613bc9612f206030611ab1565b6030612cb3565b90613be6613bdd60405190565b92839283613a4d565b0390a190565b50613a84613bf933613898565b613c036001613b0a565b149050613a7b565b6108b39060006138b0565b60076136ad6108b392613c27600090565b5082611a82565b906108b69061136b565b6108b39060101c610900565b6108b39060181c610900565b60206001613cbf613c8b93613c8b8484818181613c7b613c77839d613c73600490565b5090565b9790565b96613c9281600099549d8e611abb565b60ff169052565b01950194613ca381613c8b8c6121c5565b01930192613cb481613c8b8a613c38565b019384920195613c44565b50505050565b90610a3481608093613c50565b9061089d611bb692613ce360405190565b93848092613cc5565b602080613d04613d00600195613c73600290565b9390565b5492613d1381613c8b86611abb565b01613cbf81613c8b86600001956121c5565b90610a3481604093613cec565b9061089d611bb692613d4360405190565b93848092613d25565b6108b3610160610c73565b9061089d613e45600a613d68613d4c565b94613d79613d7582611ab1565b8752565b613d91613d8860018301611ac4565b60208801613c2e565b613da7613da060028301613cd2565b6040880152565b613dbd613db660038301613d32565b6060880152565b613dd3613dcc60048301611ab1565b6080880152565b613de9613de260058301611ab1565b60a0880152565b613dff613df860068301611ab1565b60c0880152565b613e17613e0e60078301611ac4565b151560e0880152565b613e2e613e2660088301611ab1565b610100880152565b613892613e3d60098301611b9c565b610120880152565b610140840152565b6108b390613d57565b90613e5f825490565b613e6881612e17565b92613e7c6020850191600052602060002090565b6000915b838310613e8d5750505050565b600b6020600192613e9d85613e4d565b815201920192019190613e80565b6108b390613e56565b6108b36007613eab565b6108b360326121e4565b9061089d91613ede613ed982613879565b616e4c565b90613ee891616e57565b50565b9061089d91613ec8565b906108b39291613f0433613898565b8015613f19575b613f1490612c28565b613fc2565b50613f14613f25614d81565b9050613f0b565b9050519061089d8261185f565b90602082820312610878576108b391613f2c565b6001600160a01b03909116815260408101929161089d9160200152565b6040513d6000823e3d90fd5b15613f7d57565b60405162461bcd60e51b815260206004820152601860248201527f6661696c656420746f207472616e7366657220746f6b656e00000000000000006044820152606490fd5b5061400891602091613fdd613fd88060336121e4565b61194b565b906000613fe960405190565b809681958294613ffd6348dbcef060e01b90565b845260048401613f4d565b03925af180156140585761402491600091614029575b50613f76565b600190565b61404b915060203d602011614051575b6140438183610c4d565b810190613f39565b3861401e565b503d614039565b613f6a565b6108b391906000613ef5565b906108b3939291614080612ace612aca6016611ac4565b6144f4565b6108b3610280610c73565b610cae6108b391610d0b565b9061089d6140b26140ac84614090565b93610d0b565b83612e29565b6108b3600461409c565b9050519061089d82610a71565b9050519061089d82610d1f565b909291926140ec610cae82610d0b565b93602085920283019281841161087857915b83831061410b5750505050565b6020809161411984866140cf565b8152019201916140fe565b9080601f830112156108785760046108b3926140dc565b9050519061089d82610b58565b610140818303126108785761415d82826140c2565b9261416b8360208401614124565b926141798160a0850161413b565b926141878260c083016140c2565b926108b36141988460e085016140c2565b936101206141aa8261010087016140c2565b94016140c2565b906141c061104d611043845190565b9060005b8181106141d15750505090565b9091926141e761107b6001928651815260200190565b9291016141c4565b6141fb61139360029390565b6000915b83831061420c5750505050565b61422261104d600192845160ff16815260200190565b920191906141ff565b8051825261089d919061026090819061424960208201516020860152565b61425860408201516040860152565b61426760608201516060860152565b61427660808201516080860152565b61428560a082015160a0860152565b61429460c082015160c0860152565b6142a360e082015160e0860152565b6142b4610100820151610100860152565b6142c5610120820151610120860152565b6142d6610140820151610140860152565b6142e7610160820151610160860152565b6142f8610180820151610180860152565b6143096101a08201516101a0860152565b61431a6101c08201516101c0860152565b61432b6101e08201516101e0860152565b61433c610200820151610200860152565b61434d610220820151610220860152565b61435e610240820151610240860152565b0151910152565b9384610100966143b66143c3936143a66143d8989b9e9d9b61439f61089d9e996143986143ce9a60006103808b019a0152565b60208d0152565b60408b0152565b6001600160a01b03166060890152565b86820360808801526141b1565b9860a085019061137e565b60c08301906141ef565b019061422b565b90612e24610cae83610ec7565b6108b360006143df565b6108b36143ec565b61440a61139360029390565b6000915b83831061441b5750505050565b61443161104d600192845160ff16815260200190565b9201919061440e565b61444661139360049390565b6000915b8383106144575750505050565b61446d61104d600192845160ff16815260200190565b9201919061444a565b979694956144c961089d976144c1610160976144b76144e49860608f61360a6144d19a9b6144ad61018084019d600085019061137e565b60208301906143fe565b60808d019061443a565b6101008b0152565b610120890152565b8681036101408801526000815260200190565b9401906001600160a01b03169052565b92919250614502601e611ab1565b61450c601f611ab1565b6101005261451a6020611ab1565b610140526145286021611ab1565b6145326022611ab1565b61453c6024611ab1565b6145466025611ab1565b6145506026611ab1565b61455a6027611ab1565b6145646028611ab1565b9061456f6018611ab1565b9261457a6019611ab1565b94614585601a611ab1565b96614590601b611ab1565b9861459b601c611ab1565b9a6145a6602a611ab1565b9c6145b1602b611ab1565b6080526145be602c611ab1565b60c0526145cb602d611ab1565b610120526145d9602e611ab1565b60e0526145e4614085565b60a0819052526101005160a051602001526101405160a0516040015260a0516060015260a0516080015260a08051015260a05160c0015260a05160e0015260a051610100015260a051610120015260a051610140015260a051610160015260a051610180015260a0516101a0015260a0516101c0015260a0516101e0015260805160a051610200015260c05160a05161022001526101205160a051610240015260e05160a05161026001526146976140b8565b506007926146a460405190565b9384916341264bff60e01b83528460a05191853360048701600f6146ca97601092614365565b038373__$c8413349dc071733da103ffe8c54b86872$__91815a9361014094f490811561405857600092839284908593869087928890614769575b600080516020618874833981519152979899506147639493929161472a91503361717c565b6147348933617213565b61474561473f6143f6565b8a616ade565b61474e89611d40565b9761475860405190565b968796339588614476565b0390a290565b50945050505061472a935060008051602061887483398151915292506147a9614763956101403d81116147b9575b6147a18183610c4d565b810190614148565b9193959950939750959095614705565b503d614797565b6108b39291906000614069565b906147d733610a98565b6001600160a01b038216036147ef57613ee891617225565b60405163334bd91960e11b8152600490fd5b6001600160a01b03909116815260408101929161089d9160209061228b565b919061484b7f000000000000000000000000000000000000000000000000000000000000000061194b565b926001600160a01b03841633036148675761089d92935061734c565b612ab68461487460405190565b63073e64fd60e21b81529182913360048401614801565b6108b360336121e4565b6108b3601c611ab1565b156148a657565b60405162461bcd60e51b815260206004820152602360248201527f41757468436f6e74726f6c3a2043616c6c6572206973206e6f7420612070617560448201526239b2b960e91b6064820152608490fd5b6149196149146000805160206188348339815191525b3390614d8c565b61489f565b61089d61492c612ace612aca6016611ac4565b61089d61493b60006016613a17565b7f5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa61496560405190565b3381528060208101613863565b61089d6148f7565b909161089d926149886143f6565b9261635c565b60009061499b6000611d40565b915b60076149aa6108b3825490565b8410156149d4576149ce91613ad8600861368a876149c795611a82565b9260010190565b9161499d565b509150565b9061089d916149ee612d98610a9860346121e4565b9060076149fe61089d9382611a82565b5001613a17565b9061089d916149d9565b6108b36021611ab1565b6108b390616a1d565b61089d90614a316132d5614d81565b61089d906000805160206188348339815191526147cd565b61089d90614a22565b6108b36018611ab1565b61089d90614a6b6132d5614d81565b61089d90600080516020618854833981519152613eeb565b61089d90614a5c565b613ab76108b391614a9b600090565b506010611954565b614aae6132d5614d81565b61089d61089d614abc61231d565b33906147cd565b61089d614aa3565b61089d90614ada6132d5614d81565b614b70565b15614ae657565b60405162461bcd60e51b815260206004820152601860248201527f41636365737369626c653a207a65726f206164647265737300000000000000006044820152606490fd5b15614b3257565b60405162461bcd60e51b815260206004820152601660248201527520b1b1b2b9b9b4b136329d1039b0b6b29030b236b4b760511b6044820152606490fd5b61089d90614b95614b84610a9860006133fd565b6001600160a01b0383161415614adf565b614baa6001600160a01b038216331415614b2b565b614abc6000805160206188548339815191529182613eeb565b61089d90614acb565b61089d90614bd933613898565b8015614bee575b614be990612c28565b614c01565b50614be9614bfa614d81565b9050614be0565b61089d90600080516020618834833981519152613eeb565b61089d90614bcc565b614c3c61491460008051602061883483398151915261490d565b61089d614c4f612ace612aca6016611ac4565b61089d614c5e60016016613a17565b7f62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a25861496560405190565b61089d614c22565b60001981146131a35760010190565b614ca881614a8c565b600090614cb482611d40565b8103614cc957506108b39150612ead90611d40565b614cd290612e2e565b91614cdb613311565b90614ce583611d40565b925060019182614cf56001611d40565b905b614d04575b505050505090565b818111614d6857614d1e614d1982600f611d4d565b6121e4565b614d306001600160a01b03851661365a565b14614d45575b614d3f90614c90565b83614cf7565b93614d6081614d5b87612f1d614d3f958b612e51565b614c90565b949050614d36565b614cfc565b6108b3601e611ab1565b6108b3601a611ab1565b6108b361490d61231d565b6108b3916000614da1613b339361388a600090565b01611954565b6108b36001612af2565b906108b394939291614dc9612d98610a9860336121e4565b906108b394939291614de1612ace612aca6016611ac4565b615255565b906004811015611aa5576020020190565b614e069060ff165b9160ff1690565b019060ff82116131a357565b6109006108b36108b39290565b15614e2657565b60405162461bcd60e51b815260206004820152602960248201527f416c6c207175616472616e7473206d757374206265203620666f72204d59544860448201526849432072617269747960b81b6064820152608490fd5b15614e8457565b60405162461bcd60e51b815260206004820152603160248201527f416c6c207175616472616e7473206d7573742062652035206f72203620666f72604482015270204c4547454e444152592072617269747960781b6064820152608490fd5b15614eea57565b60405162461bcd60e51b815260206004820152601c60248201527f36363636206973204d5954484943206e6f74204c4547454e44415259000000006044820152606490fd5b15614f3657565b60405162461bcd60e51b815260206004820152602c60248201527f416c6c207175616472616e7473206d7573742062652034206f72203520666f7260448201526b20455049432072617269747960a01b6064820152608490fd5b15614f9757565b60405162461bcd60e51b815260206004820152601a60248201527f35353535206973204c4547454e44415259206e6f7420455049430000000000006044820152606490fd5b15614fe357565b60405162461bcd60e51b815260206004820152602e60248201527f416c6c207175616472616e7473206d7573742062652033206f72203420666f7260448201526d20554e495155452072617269747960901b6064820152608490fd5b1561504657565b60405162461bcd60e51b815260206004820152601760248201527f343434342069732045504943206e6f7420554e495155450000000000000000006044820152606490fd5b1561509257565b60405162461bcd60e51b815260206004820152602c60248201527f416c6c207175616472616e7473206d7573742062652032206f72203320666f7260448201526b20524152452072617269747960a01b6064820152608490fd5b156150f357565b60405162461bcd60e51b815260206004820152601760248201527f3333333320697320554e49515545206e6f7420524152450000000000000000006044820152606490fd5b1561513f57565b60405162461bcd60e51b815260206004820152602e60248201527f416c6c207175616472616e7473206d7573742062652031206f72203220666f7260448201526d20434f4d4d4f4e2072617269747960901b6064820152608490fd5b156151a257565b60405162461bcd60e51b815260206004820152601760248201527f323232322069732052415245206e6f7420434f4d4d4f4e0000000000000000006044820152606490fd5b98979561523f610160966152376144e49760808e615230615247989a61089d9f9a6152299061521f61018086019e600087019061137e565b60208501906143fe565b6060830152565b019061443a565b6101008c0152565b6101208a0152565b878203610140890152610a00565b5060009161527561526e61526885611d40565b86614de6565b5160ff1690565b9261529760019461529161526e61528b88611d40565b89614de6565b90614df7565b6152b260029161529161526e6152ac85611d40565b8a614de6565b906152ce60039261529161526e6152c886611d40565b8b614de6565b956152d88461136b565b6152e18761136b565b036154f957926000805160206188748339815191529692615345926153589561531561526e61530f86611d40565b8d614de6565b615321614dff83614e12565b149384156154d3575b5083615486575b83615439575b836153da575b505050615138565b615352614dff6008614e12565b1061519b565b6147636153656029611ab1565b926153706023611ab1565b9661537b601d611ab1565b946153a78261538a6017611ab1565b60078c8a8d8b8a61539b8a4261392c565b956010600f3392617945565b986153b28a33617213565b6153bc838b616ade565b6153c58a611d40565b986153cf60405190565b9788973396896151e7565b90919250615400614dff6153fa61526e8d6153f488611d40565b90614de6565b92614e12565b14918215615413575b505038808061533d565b6154319192506153fa61526e61542b614dff93611d40565b8c614de6565b143880615409565b925061544a61526e61542b83611d40565b615456614dff85614e12565b148015615464575b92615337565b5061547461526e61542b83611d40565b615480614dff83614e12565b1461545e565b925061549761526e61542b85611d40565b6154a3614dff85614e12565b1480156154b1575b92615331565b506154c161526e61542b85611d40565b6154cd614dff83614e12565b146154ab565b6154e591945061542b61526e91611d40565b6154f1614dff83614e12565b14923861532a565b6155028161136b565b61550b8761136b565b036156c0579260008051602061887483398151915296926155699261557c9561553961526e61530f86611d40565b615545614dff84614e12565b1493841561569a575b5083615647575b50826155fa575b826155b3575b505061508b565b615576614dff600c614e12565b106150ec565b614763615589602a611ab1565b926155946024611ab1565b9661559f601e611ab1565b946153a7826155ae6018611ab1565b61538a565b9091506155cb614dff6153fa61526e61530f86611d40565b149081156155dc575b503880615562565b90506155f3614dff6153fa61526e61542b85611d40565b14386155d4565b915061560b61526e6152c884611d40565b615617614dff84614e12565b148015615625575b9161555c565b5061563561526e6152c884611d40565b615641614dff83614e12565b1461561f565b90925061565961526e61542b83611d40565b615665614dff85614e12565b14908115615676575b509138615555565b61568791506152c861526e91611d40565b615693614dff83614e12565b143861566e565b6156ac91945061542b61526e91611d40565b6156b8614dff84614e12565b14923861554e565b6156c98261136b565b6156d28761136b565b0361589657926000805160206188748339815191529692615730926157439561570061526e61530f86611d40565b61570c614dff85614e12565b1493841561586f575b508361581b575b50826157c7575b5081615775575b50614fdc565b61573d614dff6010614e12565b1061503f565b614763615750602b611ab1565b9261575b6025611ab1565b96615766601f611ab1565b946153a7826155ae6019611ab1565b905061578661526e6152ac83611d40565b615792614dff83614e12565b149081156157a2575b503861572a565b6157b3915061528b61526e91611d40565b6157c0614dff6004614e12565b143861579b565b9091506157d961526e6152c883611d40565b6157e5614dff84614e12565b149081156157f6575b509038615723565b61580791506152ac61526e91611d40565b615814614dff6004614e12565b14386157ee565b90925061582d61526e61542b83611d40565b615839614dff84614e12565b1490811561584a575b50913861571c565b61585b91506152c861526e91611d40565b615868614dff6004614e12565b1438615842565b61588191945061542b61526e91611d40565b61588e614dff6004614e12565b149238615715565b906158a08361136b565b6158a98761136b565b03615a6e5792600080516020618874833981519152969261590c9261591f956158d761526e61530f86611d40565b916004926158e7614dff85614e12565b14948515615a47575b50846159f3575b508361599f575b5082615951575b5050614f2f565b615919614dff6014614e12565b10614f90565b61476361592c602c611ab1565b926159376026611ab1565b966159426020611ab1565b946153a7826155ae601a611ab1565b909150615969614dff6153fa61526e61530f86611d40565b1490811561597a575b503880615905565b61598b915061528b61526e91611d40565b615998614dff6005614e12565b1438615972565b9092506159b161526e61542b83611d40565b6159bd614dff85614e12565b149081156159ce575b5091386158fe565b6159df91506152c861526e91611d40565b6159ec614dff6005614e12565b14386159c6565b909350615a0561526e61530f83611d40565b615a11614dff84614e12565b14908115615a22575b5092386158f7565b615a33915061542b61526e91611d40565b615a40614dff6005614e12565b1438615a1a565b615a5991955061530f61526e91611d40565b615a66614dff6005614e12565b1493386158f0565b615a78600461136b565b615a818761136b565b03615c4657926000805160206188748339815191529692615ae492615af795615aaf61526e61530f86611d40565b91600592615abf614dff85614e12565b14948515615c1f575b5084615bcb575b5083615b77575b5082615b29575b5050614e7d565b615af1614dff6018614e12565b10614ee3565b614763615b04602d611ab1565b92615b0f6027611ab1565b96615b1a6021611ab1565b946153a7826155ae601b611ab1565b909150615b41614dff6153fa61526e61530f86611d40565b14908115615b52575b503880615add565b615b63915061528b61526e91611d40565b615b70614dff6006614e12565b1438615b4a565b909250615b8961526e61542b83611d40565b615b95614dff85614e12565b14908115615ba6575b509138615ad6565b615bb791506152c861526e91611d40565b615bc4614dff6006614e12565b1438615b9e565b909350615bdd61526e61530f83611d40565b615be9614dff84614e12565b14908115615bfa575b509238615acf565b615c0b915061542b61526e91611d40565b615c18614dff6006614e12565b1438615bf2565b615c3191955061530f61526e91611d40565b615c3e614dff6006614e12565b149338615ac8565b90919550615c54600561136b565b615c5d8661136b565b03615d4f5760008051602061887483398151915295615c8461526e6152ac615cb196611d40565b91600692615c94614dff85614e12565b149384615d29575b5083615d03575b5082615ce3575b5050614e1f565b614763615cbe602e611ab1565b92615cc96028611ab1565b96615cd46022611ab1565b946153a7826155ae601c611ab1565b615cfb9192506153fa61526e6152ac614dff93611d40565b143880615caa565b615d1591935061528b61526e91611d40565b615d21614dff83614e12565b149138615ca3565b615d3b9194506152ac61526e91611d40565b615d47614dff84614e12565b149238615c9c565b60405162461bcd60e51b815260206004820152600c60248201526b77726f6e672052617269747960a01b6044820152606490fd5b6108b3939291906000614db1565b61089d90615d9e33613898565b8015615db3575b615dae90612c28565b615dc6565b50615dae615dbf614d81565b9050615da5565b61089d9060316131b1565b61089d90615d91565b9061089d9594939291615dec33613898565b8015615e01575b615dfc90612c28565b615e14565b50615dfc615e0d614d81565b9050615df3565b92615e4161089d969593615e3a615e4894615e33615e4f986017612cb3565b6018612cb3565b6019612cb3565b601a612cb3565b601b612cb3565b601c612cb3565b9061089d9594939291615dda565b61089d919033617a28565b6108b3600261409c565b615e81613d4c565b90600082526020808080808080808080808c016000815201615ea16140b8565b815201615eac615e6f565b8152016000815201600081520160008152016000815201600081520160605b8152016000905250565b6108b3615e79565b15615ee457565b60405162461bcd60e51b815260206004820152601260248201527111d95b48191bd95cc81b9bdd08195e1a5cdd60721b6044820152606490fd5b615f4b6108b391615f2d615ed5565b50615f44615f3d6108b360075490565b8210615edd565b6007611a82565b50613e4d565b6108b360c0610c73565b615f63615f51565b90600082526020808080808087016000815201600081520160008152016000615ecb565b6108b3615f5b565b9061089d6160016004615fa0615f51565b94615fad613d7582611ab1565b615fc5615fbc60018301611ac4565b15156020880152565b615fdd615fd4600183016121d1565b15156040880152565b615fec613db660028301611ab1565b615ffb613dcc60038301611ab1565b016121e4565b6001600160a01b031660a0840152565b6108b390615f8f565b6160316108b391616029615f87565b506015611d4d565b616011565b9061089d959493929161604833613898565b801561605d575b61605890612c28565b616070565b50616058616069614d81565b905061604f565b9261609d61089d9695936160966160a49461608f6160ab986029612cb3565b602a612cb3565b602b612cb3565b602c612cb3565b602d612cb3565b602e612cb3565b9061089d9594939291616036565b906108b3916160d5612ace612aca6016611ac4565b6161ae565b156160e157565b60405162461bcd60e51b815260206004820152600d60248201526c3737ba1023a2a69037bbb732b960991b6044820152606490fd5b1561611d57565b60405162461bcd60e51b815260206004820152601b60248201527f75736572206973206e6f74206d696e696e6720746869732047656d00000000006044820152606490fd5b1561616957565b60405162461bcd60e51b815260206004820152601b60248201527f616c72656164792063616c6c6564207069636b4d696e656447454d00000000006044820152606490fd5b50614024906161d36161c4614d1983600f611d4d565b6161cd3361365a565b146160da565b61623d60076161f36161e9826136ad8682611a82565b613b106001613b0a565b616218616208613b3385611d6b336012611954565b6162126001613b0a565b14616116565b6108b361622a600a61368a8685611a82565b6162376113936000611d40565b14616162565b601360123392617ac2565b6108b39060006160c0565b1561625a57565b60405162461bcd60e51b8152602060048201526013602482015272496e646578206f7574206f6620626f756e647360681b6044820152606490fd5b6162bf6108b3916162a4606090565b506131d96162b56109006009611ac4565b60ff831610616253565b612af2565b9061089d9392916162db612ace612aca6016611ac4565b9291906162e9823386617aee565b6162f23061194b565b93843b1561087857600061630560405190565b9586906323b872dd60e01b8252818381616324898989600485016137a3565b03925af19485156140585761089d9561633e575b50617bbc565b61635690600061634e8183610c4d565b8101906108ec565b38616338565b9061089d9392916162c4565b9061089d989796959493929161637f6132d5614d81565b61645c565b6108b39060081c610a98565b6108b39054616384565b156163a157565b60405162461bcd60e51b815260206004820152601e60248201527f746974616e7773746f6e20616c726561647920696e697469616c697a656400006044820152606490fd5b156163ed57565b60405162461bcd60e51b815260206004820152601760248201527f746f6e20616c726561647920696e697469616c697a65640000000000000000006044820152606490fd5b90610100600160a81b039060081b612ca9565b906164556108b3612cca9261194b565b8254616432565b616507946164f261650e98956164eb616500966164e461089d9e9d9b976164dd6164f9986164d661648d6031616390565b6164b361649a60006133fd565b916164ad6001600160a01b03841661365a565b1461639a565b6164d061365a6164c360326121e4565b926001600160a01b031690565b146163e6565b6031616445565b6032613a36565b6033613a36565b601d612cb3565b601e612cb3565b601f612cb3565b6020612cb3565b6021612cb3565b6022612cb3565b9061089d9897969594939291616368565b6108b36022611ab1565b6108b3611fbe60336121e4565b6108b36019611ab1565b1561654e57565b60405162461bcd60e51b815260206004820152602f60248201527f4552433732314d657461646174613a2055524920717565727920666f72206e6f60448201526e3732bc34b9ba32b73a103a37b5b2b760891b6064820152608490fd5b6108b3906165c06165bb82617cb8565b616547565b617d45565b61089d906165d233613898565b80156165e7575b6165e290612c28565b6165fa565b506165e26165f3614d81565b90506165d9565b61089d906034613a36565b61089d906165c5565b9061089d9161661f613ed982613879565b90613ee891617225565b9061089d9161660e565b6108b3601d611ab1565b6108b3601f611ab1565b6108b36020611ab1565b6108b36031616390565b6108b391616676613b339261666e600090565b506005611954565b611954565b61089d9061668833613898565b801561669d575b61669890612c28565b6166b0565b506166986166a9614d81565b905061668f565b61089d906036613a36565b61089d9061667b565b61089d906166d133613898565b80156166e6575b6166e190612c28565b6166f9565b506166e16166f2614d81565b90506166d8565b61089d906033613a36565b61089d906166c4565b61089d9061671c6132d5614d81565b61089d90614bc3565b61089d9061670d565b61089d90616742612ace612aca6016611ac4565b61679a565b1561674e57565b60405162461bcd60e51b815260206004820152600f60248201526e1d1c985b9cd9995c8819985a5b1959608a1b6044820152606490fd5b90815260408101929161089d9160209061228b565b6000906167ac613641610a98846133fd565b6167cc6167bd614d1983600f611d4d565b6167c63361365a565b14613760565b60206168306167e1600861368a856007611a82565b6167f184336010600f6007617da8565b6167fa84617dc7565b61680a613fd8613fd860336121e4565b9061681460405190565b9586938492839190630169dc3160e01b83523360048401613f4d565b03925af190811561405857616872613863927f65aff8e0552d208dfaf55b1280e55553b7dba628290897ff43c8f086d5dbfd2a94600091616880575b50616747565b604051918291339083616785565b616899915060203d602011614051576140438183610c4d565b3861686c565b61089d9061672e565b6000906168b482611d40565b916007926168c3612ead855490565b938194825b6168d36108b3845490565b81101561695e576168e8614d1982600f611d4d565b6168f861365a610a9860336121e4565b1480616947575b616911575b6001016168c8565b6168c8565b929561693f61693861690c92612f2061692e8961368a8a8a611a82565b612f1d8388612e51565b9760010190565b939050616904565b50616959612aca846136ad8482611a82565b6168ff565b50929450509161697661697084612e2e565b94611d40565b838110156169a55780612f206169966169926169a09487612e51565b5190565b612f1d8389612e51565b616976565b509190509190565b9061089d95949392916169bf33613898565b80156169d4575b6169cf90612c28565b6169e7565b506169cf6169e0614d81565b90506169c6565b9261650061089d9695936164f9616507946164f261650e98601d612cb3565b9061089d95949392916169ad565b6108b390617dea565b616a2681617e13565b90616a34610a9860006133fd565b6001600160a01b03831614616a47575090565b612ab690616a5460405190565b637e27328960e01b81529182916004830190815260200190565b614d196108b391616a7d600090565b506004611d4d565b9160019161089d93617e2a565b15616a9957565b60405162461bcd60e51b815260206004820152601c60248201527f6e6f7420616c6c6f77656420746f2073657420746f6b656e20555249000000006044820152606490fd5b9061089d91616aef610a9882614a19565b33148015616b06575b616b0190616a92565b617f66565b50616b01616b1333613898565b616b1d6001613b0a565b149050616af8565b80156131a3576000190190565b616b67616b6086611d6b87616b78976166766001616b5b86611d6b61089d9f9c9e60069f611954565b613a17565b4290612cb3565b613713600160076149fe8585611a82565b5001616b8b616b8682611ab1565b616b25565b90612cb3565b93616be961089d9661667693616bd0616bee986004613b7b85616bca616bc4616bbf60016136ad8589611a82565b617f9a565b4261392c565b93611a82565b611d6b616bdd8588611954565b616b8b614d5b82611ab1565b613a36565b616b8b616b8682611ab1565b6001600160a01b03909116815260608101939261089d92909160409161228b906020830152565b90616c2c60006133fd565b6001600160a01b0381166001600160a01b03831614616c935750616c52908333916180a7565b6001600160a01b0382166001600160a01b03821603616c7057505050565b612ab690616c7d60405190565b6364283d7b60e01b815293849360048501616bfa565b612ab690616ca060405190565b633250574960e11b8152918291600483016001600160a01b03909116815260200190565b6108b36002611d40565b616cd8603b611ab1565b616ce0616cc4565b908114616cf25761089d90603b612cb3565b604051633ee5aeb560e01b8152600490fd5b6108b36001611d40565b61089d616d19616d04565b603b612cb3565b6108b36060610c73565b90602082820312610878576108b3916140c2565b805161ffff16825261089d9190604090819060208181015161ffff1690850152015163ffffffff16910152565b60608101929161089d9190616d3e565b616e0b92616e00602093616d8d600090565b50616df0616dba7f000000000000000000000000000000000000000000000000000000000000000061194b565b93616de363122c162a93616dd9616dcf616d20565b61ffff9099168952565b61ffff1687890152565b63ffffffff166040860152565b6040519586948593849360e01b90565b835260048301616d6b565b039134905af190811561405857600091616e23575090565b6108b3915060203d602011616e45575b616e3d8183610c4d565b810190616d2a565b503d616e33565b61089d9033906181e1565b616e64612aca8383614d8c565b15616ecd57616e7f6001616b5b846000614da186603a613873565b616e99616e93616e8d339390565b9361194b565b9161194b565b917f2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d616ec460405190565b600090a4600190565b5050600090565b61089d9060015b810190612ff6565b90600003611de65761089d90616ed4565b61089d906001616edb565b90600003611de65761089d90616ef4565b90616f2390600019906020036008021c90565b8154169055565b90600091616f48616f4082600052602060002090565b928354613063565b905555565b9192906020821015616fa557601f8411600114616f6f57612cca929350613063565b5090616fa061089d936001616f97616f8c85600052602060002090565b92601f602091010490565b82019101612ff6565b616f2a565b50616fde8293616fbc600194600052602060002090565b6130526020601f860104820192601f861680616fe6575b50601f602091010490565b600202179055565b616ff290888603616f10565b38616fd3565b929091600160401b8211610c6e576020111561703f57602081101561702057612cca91613063565b60019160ff191661703684600052602060002090565b55600202019055565b60019150600202019055565b90815461705781611ae4565b9081831161707f575b81831061706d5750505050565b61707693616f4d565b38808080613cbf565b61708b83838387616ff8565b617060565b600061089d9161704b565b90600003611de65761089d90617090565b6000600a61089d926170c083808301612fea565b8260018201556170d38360028301616ee3565b6170e08360038301616eff565b6170ed8360048301612fea565b6170fa8360058301612fea565b6171078360068301612fea565b82600782015561711a8360088301612fea565b617127836009830161709b565b01612fea565b90600003611de65761089d906170ac565b916001600160a01b0360089290920291821b911b612ca9565b91906171686108b3612cca9361194b565b90835461713e565b61089d91600091617157565b91909160009061718c6000611d40565b6171976108b3865190565b81101561720c57617207906171c36171bd60076171b7616992858b612e51565b90611a82565b9061712d565b6171d1616bee846010611954565b6171f2846171ed600f6171e7616992868c612e51565b90611d4d565b617170565b612f206172026169928389612e51565b617dc7565b61718c565b5050509050565b61089d9161721f6143f6565b91618219565b61722f8282614d8c565b15616ecd576172496000616b5b8482614da186603a613873565b617257616e93616e8d339390565b917ff6391f5c32d9c69d2a47ea670b442974b53935d1edc7fd64eb21e047a839171b616ec460405190565b1561728957565b60405162461bcd60e51b815260206004820152601060248201526f52657175657374206e6f74206d61646560801b6044820152606490fd5b9061ff009060081b612ca9565b906172de6108b3612cca92151590565b82546172c1565b6108b390613cd2565b634e487b7160e01b600052601260045260246000fd5b811561730e570690565b6172ee565b91906008612ca9910291612fcc60ff841b90565b91906173386108b3612cca93151590565b908354617313565b61089d91600091617327565b9060159161736d61736860016173628487611d4d565b01611ac4565b617282565b61738360018061737d8487611d4d565b016172ce565b617393826002613b988487611d4d565b6173a260006138928386611d4d565b9060076173c960026173c26173bc6000613892878b611d4d565b84611a82565b50016172e5565b9361741d6000956173e561526e6173df89611d40565b83614de6565b906173f661526e6173df6001611d40565b61741761526e61740c61526e6152686002611d40565b936153f46003611d40565b92618259565b917fdd6ebb40766c50572c78f680f70ff043535bc04e71ac56a352f7c3df1e11ec5161744860405190565b806174548686836129e2565b0390a161746087611d40565b8211156175a857926004613b7b87616bca616bc4616bbf60016136ad8e9f9b6175689f61389260209f8f819f6174e29f8f90613b7b8e6174c46174b8616992611d6b976174b2600a976174dc9f617304565b90612e51565b6003613b988a8a611d4d565b6174d389856149fe8482611a82565b616bca89611d40565b89611a82565b6174fb866174f686611d6b613b2c82614a19565b617340565b61751b8661751686611d6b61750f82614a19565b6013611954565b612fea565b6175496003613892617533613fd8613fd860336121e4565b936175436004615ffb8389611d4d565b95611d4d565b918661755460405190565b809781958294613ffd6348dbcef060e01b90565b03925af1928315614058577f97b363697f59781efcf0539a3eeabceea1e3b444e248009d3730fa6a26db9c24936138639361687292916140295750613f76565b505050507f87c3badc36a4b7c7f2331493a7998c2f9c414769a1bc588ef4b4c7ef302aeb51936003613b98610989936175e361386397611d40565b93611d4d565b906131c16108b3612cca92611375565b91909182821061760857505050565b61089d926020601f909101049060016020617627601f86018290049390565b9283019406026000811161763e575b500190612ff6565b61764b9060018503616f10565b38617636565b90600160401b8111610c6e5761089d9160045b906175f9565b9060049061330261767f916108b38486617651565b602082049160005b8381106176ec5750602083029003600081116176a35750505050565b9260009360005b8181106176bf57505050015538808080613cbf565b90919460206176e26001926176d86108b38a5160ff1690565b9085850290617313565b96019291016176aa565b6000805b60208110617705575083820155600101617687565b9590602061772760019261771d6108b3865160ff1690565b908a850290617313565b920196016176f0565b9061089d9161766a565b90600160401b8111610c6e5761089d916002617664565b90600290613302617766916108b3848661773a565b602082049160005b8381106177c957506020830290036000811161778a5750505050565b9260009360005b8181106177a657505050015538808080613cbf565b90919460206177bf6001926176d86108b38a5160ff1690565b9601929101617791565b6000805b602081106177e257508382015560010161776e565b959060206177fa60019261771d6108b3865160ff1690565b920196016177cd565b9061089d91617751565b600a61790661014061089d9461782d617827600083015190565b86612cb3565b61784561783c60208301612e6b565b600187016175e9565b61785c617853604083015190565b60028701617730565b61787361786a606083015190565b60038701617803565b61788a617881608083015190565b60048701612cb3565b6178a161789860a083015190565b60058701612cb3565b6178b86178af60c083015190565b60068701612cb3565b6178d16178c860e0830151151590565b60078701613a17565b6178e96178e061010083015190565b60088701612cb3565b6179016178f861012083015190565b6009870161313a565b015190565b9101612cb3565b9190611de65761089d9161780d565b90815491600160401b831015610c6e578261793f91600161089d95018155611a82565b9061790d565b9593949a92989789989a9197929a61795b600090565b5060009c8d96617969613d4c565b9861797389611d40565b988a018990526179869060208b01613c2e565b60408901526060880152608087015260a086015260c085015289151560e08501526101008401526101208301526101408201526179c3908261791c565b80546179cf6001611d40565b6179d8916132fb565b80966179e5828094611a82565b5001906179f191612cb3565b6179fa91611d4d565b90617a0491613a36565b617a0d91611954565b617a1681611ab1565b617a1f90614c90565b6108b391612cb3565b617a35610a9860006133fd565b6001600160a01b03831614617a9157617a8c617a82616e8d83613fd887616b5b886166767f17307eab39ab6107e8899845ad3d59bd9653f200f220920489ca2b5937696c31996005611954565b936108d960405190565b0390a3565b612ab682617a9e60405190565b630b61174360e31b8152918291600483016001600160a01b03909116815260200190565b9361089d94613713600061751684611d6b89600799616676866174f686829f611d6b906149fe9f611954565b617afc612aca8484846183d9565b617b0557505050565b617b1561365a610a9860006133fd565b03617b2757612ab682616a5460405190565b612ab6617b3360405190565b63177e802f60e01b815292839260048401613f4d565b9050519061089d8261087d565b90602082820312610878576108b391617b49565b6001600160a01b0390911681526108b39360808201939092617b909190613603906135f3565b6060818403910152610a00565b3d15617bb757617bac3d6143df565b903d6000602084013e565b606090565b909291833b617bce6113936000611d40565b11617bd95750505050565b602091617be8613fd88661194b565b90600033617c12617bf860405190565b97889687958694630a85bd0160e11b865260048601617b6a565b03925af160009181617c87575b50617c5e5750617c2d617b9d565b90617c36825190565b617c436113936000611d40565b03617c5557612ab690616ca060405190565b50805190602001fd5b617c78630a85bd0160e11b5b916001600160e01b03191690565b03616c93575038808080613cbf565b617caa91925060203d602011617cb1575b617ca28183610c4d565b810190617b56565b9038617c1f565b503d617c98565b614d19617ccf91617cc7600090565b50600f611d4d565b617cdf61365a610a9860006133fd565b141590565b610a34617cfc92602092617cf6815190565b94859290565b938491016109dd565b617d13906108b39392617ce4565b90617ce4565b617d39929161089d91617d2b60405190565b948592602084019283617d05565b90810382520383610c4d565b617d4e81616a1d565b50617d5d6162bf826006611d4d565b617d65618461565b8051617d746113936000611d40565b14617da2578151617d886113936000611d40565b11617d985750506108b390618469565b6108b39250617d19565b50905090565b90611d6b616bee6000956171ed956166766171bd8a61089d9b98611a82565b617dd160006133fd565b617de261365a6164c38385816180a7565b14616a475750565b637965db0b60e01b6001600160e01b0319821614908115617e09575090565b6108b391506184cc565b614d196108b391617e22600090565b506002611d4d565b92919091808115617f47575b617e4c575b505090616be961089d926004611d4d565b617e5583616a1d565b91617e63610a9860006133fd565b6001600160a01b038216141580617f2b575b80617f18575b617ee7575091616be99161089d9493617e97575b509192617e3b565b617ea09061194b565b617ea98461194b565b617eb283611d40565b917f8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925617edd60405190565b600090a438617e8f565b612ab690617ef460405190565b63a9fbf51f60e01b8152918291600483016001600160a01b03909116815260200190565b50617f26612aca828561665b565b617e7b565b506001600160a01b0381166001600160a01b0384161415617e75565b50617f55610a9860006133fd565b6001600160a01b0383161415617e36565b613863906109897ff8e1a15aba9398e019f0b49df1a4fde98ee17ae345cb5f6b5e2c27f5033e8ce7936131e0836006611d4d565b617fa4600061136b565b617fad8261136b565b1461809a57617fbc600161136b565b617fc58261136b565b1461808d57617fd4600261136b565b617fdd8261136b565b1461808057617fec600361136b565b617ff58261136b565b1461807357618004600461136b565b61800d8261136b565b146180665761801f612bdf600561136b565b1461805a5760405162461bcd60e51b815260206004820152600e60248201526d496e76616c69642072617269747960901b6044820152606490fd5b6108b36207e900611d40565b506108b362069780611d40565b506108b362054600611d40565b506108b36203f480611d40565b506108b36202a300611d40565b506108b362015180611d40565b906181056180b482617e13565b9360006180c0816133fd565b91846001600160a01b0384166001600160a01b038316036181d0575b50506001600160a01b0382166001600160a01b03871603618195575b506001600160a01b031690565b6001600160a01b0383160361816b575b61812482616be9836002611d4d565b618139618133616e8d8561194b565b91611d40565b917fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef61816460405190565b600090a490565b6181906181786001611d40565b616b8b618186856003611954565b91610a3483611ab1565b618115565b6181a190828581617e2a565b6181ca6181ae6001611d40565b616b8b6181bc886003611954565b916181c683611ab1565b0390565b386180f8565b6181da9188617aee565b38846180dc565b906181ef612aca8284614d8c565b6181f7575050565b612ab661820360405190565b63e2517d3f60e01b815292839260048401613f4d565b9061089d929161822982826184f8565b61823360006133fd565b617bbc565b9091906004831015611aa557602061824f60019290565b8185040193060290565b909392909160009261828f61826d85611d40565b9361828a60079461828a618282612ead885490565b9a8896614df7565b614df7565b95835b61829d6108b3855490565b8110156183a5576183126182de6182ca6182c48960026182bd878b611a82565b5001618238565b90610906565b6152916182c4600160026182bd888c611a82565b6152916182c4600361830760026182f5888c611a82565b5001946152916182c460028098618238565b936182bd878b611a82565b61831e60ff8a16614dff565b1080618380575b80618369575b61833d575b600101618292565b618292565b939161836161835a61833892612f2061692e8a61368a8b8b611a82565b9360010190565b949050618330565b5061837b612aca856136ad8482611a82565b61832b565b5061838f614d1982600f611d4d565b61839f61365a610a9860336121e4565b14618325565b509395505050916183b861697084612e2e565b838110156169a55780612f206169966169926183d49487612e51565b6183b8565b906183e7610a9860006133fd565b6001600160a01b03821614159283618400575b50505090565b919250906001600160a01b0382166001600160a01b0384161492831561844d575b508215618433575b50503880806183fa565b6184459192506164c361365a91616a6e565b143880618429565b61845a919350829061665b565b9138618421565b6108b36143f6565b61847281616a1d565b5061847b618461565b805161848a6113936000611d40565b11156184a25761849c6108b3926185a0565b90617d19565b50506108b36143f6565b6118d76184b96108b39290565b60e01b90565b6108b363490649066184ac565b6184d76118d76184bf565b6001600160e01b03198216149081156184ee575090565b6108b39150618632565b9061850360006133fd565b916001600160a01b0383166001600160a01b03821614618573576185289183916180a7565b61853a6001600160a01b03831661365a565b036185425750565b612ab69061854f60405190565b6339e3563760e11b8152918291600483016001600160a01b03909116815260200190565b612ab683616ca060405190565b9061089d612e44618590846143df565b93610ec7565b811561730e570490565b6185a98161867d565b906185ba600192610a346001611d40565b91806185c584618580565b936020018401905b6185d75750505090565b811561862d576186119060001901926f181899199a1a9b1b9c1cb0b131b232b360811b600a82061a845361860b600a611d40565b90618596565b90816186206113936000611d40565b1461862d579091816185cd565b6183fa565b6380ac58cd60e01b6001600160e01b0319821614908115618662575b8115618658575090565b6108b3915061881f565b6001600160e01b03198116635b5e139f60e01b14915061864e565b6186876000611d40565b907a184f03e93ff9f4daa797ed6e38ed64bf6a1f0100000000000000006186ad81611d40565b8210156187fd575b506d04ee2d6d415b85acef81000000006186ce81611d40565b8210156187db575b50662386f26fc100006186e881611d40565b8210156187b9575b506305f5e1006186ff81611d40565b821015618797575b5061271061871481611d40565b821015618775575b506187276064611d40565b811015618753575b61873c611393600a611d40565b10156187455790565b6108b390610a346001611d40565b61876461876f9161860b6064611d40565b91610a346002611d40565b9061872f565b6187909161860b61878592611d40565b91610a346004611d40565b903861871c565b6187b29161860b6187a792611d40565b91610a346008611d40565b9038618707565b6187d49161860b6187c992611d40565b91610a346010611d40565b90386186f0565b6187f69161860b6187eb92611d40565b91610a346020611d40565b90386186d6565b6188189161860b61880d92611d40565b91610a346040611d40565b90386186b5565b61882f6301ffc9a760e01b617c6a565b149056fefcb9fcbfa83b897fb2d5cf4b58962164105c1e71489a37ef3ae0db3fdce576f6df8b4c520ffe197c5343c6f5aec59570151ef9a492f2c624fd45ddde6135ec425ea0402f9a8785c25ad31fd3e0e81f8c2b4ca231668cc82cd03fa34ea1f0ce3ca26469706673582212200741cd65879830cfd02d90d4af9fc17e4e1284260e91a270d7994b5bba3e27c164736f6c63430008190033",

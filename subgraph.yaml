@@ -6,9 +6,9 @@ dataSources:
     name: GemFactory
     network: titan-sepolia
     source:
-      address: '0xE7A2448cd6C52DD932F87F31B4CE11430FdE5Db0'
+      address: '0x3Bb140B246d72Ce264681dd13622507d8f6bCF54'
       abi: GemFactory
-      startBlock: 0
+      startBlock: 14532
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -22,6 +22,9 @@ dataSources:
         - GemMelted
         - GemMiningClaimed
         - GemForged
+        - GemsCoolDownPeriodModified
+        - GemsMiningPeriodModified
+        - GemsMiningTryModified
       abis:
         - name: GemFactory
           file: ./abis/GemFactory.json
@@ -32,21 +35,27 @@ dataSources:
           handler: handleGemMiningClaimed
         - event: GemMelted(uint256,address)
           handler: handleGemMelted
-        - event: Created(indexed uint256,uint8,uint8[2],uint256,uint8[4],uint256,uint256,string,address)
+        - event: Created(indexed uint256,uint8,uint8[2],uint256,uint8[4],uint32,uint256,string,address)
           handler: handleCreated
         - event: TransferGEM(address,address,uint256)
           handler: handleTransferGEM
         - event: GemForged(address,uint256[],uint256,uint8,uint8[4],uint8[2],uint256)
           handler: handleGemForged
+        - event: GemsCoolDownPeriodModified(uint32,uint32,uint32,uint32,uint32)
+          handler: handleGemCooldownPeriod
+        - event: GemsMiningPeriodModified(uint32,uint32,uint32,uint32,uint32)
+          handler: handleGemMiningPeriod
+        - event: GemsMiningTryModified(uint8,uint8,uint8,uint8,uint8)
+          handler: handleGemMiningTry
         
       file: ./src/mappings/gemNFT.ts
   - kind: ethereum
     name: GemMarketplace
     network: titan-sepolia
     source:
-      address: '0xFFdd70F0f6d8D1b62937F382FF92D14793cbDE36'
+      address: '0xef835B964baDd828A9a47f3888F6fFcAc093DE03'
       abi: GemMarketplace
-      startBlock: 0
+      startBlock: 14534
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
