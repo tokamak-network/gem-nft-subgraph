@@ -20,6 +20,35 @@ type Customer @entity {
   isMining: Boolean
 }
 
+type GemCooldown @entity {
+  id: ID!
+  CommonGemsCooldownPeriod: BigInt
+  RareGemsCooldownPeriod: BigInt
+  UniqueGemsCooldownPeriod: BigInt
+  EpicGemsCooldownPeriod: BigInt
+  LegendaryGemsCooldownPeriod: BigInt
+  MythicGemsCooldownPeriod: BigInt
+}
+
+type GemMiningPeriod @entity {
+  id: ID!
+  CommonGemsMiningPeriod: BigInt
+  RareGemsMiningPeriod: BigInt
+  UniqueGemsMiningPeriod: BigInt
+  EpicGemsMiningPeriod: BigInt
+  LegendaryGemsMiningPeriod: BigInt
+  MythicGemsMiningPeriod: BigInt
+}
+
+type GemMiningTry @entity {
+  id: ID!
+  RareminingTry: Int
+  UniqueminingTry: Int
+  EpicminingTry: Int
+  LegendaryminingTry: Int
+  MythicminingTr: Int
+}
+
 type TradeHistory @entity {
   id: Bytes!
   tradeType: String

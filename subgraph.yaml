@@ -41,12 +41,18 @@ dataSources:
           handler: handleTransferGEM
         - event: GemForged(address,uint256[],uint256,uint8,uint8[4],uint8[2],uint256)
           handler: handleGemForged
-        - event: GemsCoolDownPeriodModified(uint32,uint32,uint32,uint32,uint32)
+        - event: GemsCoolDownPeriodModified(uint32,uint32,uint32,uint32,uint32,uint32)
           handler: handleGemCooldownPeriod
-        - event: GemsMiningPeriodModified(uint32,uint32,uint32,uint32,uint32)
+        - event: GemsMiningPeriodModified(uint32,uint32,uint32,uint32,uint32,uint32)
           handler: handleGemMiningPeriod
         - event: GemsMiningTryModified(uint8,uint8,uint8,uint8,uint8)
           handler: handleGemMiningTry
+        - event: MiningCancelled(uint256,address,uint256)
+          handler: handleMiningCancelled
+        - event: RandomGemRequested(uint256,uint256)
+          handler: handleRandomGemRequested
+        - event: GemMiningClaimed(uint256,address)
+          handler: handleGemMiningClaimed
         
       file: ./src/mappings/gemNFT.ts
   - kind: ethereum

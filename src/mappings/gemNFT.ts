@@ -5,7 +5,12 @@ import {
   TransferGEM,
   GemMiningClaimed,
   GemMiningStarted,
-  GemForged
+  GemForged,
+  GemsCoolDownPeriodModified,
+  GemsMiningPeriodModified,
+  GemsMiningTryModified,
+  MiningCancelled,
+  RandomGemRequested
 } from "../../generated/GemFactory/GemFactory"
 
 import {
@@ -16,9 +21,11 @@ import {
 
 import {
   NFT,
-  Approval,
   Customer,
-  TradeHistory
+  TradeHistory,
+  GemCooldown,
+  GemMiningPeriod,
+  GemMiningTry,
 } from '../../generated/schema';
 
 export function handleCreated(event: Created): void {
@@ -117,6 +124,15 @@ export function handleGemMiningStarted(event: GemMiningStarted): void {
   nft.save(); 
 }
 
+export function handleMiningCancelled(event: MiningCancelled): void {
+  let nft = NFT.load(event.params._tokenId.toString());
+  if (!nft) {
+    nft = new NFT(event.params._tokenId.toString());
+  }
+  nft.isMining = false;
+  nft.save();
+}
+
 export function handleGemMiningClaimed(event: GemMiningClaimed): void {
   let nft = NFT.load(event.params.tokenId.toString());
   let customer = Customer.load(event.params.miner.toString());
@@ -128,8 +144,6 @@ export function handleGemMiningClaimed(event: GemMiningClaimed): void {
     customer.address = event.params.miner;
   }
   nft.owner = event.params.miner;
-  customer.isMining = false;
-  nft.gemCooldownInitTime = event.block.timestamp;
   nft.save();
 
   let history = new TradeHistory(event.transaction.hash.concatI32(event.logIndex.toI32()));
@@ -163,4 +177,47 @@ export function handleGemForged(event: GemForged): void {
   history.trader = event.params.gemOwner;
   history.newId = event.params.newGemCreatedId;
   history.save();
+}
+
+export function handleGemCooldownPeriod(event: GemsCoolDownPeriodModified): void {
+  let gemCooldown = GemCooldown.load("cooldown");
+  if (!gemCooldown) {
+    gemCooldown = new GemCooldown("cooldown");
+  }
+
+  gemCooldown.CommonGemsCooldownPeriod = event.params.CommonGemsCooldownPeriod
+  gemCooldown.RareGemsCooldownPeriod = event.params.RareGemsCooldownPeriod
+  gemCooldown.EpicGemsCooldownPeriod = event.params.EpicGemsCooldownPeriod
+  gemCooldown.UniqueGemsCooldownPeriod = event.params.UniqueGemsCooldownPeriod
+  gemCooldown.LegendaryGemsCooldownPeriod = event.params.LegendaryGemsCooldownPeriod
+  gemCooldown.MythicGemsCooldownPeriod = event.params.MythicGemsCooldownPeriod
+  gemCooldown.save();
+}
+
+export function handleGemMiningPeriod(event: GemsMiningPeriodModified): void {
+  let gemMiningPeriod = GemMiningPeriod.load("miningPeriod");
+  if (!gemMiningPeriod) {
+    gemMiningPeriod = new GemMiningPeriod("miningPeriod");
+  }
+
+  gemMiningPeriod.CommonGemsMiningPeriod = event.params.CommonGemsMiningPeriod
+  gemMiningPeriod.RareGemsMiningPeriod = event.params.RareGemsMiningPeriod
+  gemMiningPeriod.EpicGemsMiningPeriod = event.params.EpicGemsMiningPeriod
+  gemMiningPeriod.UniqueGemsMiningPeriod = event.params.UniqueGemsMiningPeriod
+  gemMiningPeriod.LegendaryGemsMiningPeriod = event.params.LegendaryGemsMiningPeriod
+  gemMiningPeriod.MythicGemsMiningPeriod = event.params.MythicGemsMiningPeriod
+  gemMiningPeriod.save();
+}
+export function handleGemMiningTry(event: GemsMiningTryModified): void {
+  let gemMiningTry = GemMiningTry.load("miningTry");
+  if (!gemMiningTry) {
+    gemMiningTry = new GemMiningTry("miningTry");
+  }
+
+  gemMiningTry.RareminingTry = event.params.RareGemsMiningTry
+  gemMiningTry.EpicminingTry = event.params.EpicGemsMiningTry
+  gemMiningTry.UniqueminingTry = event.params.UniqueGemsMiningTry
+  gemMiningTry.LegendaryminingTry = event.params.LegendaryGemsMiningTry
+  gemMiningTry.MythicminingTr = event.params.MythicGemsMiningTry
+  gemMiningTry.save();
 }
