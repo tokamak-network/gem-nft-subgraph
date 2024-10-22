@@ -185,7 +185,6 @@ export function handleGemCooldownPeriod(event: GemsCoolDownPeriodModified): void
     gemCooldown = new GemCooldown("cooldown");
   }
 
-  gemCooldown.CommonGemsCooldownPeriod = event.params.CommonGemsCooldownPeriod
   gemCooldown.RareGemsCooldownPeriod = event.params.RareGemsCooldownPeriod
   gemCooldown.EpicGemsCooldownPeriod = event.params.EpicGemsCooldownPeriod
   gemCooldown.UniqueGemsCooldownPeriod = event.params.UniqueGemsCooldownPeriod
@@ -200,7 +199,6 @@ export function handleGemMiningPeriod(event: GemsMiningPeriodModified): void {
     gemMiningPeriod = new GemMiningPeriod("miningPeriod");
   }
 
-  gemMiningPeriod.CommonGemsMiningPeriod = event.params.CommonGemsMiningPeriod
   gemMiningPeriod.RareGemsMiningPeriod = event.params.RareGemsMiningPeriod
   gemMiningPeriod.EpicGemsMiningPeriod = event.params.EpicGemsMiningPeriod
   gemMiningPeriod.UniqueGemsMiningPeriod = event.params.UniqueGemsMiningPeriod

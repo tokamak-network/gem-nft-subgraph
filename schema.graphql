@@ -22,7 +22,6 @@ type Customer @entity {
 
 type GemCooldown @entity {
   id: ID!
-  CommonGemsCooldownPeriod: BigInt
   RareGemsCooldownPeriod: BigInt
   UniqueGemsCooldownPeriod: BigInt
   EpicGemsCooldownPeriod: BigInt
@@ -32,7 +31,6 @@ type GemCooldown @entity {
 
 type GemMiningPeriod @entity {
   id: ID!
-  CommonGemsMiningPeriod: BigInt
   RareGemsMiningPeriod: BigInt
   UniqueGemsMiningPeriod: BigInt
   EpicGemsMiningPeriod: BigInt

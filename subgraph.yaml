@@ -6,16 +6,15 @@ dataSources:
     name: GemFactory
     network: titan-sepolia
     source:
-      address: '0x3Bb140B246d72Ce264681dd13622507d8f6bCF54'
+      address: '0x7521C4dFd582c498D15372fAcBA262d27348357c'
       abi: GemFactory
-      startBlock: 14532
+      startBlock: 15599
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
         - GemMiningStarted
-        - GemMiningClaimed
         - GemMelted
         - Created
         - TransferGEM
@@ -31,19 +30,19 @@ dataSources:
       eventHandlers:
         - event: GemMiningStarted(uint256,address,uint256,uint256)
           handler: handleGemMiningStarted
-        - event: GemMiningClaimed(uint256,address)
+        - event: GemMiningClaimed(uint256,uint256,address)
           handler: handleGemMiningClaimed
         - event: GemMelted(uint256,address)
           handler: handleGemMelted
-        - event: Created(indexed uint256,uint8,uint8[2],uint256,uint8[4],uint32,uint256,string,address)
+        - event: Created(indexed uint256,uint8,uint8[2],uint8,uint256,uint8[4],uint32,uint256,string,address)
           handler: handleCreated
         - event: TransferGEM(address,address,uint256)
           handler: handleTransferGEM
         - event: GemForged(address,uint256[],uint256,uint8,uint8[4],uint8[2],uint256)
           handler: handleGemForged
-        - event: GemsCoolDownPeriodModified(uint32,uint32,uint32,uint32,uint32,uint32)
+        - event: GemsCoolDownPeriodModified(uint32,uint32,uint32,uint32,uint32)
           handler: handleGemCooldownPeriod
-        - event: GemsMiningPeriodModified(uint32,uint32,uint32,uint32,uint32,uint32)
+        - event: GemsMiningPeriodModified(uint32,uint32,uint32,uint32,uint32)
           handler: handleGemMiningPeriod
         - event: GemsMiningTryModified(uint8,uint8,uint8,uint8,uint8)
           handler: handleGemMiningTry
@@ -51,17 +50,15 @@ dataSources:
           handler: handleMiningCancelled
         - event: RandomGemRequested(uint256,uint256)
           handler: handleRandomGemRequested
-        - event: GemMiningClaimed(uint256,address)
-          handler: handleGemMiningClaimed
         
       file: ./src/mappings/gemNFT.ts
   - kind: ethereum
     name: GemMarketplace
     network: titan-sepolia
     source:
-      address: '0xef835B964baDd828A9a47f3888F6fFcAc093DE03'
+      address: '0xF3f2D4270c8AD36e8b3828A5e708E23D759941A6'
       abi: GemMarketplace
-      startBlock: 14534
+      startBlock: 15570
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
