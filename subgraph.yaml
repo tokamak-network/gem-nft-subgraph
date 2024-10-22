@@ -6,9 +6,9 @@ dataSources:
     name: GemFactory
     network: titan-sepolia
     source:
-      address: '0x7521C4dFd582c498D15372fAcBA262d27348357c'
+      address: '0x38C36199174fD7CAf762a63Fc455D83c00790492'
       abi: GemFactory
-      startBlock: 15599
+      startBlock: 0
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -24,6 +24,7 @@ dataSources:
         - GemsCoolDownPeriodModified
         - GemsMiningPeriodModified
         - GemsMiningTryModified
+        - MiningCancelled
       abis:
         - name: GemFactory
           file: ./abis/GemFactory.json
@@ -48,17 +49,15 @@ dataSources:
           handler: handleGemMiningTry
         - event: MiningCancelled(uint256,address,uint256)
           handler: handleMiningCancelled
-        - event: RandomGemRequested(uint256,uint256)
-          handler: handleRandomGemRequested
         
       file: ./src/mappings/gemNFT.ts
   - kind: ethereum
     name: GemMarketplace
     network: titan-sepolia
     source:
-      address: '0xF3f2D4270c8AD36e8b3828A5e708E23D759941A6'
+      address: '0x0fC9adf4143dd0e3E024576820f32e39CE0703bf'
       abi: GemMarketplace
-      startBlock: 15570
+      startBlock: 0
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -66,6 +65,7 @@ dataSources:
       entities:
         - GemBought
         - GemForSale
+        - GemRemovedFromSale
       abis:
         - name: GemMarketplace
           file: ./abis/GemMarketplace.json

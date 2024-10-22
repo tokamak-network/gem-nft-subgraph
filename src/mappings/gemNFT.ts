@@ -41,6 +41,7 @@ export function handleCreated(event: Created): void {
   nft.isMining = false;
   nft.isForSale = false;
   nft.gemCooldownInitTime = event.block.timestamp;
+  nft.miningTry = event.params.miningTry;
   nft.save();
 }
 
@@ -120,6 +121,7 @@ export function handleGemMiningStarted(event: GemMiningStarted): void {
     customer.address = event.params.miner;
   }
   nft.isMining = true;
+  nft.miningTry--;
   customer.save();
   nft.save(); 
 }
@@ -144,6 +146,7 @@ export function handleGemMiningClaimed(event: GemMiningClaimed): void {
     customer.address = event.params.miner;
   }
   nft.owner = event.params.miner;
+  nft.cooldownDueDate = event.params.minedGemCooldownDueDate;
   nft.save();
 
   let history = new TradeHistory(event.transaction.hash.concatI32(event.logIndex.toI32()));
@@ -158,18 +161,6 @@ export function handleGemForged(event: GemForged): void {
   for (let i = 0 ; i < gemIds.length; i ++) {
     store.remove("NFT", gemIds[i].toString());
   }
-
-  let nft = new NFT(event.params.newGemCreatedId.toString());
-  nft.rarity = event.params.newRarity;
-  nft.color = event.params.color;
-  nft.quadrants = event.params.forgedQuadrants;
-  nft.value = event.params.newValue;
-  nft.tokenID = event.params.newGemCreatedId;
-  nft.owner = event.params.gemOwner;
-  nft.isForSale = false;
-  nft.isMining = false;
-  nft.gemCooldownInitTime = event.block.timestamp;
-  nft.save();
 
   let history = new TradeHistory(event.transaction.hash.concatI32(event.logIndex.toI32()));
   history.tradeType = "forging";
