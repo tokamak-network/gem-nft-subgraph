@@ -69,11 +69,12 @@ export function handleGemBought(event: GemBought) : void {
   nft.save();
 
   let history = new TradeHistory(event.transaction.hash.concatI32(event.logIndex.toI32()));
-  history.tradeType = "buying";
+  history.tradeType = "purchased";
   history.gemIds = [event.params.tokenId];
   history.trader = event.params.seller;
   history.payer = event.params.payer;
   history.value = event.params.amount;
+  history.date = event.block.timestamp;
   history.save();
 }
 
@@ -91,6 +92,7 @@ export function handleGemForSale(event: GemForSale): void {
   history.gemIds = [event.params.tokenId];
   history.value = event.params.price;
   history.trader = event.params.seller;
+  history.date = event.block.timestamp;
   history.save();
 }
 
@@ -106,6 +108,7 @@ export function handleGemRemoved(event: GemRemovedFromSale): void {
   let history = new TradeHistory(event.transaction.hash.concatI32(event.logIndex.toI32()));
   history.tradeType = "unlisted";
   history.gemIds = [event.params.tokenId];
+  history.date = event.block.timestamp;
   history.save();
 }
 
@@ -122,6 +125,7 @@ export function handleGemMiningStarted(event: GemMiningStarted): void {
   }
   nft.isMining = true;
   nft.miningTry--;
+  nft.miningStartTime = event.params.startMiningTime;
   customer.save();
   nft.save(); 
 }
@@ -150,9 +154,10 @@ export function handleGemMiningClaimed(event: GemMiningClaimed): void {
   nft.save();
 
   let history = new TradeHistory(event.transaction.hash.concatI32(event.logIndex.toI32()));
-  history.tradeType = "mining";
+  history.tradeType = "mined";
   history.gemIds = [event.params.tokenId];
   history.trader = event.params.miner;
+  history.date = event.block.timestamp;
   history.save();
 }
 
@@ -163,10 +168,11 @@ export function handleGemForged(event: GemForged): void {
   }
 
   let history = new TradeHistory(event.transaction.hash.concatI32(event.logIndex.toI32()));
-  history.tradeType = "forging";
+  history.tradeType = "forged";
   history.gemIds = event.params.gemsTokenIds;
   history.trader = event.params.gemOwner;
   history.newId = event.params.newGemCreatedId;
+  history.date = event.block.timestamp;
   history.save();
 }
 

@@ -12,6 +12,7 @@ type NFT @entity {
   isMining: Boolean
   isForSale: Boolean
   gemCooldownInitTime: BigInt
+  miningStartTime: BigInt
   miningTry: Int
 }
 
@@ -56,6 +57,7 @@ type TradeHistory @entity {
   newId: BigInt
   trader: Bytes
   payer: Bytes
+  date: BigInt
 }
 
 type Approval @entity {
