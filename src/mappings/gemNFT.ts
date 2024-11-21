@@ -156,7 +156,6 @@ export function handleGemMiningClaimed(event: GemMiningClaimed): void {
     customer = new Customer(event.params.miner.toString());
     customer.address = event.params.miner;
   }
-  nft.owner = event.params.miner;
   nft.cooldownDueDate = event.params.minedGemCooldownDueDate;
   nft.save();
 
