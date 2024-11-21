@@ -6,7 +6,7 @@ dataSources:
     name: GemFactory
     network: titan-sepolia
     source:
-      address: '0x38C36199174fD7CAf762a63Fc455D83c00790492'
+      address: '0x73367c018d8AA6Dd149FF7C4bd30197CC97092f2'
       abi: GemFactory
       startBlock: 0
     mapping:
@@ -55,7 +55,7 @@ dataSources:
     name: GemMarketplace
     network: titan-sepolia
     source:
-      address: '0x0fC9adf4143dd0e3E024576820f32e39CE0703bf'
+      address: '0x2F1CD4317Bd9c3d3b2D9F08EBD57bfe7143eb111'
       abi: GemMarketplace
       startBlock: 0
     mapping:
@@ -70,11 +70,11 @@ dataSources:
         - name: GemMarketplace
           file: ./abis/GemMarketplace.json
       eventHandlers:
-        - event: GemBought(uint256,address,address,uint256)
+        - event: GemBought(uint256,address,address,uint256,uint256)
           handler: handleGemBought
         - event: GemForSale(uint256,address,uint256)
           handler: handleGemForSale
-        - event: GemRemovedFromSale(uint256)
+        - event: GemRemovedFromSale(address,uint256)
           handler: handleGemRemoved
         
       file: ./src/mappings/gemNFT.ts
