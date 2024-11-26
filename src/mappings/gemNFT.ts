@@ -157,7 +157,16 @@ export function handleGemMiningClaimed(event: GemMiningClaimed): void {
     customer.address = event.params.miner;
   }
   nft.cooldownDueDate = event.params.minedGemCooldownDueDate;
+  nft.isMining = false;
   nft.save();
+
+  let newNFT = NFT.load(event.params.chosenTokenId.toString());
+  if (!newNFT) {
+    newNFT = new NFT(event.params.chosenTokenId.toString());
+  }
+  newNFT.miningTry = 0;
+  newNFT.cooldownDueDate = event.params.minedGemCooldownDueDate;
+  newNFT.save();
 
   let history = new TradeHistory(event.transaction.hash.concatI32(event.logIndex.toI32()));
   history.tradeType = "mined";

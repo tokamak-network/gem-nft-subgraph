@@ -31,7 +31,7 @@ dataSources:
       eventHandlers:
         - event: GemMiningStarted(uint256,address,uint256,uint256)
           handler: handleGemMiningStarted
-        - event: GemMiningClaimed(uint256,uint256,address)
+        - event: GemMiningClaimed(uint256,uint256,uint256,address)
           handler: handleGemMiningClaimed
         - event: GemMelted(uint256,address)
           handler: handleGemMelted
