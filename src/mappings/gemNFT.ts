@@ -57,7 +57,7 @@ export function handleTransferGEM(event: TransferGEM): void {
     nft = new NFT(event.params.tokenId.toString());
   }
   nft.owner = event.params.to;
-  
+  nft.cooldownDueDate = event.params.gemCooldownDueDate;
   nft.save();
 }
 
@@ -156,7 +156,7 @@ export function handleGemMiningClaimed(event: GemMiningClaimed): void {
     customer = new Customer(event.params.miner.toString());
     customer.address = event.params.miner;
   }
-  nft.cooldownDueDate = event.params.minedGemCooldownDueDate;
+  nft.cooldownDueDate = event.params.initialGemCooldownDueDate;
   nft.isMining = false;
   nft.save();
 
@@ -232,4 +232,8 @@ export function handleGemMiningTry(event: GemsMiningTryModified): void {
   gemMiningTry.LegendaryminingTry = event.params.LegendaryGemsMiningTry
   gemMiningTry.MythicminingTr = event.params.MythicGemsMiningTry
   gemMiningTry.save();
+}
+
+export function handleRandomGemRequested(event: RandomGemRequested): void {
+
 }

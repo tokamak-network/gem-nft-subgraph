@@ -31,13 +31,13 @@ dataSources:
       eventHandlers:
         - event: GemMiningStarted(uint256,address,uint256,uint256)
           handler: handleGemMiningStarted
-        - event: GemMiningClaimed(uint256,uint256,uint256,address)
+        - event: GemMiningClaimed(uint256,uint256,uint256,uint256,address)
           handler: handleGemMiningClaimed
         - event: GemMelted(uint256,address)
           handler: handleGemMelted
         - event: Created(indexed uint256,uint8,uint8[2],uint8,uint256,uint8[4],uint32,uint256,string,address)
           handler: handleCreated
-        - event: TransferGEM(address,address,uint256)
+        - event: TransferGEM(address,address,uint256,uint256)
           handler: handleTransferGEM
         - event: GemForged(address,uint256[],uint256,uint8,uint8[4],uint8[2],uint256)
           handler: handleGemForged
@@ -49,6 +49,8 @@ dataSources:
           handler: handleGemMiningTry
         - event: MiningCancelled(uint256,address,uint256)
           handler: handleMiningCancelled
+        - event: RandomGemRequested(uint256,uint256)
+          handler: handleRandomGemRequested
         
       file: ./src/mappings/gemNFT.ts
   - kind: ethereum
