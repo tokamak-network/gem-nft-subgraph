@@ -10,7 +10,8 @@ import {
   GemsMiningPeriodModified,
   GemsMiningTryModified,
   MiningCancelled,
-  RandomGemRequested
+  RandomGemRequested,
+  NoGemAvailable
 } from "../../generated/GemFactory/GemFactory"
 
 import {
@@ -232,6 +233,16 @@ export function handleGemMiningTry(event: GemsMiningTryModified): void {
   gemMiningTry.LegendaryminingTry = event.params.LegendaryGemsMiningTry
   gemMiningTry.MythicminingTr = event.params.MythicGemsMiningTry
   gemMiningTry.save();
+}
+
+export function handleNoGemAvailable(event: NoGemAvailable): void {
+  let nft = NFT.load(event.params.tokenId.toString());
+  if (!nft) {
+    nft = new NFT(event.params.tokenId.toString());
+  }
+  nft.isMining = false;
+  nft.cooldownDueDate = event.params.initialGemCooldownDueDate;
+  nft.save();
 }
 
 export function handleRandomGemRequested(event: RandomGemRequested): void {

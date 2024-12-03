@@ -51,6 +51,8 @@ dataSources:
           handler: handleMiningCancelled
         - event: RandomGemRequested(uint256,uint256)
           handler: handleRandomGemRequested
+        - event: NoGemAvailable(uint256,uint256,address)
+          handler: handleNoGemAvailable
         
       file: ./src/mappings/gemNFT.ts
   - kind: ethereum
