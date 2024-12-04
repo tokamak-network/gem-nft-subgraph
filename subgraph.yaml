@@ -4,9 +4,9 @@ schema:
 dataSources:
   - kind: ethereum
     name: GemFactory
-    network: titan-sepolia
+    network: thanos-sepolia
     source:
-      address: '0x73367c018d8AA6Dd149FF7C4bd30197CC97092f2'
+      address: '0x78a20c0883b3C6410fFb1Bf1AD3D0740cF518bbb'
       abi: GemFactory
       startBlock: 0
     mapping:
@@ -57,9 +57,9 @@ dataSources:
       file: ./src/mappings/gemNFT.ts
   - kind: ethereum
     name: GemMarketplace
-    network: titan-sepolia
+    network: thanos-sepolia
     source:
-      address: '0x2F1CD4317Bd9c3d3b2D9F08EBD57bfe7143eb111'
+      address: '0x3d43f2aa1482A0ee0Ad28A107eEB22D2f14ceedF'
       abi: GemMarketplace
       startBlock: 0
     mapping:

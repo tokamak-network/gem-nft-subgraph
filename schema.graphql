@@ -48,7 +48,7 @@ type GemMiningTry @entity {
   UniqueminingTry: Int
   EpicminingTry: Int
   LegendaryminingTry: Int
-  MythicminingTr: Int
+  MythicminingTry: Int
 }
 
 type TradeHistory @entity {

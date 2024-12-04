@@ -231,7 +231,7 @@ export function handleGemMiningTry(event: GemsMiningTryModified): void {
   gemMiningTry.EpicminingTry = event.params.EpicGemsMiningTry
   gemMiningTry.UniqueminingTry = event.params.UniqueGemsMiningTry
   gemMiningTry.LegendaryminingTry = event.params.LegendaryGemsMiningTry
-  gemMiningTry.MythicminingTr = event.params.MythicGemsMiningTry
+  gemMiningTry.MythicminingTry = event.params.MythicGemsMiningTry
   gemMiningTry.save();
 }
 
