@@ -37,7 +37,6 @@ export function handleCreated(event: Created): void {
   nft.quadrants = event.params.quadrants;
   nft.value = event.params.value;
   nft.cooldownDueDate = event.params.cooldownDueDate;
-  nft.miningPeriod = event.params.miningPeriod;
   nft.owner = event.params.owner;
   nft.isMining = false;
   nft.isForSale = false;

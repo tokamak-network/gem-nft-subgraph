@@ -4,9 +4,9 @@ schema:
 dataSources:
   - kind: ethereum
     name: GemFactory
-    network: thanos-sepolia
+    network: thanos-stack
     source:
-      address: '0x78a20c0883b3C6410fFb1Bf1AD3D0740cF518bbb'
+      address: '0x54282F7a0C51BfAd066F38e0585F97e00e45A4B6'
       abi: GemFactory
       startBlock: 0
     mapping:
@@ -35,7 +35,7 @@ dataSources:
           handler: handleGemMiningClaimed
         - event: GemMelted(uint256,address)
           handler: handleGemMelted
-        - event: Created(indexed uint256,uint8,uint8[2],uint8,uint256,uint8[4],uint32,uint256,string,address)
+        - event: Created(indexed uint256,uint8,uint8[2],uint8,uint256,uint8[4],uint256,string,address)
           handler: handleCreated
         - event: TransferGEM(address,address,uint256,uint256)
           handler: handleTransferGEM
@@ -57,9 +57,9 @@ dataSources:
       file: ./src/mappings/gemNFT.ts
   - kind: ethereum
     name: GemMarketplace
-    network: thanos-sepolia
+    network: thanos-stack
     source:
-      address: '0x3d43f2aa1482A0ee0Ad28A107eEB22D2f14ceedF'
+      address: '0x144104f7645101578165764C4aa9EFf8aDE71043'
       abi: GemMarketplace
       startBlock: 0
     mapping:
