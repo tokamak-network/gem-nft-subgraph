@@ -6,7 +6,7 @@ dataSources:
     name: GemFactory
     network: thanos-stack
     source:
-      address: '0x54282F7a0C51BfAd066F38e0585F97e00e45A4B6'
+      address: "0x54282F7a0C51BfAd066F38e0585F97e00e45A4B6"
       abi: GemFactory
       startBlock: 0
     mapping:
@@ -53,13 +53,12 @@ dataSources:
           handler: handleRandomGemRequested
         - event: NoGemAvailable(uint256,uint256,address)
           handler: handleNoGemAvailable
-        
       file: ./src/mappings/gemNFT.ts
   - kind: ethereum
     name: GemMarketplace
     network: thanos-stack
     source:
-      address: '0x144104f7645101578165764C4aa9EFf8aDE71043'
+      address: "0x144104f7645101578165764C4aa9EFf8aDE71043"
       abi: GemMarketplace
       startBlock: 0
     mapping:
@@ -80,5 +79,25 @@ dataSources:
           handler: handleGemForSale
         - event: GemRemovedFromSale(address,uint256)
           handler: handleGemRemoved
-        
+
+      file: ./src/mappings/gemNFT.ts
+  - kind: ethereum
+    name: RandomPack
+    network: thanos-stack
+    source:
+      address: "0x82253509a77878d2e4634F464475ce1E63c541dC"
+      abi: RandomPack
+      startBlock: 0
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - RandomGemTransferred
+      abis:
+        - name: RandomPack
+          file: ./abis/RandomPack.json
+      eventHandlers:
+        - event: RandomGemTransferred(uint256,address)
+          handler: handleRandomGemTransferred
       file: ./src/mappings/gemNFT.ts

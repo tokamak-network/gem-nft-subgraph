@@ -1,4 +1,4 @@
-import { BigInt, store } from '@graphprotocol/graph-ts';
+import { BigInt, store } from "@graphprotocol/graph-ts";
 import {
   Created,
   GemMelted,
@@ -11,14 +11,16 @@ import {
   GemsMiningTryModified,
   MiningCancelled,
   RandomGemRequested,
-  NoGemAvailable
-} from "../../generated/GemFactory/GemFactory"
+  NoGemAvailable,
+} from "../../generated/GemFactory/GemFactory";
 
 import {
   GemBought,
   GemForSale,
-  GemRemovedFromSale
-} from "../../generated/GemMarketplace/GemMarketplace"
+  GemRemovedFromSale,
+} from "../../generated/GemMarketplace/GemMarketplace";
+
+import { RandomGemTransferred } from "../../generated/RandomPack/RandomPack";
 
 import {
   NFT,
@@ -27,7 +29,7 @@ import {
   GemCooldown,
   GemMiningPeriod,
   GemMiningTry,
-} from '../../generated/schema';
+} from "../../generated/schema";
 
 export function handleCreated(event: Created): void {
   let nft = new NFT(event.params.tokenId.toString());
@@ -61,7 +63,7 @@ export function handleTransferGEM(event: TransferGEM): void {
   nft.save();
 }
 
-export function handleGemBought(event: GemBought) : void {
+export function handleGemBought(event: GemBought): void {
   let nft = NFT.load(event.params.tokenId.toString());
   if (!nft) {
     nft = new NFT(event.params.tokenId.toString());
@@ -72,7 +74,9 @@ export function handleGemBought(event: GemBought) : void {
   nft.cooldownDueDate = event.params.gemCoolDownDueDate;
   nft.save();
 
-  let history = new TradeHistory(event.transaction.hash.concatI32(event.logIndex.toI32()));
+  let history = new TradeHistory(
+    event.transaction.hash.concatI32(event.logIndex.toI32())
+  );
   history.tradeType = "purchased";
   history.gemIds = [event.params.tokenId];
   history.trader = event.params.seller;
@@ -92,7 +96,9 @@ export function handleGemForSale(event: GemForSale): void {
   nft.price = event.params.price;
   nft.save();
 
-  let history = new TradeHistory(event.transaction.hash.concatI32(event.logIndex.toI32()));
+  let history = new TradeHistory(
+    event.transaction.hash.concatI32(event.logIndex.toI32())
+  );
   history.tradeType = "listed";
   history.gemIds = [event.params.tokenId];
   history.value = event.params.price;
@@ -111,7 +117,9 @@ export function handleGemRemoved(event: GemRemovedFromSale): void {
   nft.price = null;
   nft.save();
 
-  let history = new TradeHistory(event.transaction.hash.concatI32(event.logIndex.toI32()));
+  let history = new TradeHistory(
+    event.transaction.hash.concatI32(event.logIndex.toI32())
+  );
   history.tradeType = "unlisted";
   history.gemIds = [event.params.tokenId];
   history.date = event.block.timestamp;
@@ -122,7 +130,7 @@ export function handleGemRemoved(event: GemRemovedFromSale): void {
 export function handleGemMiningStarted(event: GemMiningStarted): void {
   let nft = NFT.load(event.params.tokenId.toString());
   let customer = Customer.load(event.params.miner.toString());
-  
+
   if (!nft) {
     nft = new NFT(event.params.tokenId.toString());
   }
@@ -134,7 +142,7 @@ export function handleGemMiningStarted(event: GemMiningStarted): void {
   nft.miningTry--;
   nft.miningStartTime = event.params.startMiningTime;
   customer.save();
-  nft.save(); 
+  nft.save();
 }
 
 export function handleMiningCancelled(event: MiningCancelled): void {
@@ -168,7 +176,9 @@ export function handleGemMiningClaimed(event: GemMiningClaimed): void {
   newNFT.cooldownDueDate = event.params.minedGemCooldownDueDate;
   newNFT.save();
 
-  let history = new TradeHistory(event.transaction.hash.concatI32(event.logIndex.toI32()));
+  let history = new TradeHistory(
+    event.transaction.hash.concatI32(event.logIndex.toI32())
+  );
   history.tradeType = "mined";
   history.gemIds = [event.params.tokenId];
   history.trader = event.params.miner;
@@ -179,11 +189,13 @@ export function handleGemMiningClaimed(event: GemMiningClaimed): void {
 
 export function handleGemForged(event: GemForged): void {
   let gemIds = event.params.gemsTokenIds;
-  for (let i = 0 ; i < gemIds.length; i ++) {
+  for (let i = 0; i < gemIds.length; i++) {
     store.remove("NFT", gemIds[i].toString());
   }
 
-  let history = new TradeHistory(event.transaction.hash.concatI32(event.logIndex.toI32()));
+  let history = new TradeHistory(
+    event.transaction.hash.concatI32(event.logIndex.toI32())
+  );
   history.tradeType = "forged";
   history.gemIds = event.params.gemsTokenIds;
   history.trader = event.params.gemOwner;
@@ -193,17 +205,20 @@ export function handleGemForged(event: GemForged): void {
   history.save();
 }
 
-export function handleGemCooldownPeriod(event: GemsCoolDownPeriodModified): void {
+export function handleGemCooldownPeriod(
+  event: GemsCoolDownPeriodModified
+): void {
   let gemCooldown = GemCooldown.load("cooldown");
   if (!gemCooldown) {
     gemCooldown = new GemCooldown("cooldown");
   }
 
-  gemCooldown.RareGemsCooldownPeriod = event.params.RareGemsCooldownPeriod
-  gemCooldown.EpicGemsCooldownPeriod = event.params.EpicGemsCooldownPeriod
-  gemCooldown.UniqueGemsCooldownPeriod = event.params.UniqueGemsCooldownPeriod
-  gemCooldown.LegendaryGemsCooldownPeriod = event.params.LegendaryGemsCooldownPeriod
-  gemCooldown.MythicGemsCooldownPeriod = event.params.MythicGemsCooldownPeriod
+  gemCooldown.RareGemsCooldownPeriod = event.params.RareGemsCooldownPeriod;
+  gemCooldown.EpicGemsCooldownPeriod = event.params.EpicGemsCooldownPeriod;
+  gemCooldown.UniqueGemsCooldownPeriod = event.params.UniqueGemsCooldownPeriod;
+  gemCooldown.LegendaryGemsCooldownPeriod =
+    event.params.LegendaryGemsCooldownPeriod;
+  gemCooldown.MythicGemsCooldownPeriod = event.params.MythicGemsCooldownPeriod;
   gemCooldown.save();
 }
 
@@ -213,11 +228,12 @@ export function handleGemMiningPeriod(event: GemsMiningPeriodModified): void {
     gemMiningPeriod = new GemMiningPeriod("miningPeriod");
   }
 
-  gemMiningPeriod.RareGemsMiningPeriod = event.params.RareGemsMiningPeriod
-  gemMiningPeriod.EpicGemsMiningPeriod = event.params.EpicGemsMiningPeriod
-  gemMiningPeriod.UniqueGemsMiningPeriod = event.params.UniqueGemsMiningPeriod
-  gemMiningPeriod.LegendaryGemsMiningPeriod = event.params.LegendaryGemsMiningPeriod
-  gemMiningPeriod.MythicGemsMiningPeriod = event.params.MythicGemsMiningPeriod
+  gemMiningPeriod.RareGemsMiningPeriod = event.params.RareGemsMiningPeriod;
+  gemMiningPeriod.EpicGemsMiningPeriod = event.params.EpicGemsMiningPeriod;
+  gemMiningPeriod.UniqueGemsMiningPeriod = event.params.UniqueGemsMiningPeriod;
+  gemMiningPeriod.LegendaryGemsMiningPeriod =
+    event.params.LegendaryGemsMiningPeriod;
+  gemMiningPeriod.MythicGemsMiningPeriod = event.params.MythicGemsMiningPeriod;
   gemMiningPeriod.save();
 }
 export function handleGemMiningTry(event: GemsMiningTryModified): void {
@@ -226,11 +242,11 @@ export function handleGemMiningTry(event: GemsMiningTryModified): void {
     gemMiningTry = new GemMiningTry("miningTry");
   }
 
-  gemMiningTry.RareminingTry = event.params.RareGemsMiningTry
-  gemMiningTry.EpicminingTry = event.params.EpicGemsMiningTry
-  gemMiningTry.UniqueminingTry = event.params.UniqueGemsMiningTry
-  gemMiningTry.LegendaryminingTry = event.params.LegendaryGemsMiningTry
-  gemMiningTry.MythicminingTry = event.params.MythicGemsMiningTry
+  gemMiningTry.RareminingTry = event.params.RareGemsMiningTry;
+  gemMiningTry.EpicminingTry = event.params.EpicGemsMiningTry;
+  gemMiningTry.UniqueminingTry = event.params.UniqueGemsMiningTry;
+  gemMiningTry.LegendaryminingTry = event.params.LegendaryGemsMiningTry;
+  gemMiningTry.MythicminingTry = event.params.MythicGemsMiningTry;
   gemMiningTry.save();
 }
 
@@ -244,6 +260,17 @@ export function handleNoGemAvailable(event: NoGemAvailable): void {
   nft.save();
 }
 
-export function handleRandomGemRequested(event: RandomGemRequested): void {
+export function handleRandomGemRequested(event: RandomGemRequested): void {}
 
+export function handleRandomGemTransferred(event: RandomGemTransferred): void {
+  let history = new TradeHistory(
+    event.transaction.hash.concatI32(event.logIndex.toI32())
+  );
+  history.tradeType = "purchased";
+  history.gemIds = [event.params.tokenId];
+  history.trader = event.params.newOwner;
+  history.date = event.block.timestamp;
+  history.txHash = event.transaction.hash;
+  history.value = new BigInt(15);
+  history.save();
 }
