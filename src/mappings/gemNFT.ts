@@ -51,6 +51,15 @@ export function handleCreated(event: Created): void {
 
 export function handleGemMelted(event: GemMelted): void {
   store.remove("NFT", event.params._tokenId.toString());
+  let history = new TradeHistory(
+    event.transaction.hash.concatI32(event.logIndex.toI32())
+  );
+  history.tradeType = "melted";
+  history.gemIds = [event.params._tokenId];
+  history.trader = event.params._from;
+  history.date = event.block.timestamp;
+  history.txHash = event.transaction.hash;
+  history.save();
 }
 
 export function handleTransferGEM(event: TransferGEM): void {
@@ -266,11 +275,12 @@ export function handleRandomGemTransferred(event: RandomGemTransferred): void {
   let history = new TradeHistory(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
-  history.tradeType = "purchased";
+  history.tradeType = "received";
   history.gemIds = [event.params.tokenId];
   history.trader = event.params.newOwner;
   history.date = event.block.timestamp;
   history.txHash = event.transaction.hash;
-  history.value = new BigInt(15);
+  history.value = BigInt.fromString("15000000000000000000000000000");
+  history.trader = event.params.newOwner;
   history.save();
 }
