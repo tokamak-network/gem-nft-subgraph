@@ -46,6 +46,7 @@ export function handleCreated(event: Created): void {
   nft.miningTry = event.params.miningTry;
   nft.creationDate = event.block.timestamp;
   nft.minter = event.params.owner;
+  nft.backgroundColor = event.params.backgroundColor.toString();
   nft.save();
 }
 

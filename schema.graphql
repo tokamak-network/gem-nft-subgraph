@@ -16,6 +16,16 @@ type NFT @entity {
   miningTry: Int
   creationDate: BigInt
   minter: Bytes
+  backgroundColor: BackgroundColor
+}
+
+type BackgroundColor @entity {
+  id: ID!
+  r: [Int!]
+  g: [Int!]
+  b: [Int!]
+  blur: Int
+  dropShadow: Boolean
 }
 
 type Customer @entity {
