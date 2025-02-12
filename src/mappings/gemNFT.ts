@@ -29,6 +29,7 @@ import {
   GemCooldown,
   GemMiningPeriod,
   GemMiningTry,
+  BackgroundColor,
 } from "../../generated/schema";
 
 export function handleCreated(event: Created): void {
@@ -47,6 +48,14 @@ export function handleCreated(event: Created): void {
   nft.creationDate = event.block.timestamp;
   nft.minter = event.params.owner;
   nft.save();
+  let backgroundColor = new BackgroundColor(event.params.tokenId.toString());
+  backgroundColor.tokenID = event.params.tokenId;
+  backgroundColor.r = event.params.backgroundColor.r;
+  backgroundColor.g = event.params.backgroundColor.g;
+  backgroundColor.b = event.params.backgroundColor.b;
+  backgroundColor.blur = event.params.backgroundColor.blur;
+  backgroundColor.dropShadow = event.params.backgroundColor.dropShadow;
+  backgroundColor.save();
 }
 
 export function handleGemMelted(event: GemMelted): void {

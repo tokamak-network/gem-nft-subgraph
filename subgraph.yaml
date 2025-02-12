@@ -35,11 +35,11 @@ dataSources:
           handler: handleGemMiningClaimed
         - event: GemMelted(uint256,address)
           handler: handleGemMelted
-        - event: Created(indexed uint256,uint8,uint8[2],uint8,uint256,uint8[4],uint256,string,address)
+        - event: Created(indexed uint256,uint8,uint8[2],(uint8[2],uint8[2],uint8[2],uint8,bool),uint8,uint256,uint8[4],uint256,string,address)
           handler: handleCreated
         - event: TransferGEM(address,address,uint256,uint256)
           handler: handleTransferGEM
-        - event: GemForged(address,uint256[],uint256,uint8,uint8[4],uint8[2],uint256)
+        - event: GemForged(address,uint256[],uint256,uint8,uint8[4],uint8[2],(uint8[2],uint8[2],uint8[2],uint8,bool),uint256)
           handler: handleGemForged
         - event: GemsCoolDownPeriodModified(uint32,uint32,uint32,uint32,uint32)
           handler: handleGemCooldownPeriod

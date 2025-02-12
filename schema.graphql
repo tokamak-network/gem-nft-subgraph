@@ -18,6 +18,16 @@ type NFT @entity {
   minter: Bytes
 }
 
+type BackgroundColor @entity {
+  id: ID!
+  tokenID: BigInt
+  r: [Int!]
+  g: [Int!]
+  b: [Int!]
+  blur: Int
+  dropShadow: Boolean
+}
+
 type Customer @entity {
   id: ID!
   address: Bytes
