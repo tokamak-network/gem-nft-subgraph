@@ -1,6 +1,6 @@
 type NFT @entity {
   id: ID!
-  tokenID: BigInt
+  tokenID: BigInt!
   owner: Bytes
   value: BigInt
   price: BigInt
@@ -16,11 +16,13 @@ type NFT @entity {
   miningTry: Int
   creationDate: BigInt
   minter: Bytes
+  backgroundColor: BackgroundColor!
 }
 
 type BackgroundColor @entity {
   id: ID!
-  tokenID: BigInt
+  tokenID: BigInt!
+  nft: NFT! @derivedFrom(field: "backgroundColor")
   r: [Int!]
   g: [Int!]
   b: [Int!]
