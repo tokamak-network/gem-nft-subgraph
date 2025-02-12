@@ -16,11 +16,11 @@ type NFT @entity {
   miningTry: Int
   creationDate: BigInt
   minter: Bytes
-  backgroundColor: BackgroundColor
 }
 
 type BackgroundColor @entity {
   id: ID!
+  tokenID: BigInt
   r: [Int!]
   g: [Int!]
   b: [Int!]
