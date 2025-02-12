@@ -56,8 +56,7 @@ export function handleCreated(event: Created): void {
   backgroundColor.blur = event.params.backgroundColor.blur;
   backgroundColor.dropShadow = event.params.backgroundColor.dropShadow;
   backgroundColor.save();
-
-  nft.backgroundColor = backgroundColor.id; // Add this line to create the relationship
+  nft.backgroundColor = backgroundColor.id;
   nft.save();
 }
 
