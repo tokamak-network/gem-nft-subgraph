@@ -85,14 +85,13 @@ export function handleTransferGEM(event: TransferGEM): void {
 
 export function handleGemBought(event: GemBought): void {
   let nft = NFT.load(event.params.tokenId.toString());
-  if (!nft) {
-    nft = new NFT(event.params.tokenId.toString());
+  if (nft) {
+    nft.isForSale = false;
+    nft.owner = event.params.payer;
+    nft.price = null;
+    nft.cooldownDueDate = event.params.gemCoolDownDueDate;
+    nft.save();
   }
-  nft.isForSale = false;
-  nft.owner = event.params.payer;
-  nft.price = null;
-  nft.cooldownDueDate = event.params.gemCoolDownDueDate;
-  nft.save();
 
   let history = new TradeHistory(
     event.transaction.hash.concatI32(event.logIndex.toI32())
@@ -109,12 +108,11 @@ export function handleGemBought(event: GemBought): void {
 
 export function handleGemForSale(event: GemForSale): void {
   let nft = NFT.load(event.params.tokenId.toString());
-  if (!nft) {
-    nft = new NFT(event.params.tokenId.toString());
+  if (nft) {
+    nft.isForSale = true;
+    nft.price = event.params.price;
+    nft.save();
   }
-  nft.isForSale = true;
-  nft.price = event.params.price;
-  nft.save();
 
   let history = new TradeHistory(
     event.transaction.hash.concatI32(event.logIndex.toI32())
@@ -130,12 +128,11 @@ export function handleGemForSale(event: GemForSale): void {
 
 export function handleGemRemoved(event: GemRemovedFromSale): void {
   let nft = NFT.load(event.params.tokenId.toString());
-  if (!nft) {
-    nft = new NFT(event.params.tokenId.toString());
+  if (nft) {
+    nft.isForSale = false;
+    nft.price = null;
+    nft.save();
   }
-  nft.isForSale = false;
-  nft.price = null;
-  nft.save();
 
   let history = new TradeHistory(
     event.transaction.hash.concatI32(event.logIndex.toI32())
@@ -150,7 +147,6 @@ export function handleGemRemoved(event: GemRemovedFromSale): void {
 export function handleGemMiningStarted(event: GemMiningStarted): void {
   let nft = NFT.load(event.params.tokenId.toString());
   let customer = Customer.load(event.params.miner.toString());
-
   if (!nft) {
     nft = new NFT(event.params.tokenId.toString());
   }
@@ -187,7 +183,6 @@ export function handleGemMiningClaimed(event: GemMiningClaimed): void {
   nft.cooldownDueDate = event.params.initialGemCooldownDueDate;
   nft.isMining = false;
   nft.save();
-
   let newNFT = NFT.load(event.params.chosenTokenId.toString());
   if (!newNFT) {
     newNFT = new NFT(event.params.chosenTokenId.toString());
@@ -195,7 +190,6 @@ export function handleGemMiningClaimed(event: GemMiningClaimed): void {
   newNFT.miningTry = 0;
   newNFT.cooldownDueDate = event.params.minedGemCooldownDueDate;
   newNFT.save();
-
   let history = new TradeHistory(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
@@ -212,7 +206,6 @@ export function handleGemForged(event: GemForged): void {
   for (let i = 0; i < gemIds.length; i++) {
     store.remove("NFT", gemIds[i].toString());
   }
-
   let history = new TradeHistory(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
@@ -232,7 +225,6 @@ export function handleGemCooldownPeriod(
   if (!gemCooldown) {
     gemCooldown = new GemCooldown("cooldown");
   }
-
   gemCooldown.RareGemsCooldownPeriod = event.params.RareGemsCooldownPeriod;
   gemCooldown.EpicGemsCooldownPeriod = event.params.EpicGemsCooldownPeriod;
   gemCooldown.UniqueGemsCooldownPeriod = event.params.UniqueGemsCooldownPeriod;
